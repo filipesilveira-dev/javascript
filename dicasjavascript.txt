@@ -1,1 +1,39 @@
-Javascript
+Javascript (linguagem voltada a objetos)
+
+Variáveis
+- no javascript moderno, pode-se utiliza  "var" para se referir a uma variável ou então "let."
+	ex.: 	var n1 = 5; ->	a variável "n1" vai receber o valor "5", ou seja, trata-se de uma variável numérica.
+
+Obs: exitem diversos tipos de variáveis em javascript, as primordiais e mais básicas são:
+
+	-number: 	números no geral (5 ,18, 0.5, 3.14, etc)
+	-string:	cadeias de caracteres ("google", 'javascript',`Maria`, "021.951.503-43", etc).
+	-boolean:	apresenta apenas dois valores "true" e "false"
+
+- string: variável que recebe texto. Podem ser escritas de três formas, cada uma com seu significado.
+	ex.: 	var s1 ="javascript";
+		var s2 ='curso em vídeo';
+		var s3 =`guanabara`;
+
+- identificadores: é a maneira de identificar uma variável em javascript e obedece algumas regras:
+
+	.podem começar com letra, $ ou _.
+	.NÃO pode começar com números.
+	.é possível usar letras ou números.
+	.é possível usar acentos e símbolos.
+	.não podem conter espaços (usar "_" no lugar).
+	.NÃO pode usar palavras reservadas (function, alert, var, etc).
+
+	.dicas para a criação de variáveis:
+		
+		-maiúsculas e minúsculas fazem diferença (Casa é diferente de casa).
+		-tente escolher nomes coerentes para as variáveis.
+		-evite se tornar um "programador alfabeto" ou um "programador contador", ou seja, que criam variáveis apenas com números ou letras sem coerência
+		com o dado a ser armazenado na variável.
+
+Obs: para utilizar o NODE.JS (ou o BASH) no VScode, basta abrir o terminal (ou ctrl+shift+') e digitar "node", sem as aspas. Para sair do NODE no terminal aberto
+basta digitar ".exit" e para sair do terminal aberto, basta digitar "exit" e depois dar "enter". Para limpar a tela de um terminal (limpar e não sair), basta apertar
+"ctrl+L".
+
+- typeof: comando que retorna o tipo de variável. Quando uma variável é criada, ela não é predefinida de um tipo. Ela ganha aquele tipo a depender do valor recebido
+por ela. Ex.: no node do terminal do VScode, atribua o valor "200" a uma vatiável qualquer "n" (var n = 200). Em seguida digite "typeof n" e será retornado 'number'.
