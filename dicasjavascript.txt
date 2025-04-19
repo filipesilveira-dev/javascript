@@ -37,3 +37,5 @@ basta digitar ".exit" e para sair do terminal aberto, basta digitar "exit" e dep
 
 - typeof: comando que retorna o tipo de variável. Quando uma variável é criada, ela não é predefinida de um tipo. Ela ganha aquele tipo a depender do valor recebido
 por ela. Ex.: no node do terminal do VScode, atribua o valor "200" a uma vatiável qualquer "n" (var n = 200). Em seguida digite "typeof n" e será retornado 'number'.
+
+Obs: se uma variável receber o valor de um número entre aspas ("200"), o programa entenderá esse número como sendo uma string.
