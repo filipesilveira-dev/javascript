@@ -39,3 +39,101 @@ basta digitar ".exit" e para sair do terminal aberto, basta digitar "exit" e dep
 por ela. Ex.: no node do terminal do VScode, atribua o valor "200" a uma vatiável qualquer "n" (var n = 200). Em seguida digite "typeof n" e será retornado 'number'.
 
 Obs: se uma variável receber o valor de um número entre aspas ("200"), o programa entenderá esse número como sendo uma string.
+
+Explicando o código
+
+	<script> //as mensagens abaixo serão exibidas primeiramente        
+        	var nome = window.prompt('Qual o seu nome?')
+        	//tudo o que for recebido em window.prompt será recebido pela variável chamada "nome"//
+        	window.alert ('É um prazer em te conhecer, ' + nome + '!'); // "+" concatenação
+    	</script>
+
+<script></script> ->				local onde será inserido (dentro do arquivo de html) o código de javascript
+var nome = window.prompt('Qual o seu nome?')	indica que, dentro do prompt estabelecido (window.prompt), o que for digitado será armazenado (atribuído) em uma 
+						variável chamada "nome"
+window.alert ('É um prazer em te conhecer, ' 
++ nome + '!') ->				comando para a página web exibir algo que, nesse caso, por meio de concatenação (+) será oq que estiver armazenado na
+						variável "nome" e um ponbto de exclamação (!).
+
+Obs: o javascript possui alguns comandos básicos:
+
+	-window.alert('Minha primeira mensagem!'); ->	exibe uma mensagem de alerta (não pergunta nada. Apenas alerta)
+        -window.confirm('Está gostando de JS?'); ->	exibe uma pergunta e o usuário precisa escolher uma opção
+        -window.prompt('Qual o seu nome?') ->		exibe um espaço para o usuário inserir algo
+	-document.write('Bem-vindo!') ->		escreve no body do arquivo html o que está no parênteses
+
+Concersão de dados em javascript
+
+-ao inserir um dado por meio de um prompt, talvez seja necessário especificar ao javascript o seu tipo. Ex.:
+
+	<script>
+		var n1 = window.prompt('Digite um número');
+        	var n2 = window.prompt('Digite outro número');
+        	var s = n1 + n2;        
+        	window.alert ('A soma dos valores é ' + s + '!');         
+	</script>
+
+No exemplo acima, supondo que foi inserido "4" na primeira variável e "2" na segunda, o "window.alert" retornará na tela "42" ao invés de "6". Isso porque ele entende o que 
+foi inserido como uma string ao invés de números, concatenando (juntando) os dois ao invés de somá-los. Para corrigir o erro e atingir o objetivo de soma, será 
+necessário transformar de string para número. A conversão é feita já na declaração da variável e existem três formas basicamente:
+
+	-Number.parseInt(n) ->		para tranformar em número inteiro (sem vírgula)
+						.var n1 = Number.parseInt(window.prompt('Digite um número'));
+						.var n2 = Number.parseInt(window.prompt('Digite outro número'));
+	-Number.parseFloat(n) ->	para tranformar em número real (com vírgula)
+						.var n1 = Number.parseFloat(window.prompt('Digite um número'));
+						.var n2 = Number.parseFloat(window.prompt('Digite outro número'));
+	-Number(n) ->			para tranformar em número a depender do javascript (o que ele entender que faz sentido com o que foi inserido)
+						.var n1 = Number(window.prompt('Digite um número'));
+						.var n2 = Number(window.prompt('Digite outro número'));
+
+Também é possível transformar de número para string:
+
+	-String(n)
+		.window.alert('A soma dos valores é ' + String(s) + '!');
+		
+	-n.toString()
+		.window.alert('A soma dos valores é ' + s.toString() + '!');
+
+Nos exemplos acima, a variável "s" é um número resultante da soma de dois outros números. Caso deseje que ele seja considerado uma string, é preciso fazer a conversão.
+
+Template string
+
+Observe o código abaixo:
+
+	<script>
+		var nome ='Filipe';
+		var idade = 41;
+		var nota = 5.5;
+	</script>
+
+Para dar um comando retornando os três valores numa setença, é possível da seguinte maneira:
+
+	<script>
+		var nome ='Filipe';
+		var idade = 41;
+		var nota = 5.5;
+		window.alert ('O aluno ' + nome + ' com '+ idade + ' anos tirou a nota '+ nota)
+	</script>
+
+No exemplo acima, o texto corrido está entre aspa simples e, por meio de concatenação, as respectivas variáveis são inseridas (nome, idade e nota). Porém, existe uma
+forma mais prática e simples de compreender de inserir as variáveis por meio de template strings:
+
+	<script>
+		var nome ='Filipe';
+		var idade = 41;
+		var nota = 5.5;
+		window.alert(`O aluno ${nome} com ${idade} anos tirou a nota ${nota}`)
+	</script>
+
+No caso, o template string é iniciado e finalizado pelo sinal de crase (`) e utiliza a estrutura ${} (placeholder) para inserir determinada variável.
+
+Formatando strings: considere uma string qualquer "s" e um número qualquer "n"
+
+	-s.lenght ->				quantos caracteres a string "s" tem
+	-s.to UpperCase() ->			todos os caracteres da string "s" ficam MAIÚSCULOS
+	-s.toLowerCase() ->			todos os caracteres da string "s" ficam minúsculos
+	-n.toFixed(2) ->			em numeros reais, estabeklece a quantidades de casas decimais a aparecer. Nesse caso, duas.
+	-n.toFixed(2).replace('.', ',')		estabelece duas casas decimais e altera o "." (ponto) po "," (vírgula)
+	-n.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) ->	vai mostra o número em forma da moeda local ('currency') estabelecida nos parâmetros,
+										no caso "real brasileiro" (currency: 'BRL')
