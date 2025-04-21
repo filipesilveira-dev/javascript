@@ -1,4 +1,4 @@
-Javascript (linguagem voltada a objetos)
+ Javascript (linguagem voltada a objetos)
 
 Variáveis
 - no javascript moderno, pode-se utiliza  "var" para se referir a uma variável ou então "let."
@@ -137,3 +137,54 @@ Formatando strings: considere uma string qualquer "s" e um número qualquer "n"
 	-n.toFixed(2).replace('.', ',')		estabelece duas casas decimais e altera o "." (ponto) po "," (vírgula)
 	-n.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) ->	vai mostra o número em forma da moeda local ('currency') estabelecida nos parâmetros,
 										no caso "real brasileiro" (currency: 'BRL')
+
+Operadores
+
+-aritméticos (números)
+
+	.+ ->	adição
+	.- ->	subtração
+	.* ->	multiplicação
+	./ ->	divisão inteira. Ex.: 5 / 2 = 2.5
+	.% ->	resto da divisão inteira. O que sobre de resto em um divisão inteira. Ex.: 5 % 2 = 1
+	.** ->	potência. Ex.: 5 ** 2 = 25
+
+Obs: precedência de operadores -> 5 + 3 / 2 = 6.5. Caso deseje calcular o "5 + 3" antes da divisão, utiliza-se o parênteses (5+3) /2 = 4
+
+	.ordem de precedência: "()" --> "**" --> "*" --> "/" --> "%" --> "+" --> "-"
+
+-atribuição
+
+	.= ->			utilizado para atribuir dados em alguma variável. Ex.: var a = 5+3 (lê-se "variável a recebe o valor de 5 + 3")
+	.auto-atribuição ->	var n = 3	--> o valor da variável n é 3
+				n = n + 4
+				n = 7		--> o novo valor de n é 7
+	.simplificação ->		var n = 3
+				n = n + 4 ou n+= 4	--> a simplificação pode ser ralizada quando há auto-referência. No caso, a variável n
+				n = 7 
+	.incremento ->		var n = 3	--> o valor inicial é 3
+				n++		--> o novo valor é 4 
+				n--		--> o novo valor é 2
+-relacionais: o resultado da operação sempre será um valor booleano (true ou false)
+
+	.>	maior que
+	.<	menor que
+	.>=	maior ou igual a
+	.<=	menor ou igual a
+	.==	igual a (avalia apenas o valor). Ex.: 5 (number) == '5' (string) --> true
+	.===	idêntico irrestrito (mesmo valor e mesmo tipo). Ex.: 5 (number) == '5' (string) --> false
+	.!=	diferente de (avalia apenas o valor). Ex.: 5 (number) != '5' (string) --> false
+	.!==	desigual restrito (avalia o valor e o tipo). Ex.: 5 (number) == '5' (string) --> true (o valor é igual, mas o tipo é difrente)
+
+-lógicos
+
+	.!	negação
+	.&&	conjunção (e)
+	.||	disjunção (ou)
+
+Obs: precedência de operadores lógicos ! --> && --> ||
+
+-ternários: chama-se assim por possuir três partes. A primeira se trata de um teste, a segunda mostra o que será retornado caso o teste seja verdadeiro e o terceiro
+mostra o que será retornado caso o teste seja falso
+
+	.teste ? true : false. Ex.: média >= 7.0 ? "Aprovado" : "Reprovado"
