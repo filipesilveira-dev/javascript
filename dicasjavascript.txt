@@ -258,3 +258,97 @@ delimitada por "{}" como no modelo abaixo:
 
 Detecção de erros em javascript: abra o devtools e localize um "x" vermelho no canto superior. Lá indicará onde está o erro (geralmente na linha anterior do que for 
 apresentado.
+
+Somando valores (análise de um código que soma valores inseridos pelo usuário)
+
+	<body>
+    		<h1>Somando valores</h1>
+    		<input type="number" name="txtn1" id="txtn1"> + -->	cria um espaço para receber um input (informação/comando) do usuário, no caso, uma string
+    		<input type="number" name="txtn2" id="txtn2">   -->	cria um espaço para receber um input (informação/comando) do usuário, no caso, uma string
+    		<input type="button" value="somar" onclick="somar()">	cria um botão que receberá a função de somar os valores inseridos
+    		<div id="resultado">Resultado</div>		-->	div destinada a receber o valor
+
+    		<script>
+       			function somar(){ 
+        		var tn1 = window.document.getElementById('txtn1')// variável criada para receber o que for inserido no elemento input de id="txtn1" que no caso
+										é o primeiro input
+        		var tn2 = window.document.getElementById('txtn2')// variável criada para reber o que for inserido no elemento input de id="txtn1" que no caso é
+										 o segundo input
+        		var n1 = Number.parseFloat(tn1.value)// variável criada para transformar o valor, que no momento é string, em número. A função parseFloat 
+								poderia ser substituída apenas pela função Number(). As duas são utilizadas para transformar uma string
+								em número. O elemento dentro dos parênteses especifica que o valor de tn1, variável que receber o input 
+								do usuário e possui por padrão valor de string, será alterado para número.
+        		var n2 = Number.parseFloat(tn2.value)// variável criada para transformar o valor, que no momento é string, em número. A função parseFloat 
+								poderia ser substituída apenas pela função Number(). As duas são utilizadas para transformar uma string
+								em número. O elemento dentro dos parênteses especifica que o valor de tn1, variável que receber o input 
+								do usuário e possui por padrão valor de string, será alterado para número.
+        		var resultado = window.document.getElementById('resultado')// estabelece a correlação com o elemento div em questão e receberá qualquer informação 
+											inserido no elemento
+        		var soma = n1 + n2// variável criada para receber o valor das duas variáveis numéricas transformadas das strings inseridas pelo usuário.
+        		resultado.innerHTML =`A soma entra ${n1} e ${n2} é <strong>${soma}</strong>.`// para utilizar o placeholder, é preciso que o texto esteja entre
+													aspas (``). A variável "resultado" terá seu texto interno 
+													(innerText) alterado para o texto entre crases (``) e seus 
+													placeholder, os quais fazem referência às respectivas variáveis 
+													contidas dentro das {}.
+			}
+    		</script>
+	</body>
+
+Extra:
+
+  	resultado.innerHTML = soma //chama a variável "soma" para compor o texto interno da div "resultado". Como a variável soma é a soma das duas 
+	variáveis convertidas em números, será mostrada a soma dos dois valores inseridos nos inputs
+
+Condições em JavaScript
+
+-if (condição simples)
+
+	if(condição){
+		true
+	}
+
+-if/else (condição composta)
+
+	if(condição){
+		true
+	} else{
+		false
+	}
+ 
+-if/else if (condição aninhada)
+
+	if(condição1){ 
+		bloco1
+	} else{
+		if(condição2){
+			bloco2
+		} else{
+			bloco3
+		} 
+	}
+
+Obs: para inserir comandos no arquivo de JavaScript, diferentemente de inserir no arquivo de HTML que utilizava o "window.document", é necessário utilizar o 
+"console.log" como no exemplo abaixo    
+
+	var idade = 65
+	if(idade<16){					--> if
+    		console.log('Não vota')
+	} else if(idade<18){				--> condicional else if (condição aninhada)
+        	console.log('Voto opcional')    
+	} else if(idade>=18 && idade<=65){		--> condicional else if (condição aninhada)
+    		console.log('Voto obrigatório')
+	} else if (idade>65){				--> condicional else if (condição aninhada)
+    		console.log('Voto opcional')
+	}
+
+-switch (condição múltipla): o "break" no final da cada case e do default é obrigatório
+
+	switch(expressão){
+		case valor1:
+			break
+		case valor2:
+			break
+		case valor3:
+			break
+		default:
+			break			
