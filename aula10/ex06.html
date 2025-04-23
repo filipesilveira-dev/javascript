@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        #area{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20pt;
+            background-color: green;
+            color: white;
+            width: 200px;
+            height: 200px;            
+            line-height: 200px;
+            /*conteúdo fica no meio do cross axis*/
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="area" > 
+        <!--<div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()"-->
+        <!-- evento click inserido diretamente no elemento. Esse evento está ligado a fatode clicar com o cursor do maouse dentro da área do elemento div em questão. O evento clique vai chamar uma função (clicar()) que está estabelecida no script-->       
+        <p>Interaja...</p>
+    </div>
+
+    <script>
+
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+        // as três linhas de código acima substituem as expressões onclick, onmouseenter e onmouseout inseridas diretamente no elemento div em questão
+        
+        function clicar(){
+           var area = window.document.getElementById('area') //estabelece a relação entra a função e o elemento <div> nesse caso 
+            area.innerText = 'Clicou!' // comando para o elemento "area" mude seu texto interno (innerText) para "Clicou!
+            area.style.background='blue'
+        }
+
+        function entrar(){
+            var entrar = window.document.getElementById('area')
+            area.innerText='Entrou'
+            area.style.background='red'
+        }
+
+        function sair(){
+            var sair = window.document.getElementById('area')
+            area.innerText='Saiu'
+            area.style.background='green'
+        }
+    </script>
+</body>
+</html>

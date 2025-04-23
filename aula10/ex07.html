@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando números</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18pt;
+        }
+
+        input{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18pt;
+            width: 100px;
+        }
+
+        div{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Somando valores</h1>
+    <input type="number" name="txtn1" id="txtn1"> +
+    <input type="number" name="txtn2" id="txtn2">
+    <input type="button" value="somar" 
+    onclick="somar()">
+    <div id="resultado">Resultado</div>
+
+    <script>
+       function somar(){ 
+        var tn1 = window.document.getElementById('txtn1')// variável criada para reber o que for inserido no elemento de id="txtn1" que no caso é o primeiro input
+        var tn2 = window.document.getElementById('txtn2')// variável criada para reber o que for inserido no elemento de id="txtn1" que no caso é o segundo input
+        var n1 = Number.parseFloat(tn1.value)// variável criada para transformar o valor, que no momento é string, em número
+        var n2 = Number.parseFloat(tn2.value)// variável criada para transformar o valor, que no momento é string, em número
+        var resultado = window.document.getElementById('resultado')// estabelece a correlação com o elemento div em questão
+        var soma = n1 + n2
+        resultado.innerHTML =`A soma entra ${n1} e ${n2} é <strong>${soma}</strong>.`// para utilizar o placeholder, é preciso que o texto esteja entre aspas (``)
+        //resultado.innerHTML = soma chama a variável soma para compor o texto interno da div "resultado". Como a variável soma é a soma das duas variáveis convertidas em números, será mostrada a soma dos dois valores inseridos nos inputs
+       }
+    </script>
+</body>
+</html>

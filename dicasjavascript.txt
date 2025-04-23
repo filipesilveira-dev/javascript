@@ -188,3 +188,73 @@ Obs: precedência de operadores lógicos ! --> && --> ||
 mostra o que será retornado caso o teste seja falso
 
 	.teste ? true : false. Ex.: média >= 7.0 ? "Aprovado" : "Reprovado"
+
+DOM (Document Object Model)
+
+-Árvore DOM
+	
+	.window (raiz):	tudo em javascript está contido em window. A janela do navegador é um objeto DOM. Exemplos de objetos contidos em window (não são os únicos):
+
+		.location:	diz qual a localização do seu site, qual a URL, qual a página atual, qual a página anterior
+		.history:	guarda de onde o usuário vem e pra onde vai, facilitando a navegação dentro do site
+		.document:	diz qual o documento atual. Dentro do document existe outro objeto (o html):
+
+			.html:	esqueleto do site. Possui basicamente dois "filhos"
+
+				.head:	contém os meta dados e title
+				.body:	é o que será exibido em tela (h1, p, div e etc)
+		
+					p:	parágrafo. Ainda pode ter um filho, como o strong (coloca determinada seção em negrito)]
+
+Selecionando elementos dentro de uma árvore DOM
+
+-por Marca (tag name):	getElementByTagName()[]
+
+	.var p1 = window.document.getElementsByTagName('p')[0] 
+	 window.document.write(p1.innerText)
+
+		-var p1:		cria a variável p1
+		-window:		elemento raiz do DOM
+		-document:		documento filho de window
+		-getElementsByTagName:	comando para selecionar por tag que no caso é a tag parágrafo (p)
+		-('p'):			tag que será selecionada do documento que no caso é a tag parágrafo
+		-[0]:			especifica de qual parágrafo se refere. No caso, refere-se ao primeiro parágrafo que aparece no documento [0]
+		-write 
+		(na segunda linha):	escreve no documento contido na tela (window.document)
+		-(p1.innerText):	especifica o que será escrito em tela. No caso, será escrito o texto (somente o texto) contido (innerText) na variável p1. Por 
+					exemplo, se no primeiro parágrafo do documento estiver escrito "Olá, mundo!", ele será escrito novamente. [EXTRA] O 
+					HTMLElement.innerText pega o HTML inteiro, inclusive a tags filhas.
+
+Obs: é possível fazer alterações de estilo por meio de javascript. Utilizando o exemplo acima, podemos fazer:
+
+	.p1.style.color='blue':	altera a cor das letras do texto da variável p1 para azul, ou seja o texto do primeiro parágrafo.
+
+-por ID:		getElementById()
+	
+-por Nome:		getElementsByName()[]
+-por Classe:		getElementsByClassName()[]
+-por Seletor (css):	querySelector() e querySelectorAll(). A seleção é feita por meio de elementos do css Ex.:
+
+	var d = window.document.querySelector('div#msg') -->	está sendo selecionada a div que possui id ='msg' (se fosse uma "class", seria 'div.msg')
+	var d = window.document.querySelectorAll('div') -->	está sendo selecionado todos os elementos div do documento
+
+Obs: em css, um id é referenciado pelo "#" e uma class pelo ".".
+
+Eventos DOM: ações que podem ser feitas com determinado elemento html
+
+-mouseenter:	quando o cursor do mouse entra na área de determinado elemento
+-mousemove:	quendo o curor do mouse se movimenta dentro da área de determinado elemento (disparado a cada movimento)
+-mousedown:	quando o botão do mouse é clicado e segurado
+-mouseup:	quando o botão do mouse clicado é soltado
+-click:		quando ocorre um clique simples do mouse (sem segurar)
+-mouseout:	quando o cursor do mouse, uma vez dentro da área de determinado elemento, sai
+
+Funções: conjunto de linhas de código (bloco de código) que serão executadas apenas quando determinado evento ocorrer. São iniciadas com "function" seguida da ação e é
+delimitada por "{}" como no modelo abaixo:
+
+	.function ação(parâmetro){
+		linha de código
+	}
+
+Detecção de erros em javascript: abra o devtools e localize um "x" vermelho no canto superior. Lá indicará onde está o erro (geralmente na linha anterior do que for 
+apresentado.
