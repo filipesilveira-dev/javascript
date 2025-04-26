@@ -299,6 +299,8 @@ Extra:
   	resultado.innerHTML = soma //chama a variável "soma" para compor o texto interno da div "resultado". Como a variável soma é a soma das duas 
 	variáveis convertidas em números, será mostrada a soma dos dois valores inseridos nos inputs
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Condições em JavaScript
 
 -if (condição simples)
@@ -351,4 +353,36 @@ Obs: para inserir comandos no arquivo de JavaScript, diferentemente de inserir n
 		case valor3:
 			break
 		default:
-			break			
+			break	
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Repetições/Loços em JavaScript	
+
+-Estrutura de repetição com teste lógico no início (while):
+
+	var c = 1				-> variável criada para funcionar como contador. Vai indicar a quantidade de repetições
+	while (c<=6){				-> Enquanto (while)  a variável c for menor ou igual a seis vai repetir o bloco seguinte
+		console.log(`Passo ${c}`)	-> mostra a frase contendo um placeholder no node.js
+		c++				-> comando que indica o aumento no valor da variável c em 1 à cada repetição (até chegar a seis)
+	}
+
+-Estrutura de repetição com teste lógico no final(do/while):
+
+	var c = 1				
+	do{	
+		console.log(`Passo ${c}`)	
+		c++
+	} while (c<=6)				
+						
+-Estrutura For:
+
+	for(início; teste; incremento){
+		bloco de códigos
+	}
+
+	.seguindo o modelo utilizado anteriormente
+	
+		for(var c =1; c>=10; c++){
+			console.log(`Passo ${c}`)
+		}		
