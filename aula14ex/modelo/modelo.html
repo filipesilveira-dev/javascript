@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Modelo de exercício</title>
+    <title>Super Contador</title>
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Vamos contar</h1>
     </header>
     <section>
-        <div></div>
-        <div></div>
+        <div>
+            Início: 
+            <input type="number" name="inicio" id="inicio">
+        </div>
+        <div>
+            Fim:
+            <input type="number" name="fim" id="fim">
+        </div>
+        <div>
+            Passo:
+            <input type="number" name="cont" id="cont">
+        </div>
+        <input type="button" id="contar" value="Contar" onclick="contar()">
+        <div id="res"><strong>Preparando a contagem...</strong></div>
     </section>
     <footer>
         <p>&#169 CursoEmVídeo</p>

@@ -24,6 +24,18 @@ section{
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.295);
 }
 
+div{
+    margin: 20px;
+}
+
+input#contar{
+    margin: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 15px;
+    text-align: center;
+}
+
 footer{
     margin: 20px;
     color: white;
