@@ -7,7 +7,7 @@ while(c<=6){
 var c = ''
 var x = '2'
 console.log('Vai começar..')
-for(var c=1; c<=20; x+){
+for(var c=1; c<=20; x++){
     console.log(c)
 }
 console.log('Fim!')

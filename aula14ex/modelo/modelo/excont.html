@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .container {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #resultado {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contador JavaScript</h1>
+    
+    <div class="input-group">
+      <label for="valorInicial">Valor Inicial:</label>
+      <input type="number" id="valorInicial" value="0">
+    </div>
+    
+    <div class="input-group">
+      <label for="valorFinal">Valor Final:</label>
+      <input type="number" id="valorFinal" value="10">
+    </div>
+    
+    <div class="input-group">
+      <label for="incremento">Incremento:</label>
+      <input type="number" id="incremento" value="1" min="1">
+    </div>
+    
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+    
+    <div id="resultado">
+      <p>Os números aparecerão aqui...</p>
+    </div>
+  </div>
+
+  <script>
+    function iniciarContagem() {
+      // Obter os valores dos inputs
+      const inicio = parseInt(document.getElementById('valorInicial').value);
+      const fim = parseInt(document.getElementById('valorFinal').value);
+      const passo = parseInt(document.getElementById('incremento').value);
+      
+      // Validar os valores
+      if (isNaN(inicio) || isNaN(fim) || isNaN(passo)) {
+        alert("Por favor, preencha todos os campos com números válidos!");
+        return;
+      }
+      
+      if (passo <= 0) {
+        alert("O incremento deve ser maior que zero!");
+        return;
+      }
+      
+      // Limpar área de resultado
+      const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.innerHTML = "";
+      
+      // Verificar se é contagem crescente ou decrescente
+      if (inicio <= fim) {
+        // Contagem crescente
+        for (let i = inicio; i <= fim; i += passo) {
+          resultadoDiv.innerHTML += `<span>${i}</span> ➡️ `;
+        }
+      } else {
+        // Contagem decrescente
+        for (let i = inicio; i >= fim; i -= passo) {
+          resultadoDiv.innerHTML += `<span>${i}</span> ➡️ `;
+        }
+      }
+      
+      // Adicionar indicador de fim
+      resultadoDiv.innerHTML += "🏁";
+    }
+  </script>
+</body>
+</html>
