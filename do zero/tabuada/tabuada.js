@@ -8,15 +8,13 @@ function calcular(){
     } 
 
     res.innerHTML = ''
-    /*for(var i = 1; i<=10; i++){
+    for(var i = 1; i<=10; i++){
         res.innerHTML += `${n} x ${i} = ${n*i} <br>`
         res.style.border = '1px, solid, black'
         res.style.borderRadius = '10px'
-    }*/
+    }
 
-        for(var i = 1; i<=10; i++){
-            var item
-        }
+       
 }
 
 function limpar(){
