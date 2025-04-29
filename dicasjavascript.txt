@@ -407,3 +407,59 @@ Lista de comandos JavaScript
 
 	.id.style.border = '1px, solid, black':	acrescenta borda ao elemento com o id especificado
         .id.style.borderRadius = '10px':	acrescenta borda arredondada ao elemento com id especificado
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Vetor (array): uma variável que pode receber mais de um valor (aula15/ambiente.js)
+
+-let a = [5, 7, 6]
+	  0, 1, 2
+	
+	.vetor a
+	.índices(chaves): 0, 1 e 2 (posição de cada elemento na array)
+	.elementos (quantidade): 3
+	.valor de cada elemento: 5, 7 e 6
+
+-a[3] = 2 ou a.push(2):		vai adicionar na posição "3" (após o conteúdo '6') o conteúdo '2'. No caso do "push" ele também será acrescentado, porém, 
+				obrigatoriamente na última posição
+
+	.o novo vetor a será [5, 7, 6, 2]
+
+-a.length:	vai indicar o comprimento (atributo) da array a. O resultado vai ser 4
+-a.sort():	organiza (método) o conteúdo em ordem crescente
+
+	.o novo vetor 'a' será [2, 5, 6, 7]
+
+-for(let pos in a){		--> "para cada posição em a o sistema mostrará o a[pos]"
+	console.log(a[pos])
+}
+
+	."pos (posição)" é a variável criada para o contador
+	. "in" faz parte dessa estrtura "for" que pode substituir em caso de vetores e objetos
+	."a" é a variável vetor criada (let a = [5, 7, 6]) 
+	."console.log" é o comando para mostrar algo no NODE
+	."a[pos]" especificação para mostrar o valor (conteúdo) de determinada posição. Como é um laço de repetição, a variável "pos" aumentará de um por um, alterando o valor
+	da posição e consequentemente o conteúdo mostrado
+	.O que será mostrado então é "5 7 6"
+
+-a.indexOf(7):	comando para buscar a posição do valor "7" na array que no caso é "1"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Funções: são ações executadas assim que são chamadas o u em decorrência de algum evento. Uma função pode receber parâmetros e retornar um resultado. Cada função 
+executa apenas 1(um) return, apesar de pode haver dentro dela mais de um. (aula16/funcao01.js)
+
+-chamada: 11
+-parâmetro: n
+-ação: if(){}
+-retorno: ímpar
+
+	function parimp(n){		--> função criada para verificar se um número é par ou ímpar
+		if(n%2==0){		--> condicional que caracteriza um número par(se o resto da divisão do número em análise por dois for igual a zero, então é par
+		return 'par'		--> caso seja verdadeira a condicional, retorna 'par'
+		} else{
+			return 'ímpar'	--> caso contrário, retorna 'ímpar'
+		}
+
+	}
+	
+	let res = parimp(11)		--> a chamada aqui vai ser "11" que será utilizado lá na função "parimp"
+	console.log('res')		--> vai mostrar "ímpar"
