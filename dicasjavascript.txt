@@ -385,4 +385,25 @@ Repetições/Loços em JavaScript
 	
 		for(var c =1; c>=10; c++){
 			console.log(`Passo ${c}`)
-		}		
+		}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Lista de comandos JavaScript
+
+-document.getElementById('id'):	refere a elemento com id especificada no parênteses
+-Number(var.value):		transforma em número o valor de determinada variável	
+-window.alert(''):		apresenta um alerta na tela
+-id.innerHTML:			altera o conteúdo de determinado elemento HTML com o id especificado
+-document.createElement('div'):	cria determinado elemento HTML via JavaScript
+
+	.var item = document.createElement('option'):	ao atribuir a uma variável determinado elemento HTML ('option', no caso), é possível manipulá-lo por meio dela:
+	
+		item.text='exemplo':	atribui o texto 'exemplo' à variável item, a qual representa o elemento 'option'
+		item.value='exemplo:	atribui o valor 'exemplo' à variável item, a qual representa o elemento 'option'
+
+-id.appendChild(div):		cria um elemento filho em determinado elemento especificado pelo sei id 
+-location.reload():		recarrega a página
+-estilizar por meio do javascript:
+
+	.id.style.border = '1px, solid, black':	acrescenta borda ao elemento com o id especificado
+        .id.style.borderRadius = '10px':	acrescenta borda arredondada ao elemento com id especificado
