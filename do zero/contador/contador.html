@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="contador.css">
+</head>
+<body>
+    <h1>Contador</h1>
+    <section>
+        <div>
+            Início:
+            <input type="number" name="inicio" id="txtinicio">
+        </div> <!--início-->
+        <div>
+            Fim:
+            <input type="number" name="fim" id="txtfim">
+        </div> <!--fim-->
+        <div>
+            Passos:
+            <input type="number" name="passos" id="txtpasso">
+        </div> <!--passos-->
+        <input type="button" value="Contar" id="contar" onclick="contar()">
+        <p id="res"></p>
+    </section>
+    <script src="contador.js"></script>
+</body>
+</html>
