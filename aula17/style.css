@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgba(96, 112, 250, 0.925);
+}
+
+header{
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+
+section{
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.425);
+    width: 450px;
+    height: auto;
+    padding: 15px;
+}
+
+#numero{
+    margin: 5px;
+    text-align: left;
+}
+
+#select{
+    text-align: left;
+    margin-top: 10px;
+}
+
+#lnum{
+    width: 150px;
+    height: 150px;
+}
+
+#botao{
+    text-align: left;
+}
+
+#res{
+    margin: 10px;
+    margin-bottom: 0px;
+
+}
+
+footer{    
+    margin: 10px;
+    text-align: center;
+    color: white;
+}

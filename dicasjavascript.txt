@@ -408,6 +408,9 @@ Lista de comandos JavaScript
 	.id.style.border = '1px, solid, black':	acrescenta borda ao elemento com o id especificado
         .id.style.borderRadius = '10px':	acrescenta borda arredondada ao elemento com id especificado
 
+-id.value='':			estabelece o valor do do elemento com id especificado como 'vazio'. Isso pode ajudar a 'limpar' o elemento caso precise realizar ação
+				mais de uma vez.
+-id.focus():			foca o cursor em determinado elemento especificado por sua id sem haver a necessidade de clicar novamente	
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vetor (array): uma variável que pode receber mais de um valor (aula15/ambiente.js)
 
