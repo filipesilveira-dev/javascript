@@ -466,3 +466,17 @@ executa apenas 1(um) return, apesar de pode haver dentro dela mais de um. (aula1
 	
 	let res = parimp(11)		--> a chamada aqui vai ser "11" que será utilizado lá na função "parimp"
 	console.log('res')		--> vai mostrar "ímpar"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Objetos: permitem diversos identificadores (atributos) ao invés de apenas 0, 1, 2 (índices ou chaves) e etc nos arrays (vetores). Podem guardar valores e 
+funcionalidades (métodos). São identificados pelo uso de chaves:
+
+let amigo = {nome:'José', sexo:'M', peso:85.4, engordar(p){}}
+
+	.nome:		atributo (valor)
+	.José:		conteúdo (string)
+	.sexo:		atributo (valor)
+	.M:		conteúdo (string)
+	.peso:		atributo (valor)
+	.85.4:		conteúdo (número)
+	.engordar(p):	função   (funcionalidade)
