@@ -1,4 +1,4 @@
- Javascript (linguagem voltada a objetos)
+Javascript (linguagem voltada a objetos)
 
 Variáveis
 - no javascript moderno, pode-se utiliza  "var" para se referir a uma variável ou então "let."
@@ -61,7 +61,7 @@ Obs: o javascript possui alguns comandos básicos:
         -window.confirm('Está gostando de JS?'); ->	exibe uma pergunta e o usuário precisa escolher uma opção
         -window.prompt('Qual o seu nome?') ->		exibe um espaço para o usuário inserir algo
 	-document.write('Bem-vindo!') ->		escreve no body do arquivo html o que está no parênteses
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 Concersão de dados em javascript
 
 -ao inserir um dado por meio de um prompt, talvez seja necessário especificar ao javascript o seu tipo. Ex.:
@@ -137,7 +137,7 @@ Formatando strings: considere uma string qualquer "s" e um número qualquer "n"
 	-n.toFixed(2).replace('.', ',')		estabelece duas casas decimais e altera o "." (ponto) po "," (vírgula)
 	-n.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) ->	vai mostra o número em forma da moeda local ('currency') estabelecida nos parâmetros,
 										no caso "real brasileiro" (currency: 'BRL')
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 Operadores
 
 -aritméticos (números)
@@ -178,7 +178,7 @@ Obs: precedência de operadores -> 5 + 3 / 2 = 6.5. Caso deseje calcular o "5 + 
 
 -lógicos
 
-	.!	negação
+	.!	negação:	utilizado para inverter o valor booleano de determinada expressão. Geralmente utilizado quando exite maior incidência de "não".
 	.&&	conjunção (e)
 	.||	disjunção (ou)
 
@@ -188,6 +188,8 @@ Obs: precedência de operadores lógicos ! --> && --> ||
 mostra o que será retornado caso o teste seja falso
 
 	.teste ? true : false. Ex.: média >= 7.0 ? "Aprovado" : "Reprovado"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 DOM (Document Object Model)
 
@@ -249,6 +251,8 @@ Eventos DOM: ações que podem ser feitas com determinado elemento html
 -click:		quando ocorre um clique simples do mouse (sem segurar)
 -mouseout:	quando o cursor do mouse, uma vez dentro da área de determinado elemento, sai
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Funções: conjunto de linhas de código (bloco de código) que serão executadas apenas quando determinado evento ocorrer. São iniciadas com "function" seguida da ação e é
 delimitada por "{}" como no modelo abaixo:
 
@@ -300,6 +304,35 @@ Extra:
 	variáveis convertidas em números, será mostrada a soma dos dois valores inseridos nos inputs
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+Estruturas de controle
+
+-if/else: permite executar um bloco de código seu uma condição for verdadeira e outro bloco caso seja falsa.
+
+	.if:		define uma condição simples
+	.if/else:	define uma condição de if... else
+	.if/else if:	define múltiplas condições
+
+-if/else ternário: é uma forma mais curta de escrever uma estrutura condicioanl if... else. Se for verdade, será retornado o que estiver na primeira posição (antes 
+dos dois pontos). Se for uma condição falsa, será retornado o que estiver na segunda posição (depois dos dois pontos)
+
+	const ideade = 18;
+	const podeDirigir = idade>= 18? "Sim":"Não";	--> se "idade>=18" for verdade, então "Sim". Se for falsa, então "Não"
+	console.log(podeDirigir); 			--> retornará "Sim", pois "18" é ">=18"
+
+-switch: permite escolher entre váris opções com base no valor de uma expressão. Ex.:
+
+	let diaSemana = 2;
+	switch (diaSemana){
+		case 1:
+			console.log("Domingo");
+			break;
+		case 2:
+			console.log("Segunda");
+			break;
+		default:
+			console.log("Digite um valor válido")
+	}
+
 
 Condições em JavaScript
 
@@ -357,9 +390,12 @@ Obs: para inserir comandos no arquivo de JavaScript, diferentemente de inserir n
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Repetições/Loços em JavaScript	
+Repetições/Laços em JavaScript	(um tipo de estrutura de controle)
 
--Estrutura de repetição com teste lógico no início (while):
+-conhecidas como "loops", são mecanismos em programação que permitem executar um bloco de código repetidamente enquanto uma determinada condição for verdadeira.
+
+-Estrutura de repetição com teste lógico no início (while): executa um bloco de código enquanto uma condição for verdadeira. Se a condição for falsa, ele não será executado 
+nenhuma vez.
 
 	var c = 1				-> variável criada para funcionar como contador. Vai indicar a quantidade de repetições
 	while (c<=6){				-> Enquanto (while)  a variável c for menor ou igual a seis vai repetir o bloco seguinte
@@ -367,7 +403,7 @@ Repetições/Loços em JavaScript
 		c++				-> comando que indica o aumento no valor da variável c em 1 à cada repetição (até chegar a seis)
 	}
 
--Estrutura de repetição com teste lógico no final(do/while):
+-Estrutura de repetição com teste lógico no final(do/while): similar ao while, mas garante que o bloco de código seja executado pelo menos uma vez.
 
 	var c = 1				
 	do{	
@@ -375,7 +411,7 @@ Repetições/Loços em JavaScript
 		c++
 	} while (c<=6)				
 						
--Estrutura For:
+-Estrutura For: utilizado quando se sabe o número exato de interações que serão realizadas.
 
 	for(início; teste; incremento){
 		bloco de códigos
@@ -413,6 +449,28 @@ Lista de comandos JavaScript
 -id.focus():			foca o cursor em determinado elemento especificado por sua id sem haver a necessidade de clicar novamente	
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vetor (array): uma variável que pode receber mais de um valor (aula15/ambiente.js)
+
+-vetores são estruturas de dados que nos permitem armazenar múltiplos valores sob uma única variável. Cada elemento poder ser de qualquer tipo de dado (números, strings, objetos,
+etc). Ex.:
+
+	const frutas = ["maçã","banana","laranja"]	--> declaração
+	console.log(frutas[0]);				--> acesso
+	frutas[1] == "pêra"				--> modificação (agora o espaço 1 será ocupado por "pêra", ficando ["maçã","pêra","laranja"])
+
+Métodos para adicionar e remover elementos em array
+
+const frutas = ["maçã","banana"]
+
+-push():	adiciona um ou mais elementos no final da array 	--> ["maçã","banana", "laranja"]
+-pop():		remove e retorna o último elemento da array		--> ["maçã","banana"]
+-shift():	remove e retorna o primeiro elemento da array		--> ["banana"]
+-unshift():	adiciona um ou mais elementos ao início da array	--> ["uva","banana"]
+
+Comandos para arrays
+
+-frutas.length:			vai indicar o comprimento (atributo) da array a. O resultado vai ser 2 para 
+-frutas.sort():			organiza (método) o conteúdo em ordem crescente (em caso de números) e em ordem alfabética (em caso de textos)
+-frutas.indexOf(banana):	comando para buscar a posição do valor "banana" na array que no caso é "1"
 
 -let a = [5, 7, 6]
 	  0, 1, 2
