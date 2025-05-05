@@ -73,8 +73,8 @@ Concersão de dados em javascript
         	window.alert ('A soma dos valores é ' + s + '!');         
 	</script>
 
-No exemplo acima, supondo que foi inserido "4" na primeira variável e "2" na segunda, o "window.alert" retornará na tela "42" ao invés de "6". Isso porque ele entende o que 
-foi inserido como uma string ao invés de números, concatenando (juntando) os dois ao invés de somá-los. Para corrigir o erro e atingir o objetivo de soma, será 
+No exemplo acima, supondo que foi inserido "4" na primeira variável e "2" na segunda, o "window.alert" retornará na tela "42" ao invés de "6". Isso porque ele entende 
+o que foi inserido como uma string ao invés de números, concatenando (juntando) os dois ao invés de somá-los. Para corrigir o erro e atingir o objetivo de soma, será 
 necessário transformar de string para número. A conversão é feita já na declaração da variável e existem três formas basicamente:
 
 	-Number.parseInt(n) ->		para tranformar em número inteiro (sem vírgula)
@@ -286,8 +286,8 @@ Somando valores (análise de um código que soma valores inseridos pelo usuário
 								poderia ser substituída apenas pela função Number(). As duas são utilizadas para transformar uma string
 								em número. O elemento dentro dos parênteses especifica que o valor de tn1, variável que receber o input 
 								do usuário e possui por padrão valor de string, será alterado para número.
-        		var resultado = window.document.getElementById('resultado')// estabelece a correlação com o elemento div em questão e receberá qualquer informação 
-											inserido no elemento
+        		var resultado = window.document.getElementById('resultado')// estabelece a correlação com o elemento div em questão e receberá qualquer 
+								informação inserido no elemento
         		var soma = n1 + n2// variável criada para receber o valor das duas variáveis numéricas transformadas das strings inseridas pelo usuário.
         		resultado.innerHTML =`A soma entra ${n1} e ${n2} é <strong>${soma}</strong>.`// para utilizar o placeholder, é preciso que o texto esteja entre
 													aspas (``). A variável "resultado" terá seu texto interno 
@@ -394,8 +394,8 @@ Repetições/Laços em JavaScript	(um tipo de estrutura de controle)
 
 -conhecidas como "loops", são mecanismos em programação que permitem executar um bloco de código repetidamente enquanto uma determinada condição for verdadeira.
 
--Estrutura de repetição com teste lógico no início (while): executa um bloco de código enquanto uma condição for verdadeira. Se a condição for falsa, ele não será executado 
-nenhuma vez.
+-Estrutura de repetição com teste lógico no início (while): executa um bloco de código enquanto uma condição for verdadeira. Se a condição for falsa, ele não será 
+executado nenhuma vez.
 
 	var c = 1				-> variável criada para funcionar como contador. Vai indicar a quantidade de repetições
 	while (c<=6){				-> Enquanto (while)  a variável c for menor ou igual a seis vai repetir o bloco seguinte
@@ -450,8 +450,8 @@ Lista de comandos JavaScript
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vetor (array): uma variável que pode receber mais de um valor (aula15/ambiente.js)
 
--vetores são estruturas de dados que nos permitem armazenar múltiplos valores sob uma única variável. Cada elemento poder ser de qualquer tipo de dado (números, strings, objetos,
-etc). Ex.:
+-vetores são estruturas de dados que nos permitem armazenar múltiplos valores sob uma única variável. Cada elemento poder ser de qualquer tipo de dado (números, 
+strings, objetos, etc). Ex.:
 
 	const frutas = ["maçã","banana","laranja"]	--> declaração
 	console.log(frutas[0]);				--> acesso
@@ -505,7 +505,9 @@ Comandos para arrays
 -a.indexOf(7):	comando para buscar a posição do valor "7" na array que no caso é "1"
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-Funções: são ações executadas assim que são chamadas o u em decorrência de algum evento. Uma função pode receber parâmetros e retornar um resultado. Cada função 
+Funções
+
+-são ações executadas assim que são chamadas o u em decorrência de algum evento. Uma função pode receber parâmetros e retornar um resultado. Cada função 
 executa apenas 1(um) return, apesar de pode haver dentro dela mais de um. (aula16/funcao01.js)
 
 -chamada: 11
@@ -524,6 +526,117 @@ executa apenas 1(um) return, apesar de pode haver dentro dela mais de um. (aula1
 	
 	let res = parimp(11)		--> a chamada aqui vai ser "11" que será utilizado lá na função "parimp"
 	console.log('res')		--> vai mostrar "ímpar"
+
+Obs: existem duas possibilidades básicas de representar uma função
+
+	1.
+		function saudacao(nome){
+			console.log('Olá' + nome + '!');	--> utilizando oparâmentro concatenado com texto
+		}
+
+	2.
+		function saudacao(nome){
+			console.log(`Olá ${nome}!`;		--> utilizando um placeholder (${}) entre crases (``)
+		}
+
+Retorno
+
+-retornando um parâmetro específico ("Ronaldo", nesse caso):
+
+	//cria a função
+	function saudacao(nome){
+		return(`Olá, ${nome}!`);			--> utilizando um placeholder (${}) entre crases (``)
+	}
+
+	//pega o retorno / invoca a função
+	const mensagemSaudacao = saudacao("Ronaldo");
+
+	//exibe Olá, Ronaldo!
+	alert(mensagemSaudacao);			--> função global para mostrar mensagem na página web
+
+	OU
+
+	//cria a função
+	function saudacao(nome){
+		return(`Olá, ${nome}!`);			
+	}
+
+	//exibe Olá, Ronaldo!
+	alert(saudacao("Ronaldo"));			--> chama a função saudacao() já dentro da função alert()
+
+-encerrando uma função
+
+	//cria a função
+	function divisao(dividendo, divisor){
+
+		if(divisor == 0){
+			return "Não é possível dividir por zero";
+		}
+
+		if(divisor == 1){
+			return dividendo;
+		}
+
+		return dividendo / divisor;
+	}
+
+	//invoca a função
+	console.log(divisao(42,0));	// Não é possível dividir por zero
+	console.log(divisao(42,1));	//42
+	console.log(divisao(42,2));	//21
+
+Obs: em condicinais "if" que apresentam apeans uma linha de código, é possível escrevê-las sem as chaves sem maiores prejuízos.
+
+Funções anônimas
+
+-funções que não possuem um nome declarado. No lugar, cria-se uma variável e atribui-se a ela uma função sem nome:
+
+	//cria a função
+	const divisao = function(dividendo, divisor){			--> variável "divisao" criada e atribuída à ela uma função sem nome
+
+		if(divisor == 0){
+			return "Não é possível dividir por zero";
+		}
+
+		if(divisor == 1){
+			return dividendo;
+		}
+
+		return dividendo / divisor;
+	}
+
+	//invoca a função
+	console.log(divisao(42,0));	// Não é possível dividir por zero
+	console.log(divisao(42,1));	//42
+	console.log(divisao(42,2));	//21
+
+-função anônmima "autônoma": uma função sem nome que sempre será executada
+
+	(function(){					--> função sem nome
+		alert("Bem-vindo ao meu site.");
+	})();						--> abrindo e fechando os parênteses no final chama a função novamente
+
+-Arrow Functions: não declarada (utiliza variável), sem a palavra "function" e sem return. O resultado vai aparecer para quem chamar essa função. É a maneira mais 
+curta de se criar uma função. Muito utilizada com o métdo find(), no qual busca-se determinado elemento em uma array.
+
+	//cria a função
+	const quadradoDo = (num1) => num1 * num1;	--> apresenta a "arrow function (=>)"
+
+	console.log(quadradoDo(6)) // 36
+
+Composição de funções
+
+	//funções das 4 operações básicas
+	const soma = (a,b) => a + b;
+	const subtracao = (a,b) => a - b;
+	const multiplicacao = (a,b) => a * b;
+	const divisão = (a,b) => b>0? a/b: NaN;			--> se "b" for maior que 0, então realiza a divisão. Se não, Not a Number.
+
+	//função de cálculo
+	const calculo = (operacao,a,b) => operacao(a,b);	--> composição de função. Dentro de uma função anônima existe como parâmetro outra função (arrow)
+
+	//usando a função
+	const resposta =  calculo(soma,21,21)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Objetos: permitem diversos identificadores (atributos) ao invés de apenas 0, 1, 2 (índices ou chaves) e etc nos arrays (vetores). Podem guardar valores e 
