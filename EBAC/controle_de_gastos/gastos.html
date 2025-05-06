@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de gastos</title>
+    <link rel="stylesheet" href="gastos.css">
+</head>
+<body>
+    <div id="body">
+        <section style="display: flex; flex-direction: column; width: 400px;">
+            <h1>Controle de Gastos</h1>
+            <input type="number" name="valor" id="valor" placeholder="Digite o valor do gasto">
+            <select name="tgasto" id="tgasto">
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Lazer">Lazer</option>
+                <option value="Outros">Outros</option>
+                <input type="button" value="Adicionar">
+                <div id="aliment">
+                    Alimentação
+                </div>
+                <div id="transp">
+                    Transporte
+                </div>
+                <div id="lazer">
+                    Lazer
+                </div>
+                <div id="outros">
+                    Outros
+                </div>
+                <div id="total">
+                    Total
+                </div>
+            </select>
+        </section>
+    </div>
+    <script src="gastos.js"></script>
+</body>
+</html>
