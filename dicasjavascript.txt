@@ -623,9 +623,27 @@ Funções anônimas
 curta de se criar uma função. Muito utilizada com o métdo find(), no qual busca-se determinado elemento em uma array.
 
 	//cria a função
-	const quadradoDo = (num1) => num1 * num1;	--> apresenta a "arrow function (=>)"
+	const quadradoDo = (num1) => {		--> apresenta a "arrow function (=>)"
+		return num1 * num1;	
+	}
 
 	console.log(quadradoDo(6)) // 36
+
+Obs: se houver apenas uma linha de retorno, é comum escrever tudo em uma linha apenas, como "const quadradoDo = (num1) => num1 * num1;" sem as chaves e a palavra 
+return.
+
+Obs: o "()=>" substitui o "function()".
+
+-Immediately Invoked Function Expression (IIFE): é uma função anônima que é executada imediatamente após ser definida
+
+	(function(){
+		console.log("Esta função é executada imediatamente!");
+	}();								--> sua característica principal são os parênteses ao final
+
+	//versão arrow function
+	(()=>{
+		console.log("Esta função também é executada imediatamente!");
+	}();									--> sua característica principal são os parênteses ao final					
 
 Composição de funções
 
