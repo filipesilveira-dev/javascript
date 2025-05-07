@@ -8,29 +8,33 @@
 </head>
 <body>
     <div id="body">
-        <section style="display: flex; flex-direction: column; width: 400px;">
-            <h1>Controle de Gastos</h1>
+        <section>
+            <h1>Controle de Gastos</h1> <!--abaixo do h1 utilizar formulário-->
+
             <input type="number" name="valor" id="valor" placeholder="Digite o valor do gasto">
-            <select name="tgasto" id="tgasto">
+
+            <select name="categoria" id="categoria">
                 <option value="Alimentação">Alimentação</option>
                 <option value="Transporte">Transporte</option>
                 <option value="Lazer">Lazer</option>
                 <option value="Outros">Outros</option>
-                <input type="button" value="Adicionar">
-                <div id="aliment">
-                    Alimentação
+
+                <input type="button" value="Adicionar" id="adicionar" onclick="adicionar()">
+
+                <div id="Alimentação">
+                    Alimentação: R$ 0,00
                 </div>
-                <div id="transp">
-                    Transporte
+                <div id="Transporte">
+                    Transporte: R$ 0,00
                 </div>
-                <div id="lazer">
-                    Lazer
+                <div id="Lazer">
+                    Lazer: R$ 0,00
                 </div>
-                <div id="outros">
-                    Outros
+                <div id="Outros">
+                    Outros: R$ 0,00
                 </div>
-                <div id="total">
-                    Total
+                <div id="Total">
+                    Total: R$ 0,00
                 </div>
             </select>
         </section>

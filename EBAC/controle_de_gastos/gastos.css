@@ -16,15 +16,61 @@
 
 section{
     display: flex;
-    border: 1px solid black;
+    border: 1.5px solid #007bff98;
     border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
     
-    justify-content: space-around;
-    
-    
+    flex-direction: column;
+
+    justify-content: space-around;   
+        
+}
+
+#valor{
+    border: 1px solid rgb(109, 109, 224);
+    border-radius: 5px;
+    height: 20px;
+    padding: 3px;
+}
+
+#categoria{
+    border-radius: 5px;
+    border: 1px solid #007bff98;
+    box-shadow: 1px .5px  #007bff98;
+    padding: 3px;
+}
+
+#adicionar{
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #007bff98;
+    box-shadow: .5px .5px  #007bff98;
+    padding: 3px;
+    background-color: #007CFF;
+    height: 30px;
+}
+
+#adicionar:hover {
+    background-color: #55AFFF;
 }
 
 section > h1{
     text-align: center;
+    color: rgb(109, 109, 224);
     
+}
+
+div{
+    border: 1px solid rgb(109, 109, 224);
+    border-radius: 5px;
+    box-shadow: .5px .5px  #007bff98;
+    height: 20px;
+    padding: 3px;
+    
+}
+
+#total{
+    background-color: #55AFFF;
 }

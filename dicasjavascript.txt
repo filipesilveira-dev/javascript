@@ -423,6 +423,9 @@ executado nenhuma vez.
 			console.log(`Passo ${c}`)
 		}
 
+Obs: utilize a ferramenta do desenvolvedor na página web (F12) para verificar se cada passo de coda função está funcionando corretamente. Utilize o "console.log("OK"), por
+exemplo, no seu código .js e observe se, ao realizar a ação, na sua ferramenta do desenvolvedor aparece o "OK" especificado lá no seu código JavaScript.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------	
 Lista de comandos JavaScript
 
