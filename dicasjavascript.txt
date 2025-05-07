@@ -287,7 +287,7 @@ Somando valores (análise de um código que soma valores inseridos pelo usuário
 								em número. O elemento dentro dos parênteses especifica que o valor de tn1, variável que receber o input 
 								do usuário e possui por padrão valor de string, será alterado para número.
         		var resultado = window.document.getElementById('resultado')// estabelece a correlação com o elemento div em questão e receberá qualquer 
-								informação inserido no elemento
+										      informação inserido no elemento
         		var soma = n1 + n2// variável criada para receber o valor das duas variáveis numéricas transformadas das strings inseridas pelo usuário.
         		resultado.innerHTML =`A soma entra ${n1} e ${n2} é <strong>${soma}</strong>.`// para utilizar o placeholder, é preciso que o texto esteja entre
 													aspas (``). A variável "resultado" terá seu texto interno 
