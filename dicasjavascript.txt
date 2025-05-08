@@ -508,7 +508,7 @@ Comandos para arrays
 -a.indexOf(7):	comando para buscar a posição do valor "7" na array que no caso é "1"
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-Funções
+Funções (C:\Users\Filipe\Documents\Dev\EBAC\Estudos\Front-end\javascript\EBAC\exercícios_função) - para revisão
 
 -são ações executadas assim que são chamadas o u em decorrência de algum evento. Uma função pode receber parâmetros e retornar um resultado. Cada função 
 executa apenas 1(um) return, apesar de pode haver dentro dela mais de um. (aula16/funcao01.js)
@@ -648,7 +648,7 @@ Obs: o "()=>" substitui o "function()".
 Composição de funções
 
 	//funções das 4 operações básicas
-	const soma = (a,b) => a + b;
+	const soma = (a,b) => a + b;				--> "a + b" é o return
 	const subtracao = (a,b) => a - b;
 	const multiplicacao = (a,b) => a * b;
 	const divisão = (a,b) => b>0? a/b: NaN;			--> se "b" for maior que 0, então realiza a divisão. Se não, Not a Number.
