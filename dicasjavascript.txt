@@ -672,3 +672,55 @@ let amigo = {nome:'José', sexo:'M', peso:85.4, engordar(p){}}
 	.peso:		atributo (valor)
 	.85.4:		conteúdo (número)
 	.engordar(p):	função   (funcionalidade)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tipos de erros comuns
+
+1. esquecer e iniciar variáveis
+
+	ex.:	let total;
+		total+=10; // erro: total não foi inicializada
+
+		let total=0
+		total += 10; // 10
+
+2.uso incorreto de operadores de comparação: confundir operadores de atribuição (=) com operadores de comparação (== ou ===) é um erro comum que pode levar a bugs 
+lógicos.
+
+3.esquecer de usar o 'break' em instruções 'switch': não usar o 'break' em cada caso de um 'switch' pode levar a um comportamento de 'fall-through', onde múltiplos 
+casos são executados.
+
+	ex.:	switch (day) {
+  			case 1:
+    				console.log("Monday");
+  			case 2:
+    				console.log("Tuesday");
+		}
+
+
+		switch (day) {
+  			case 1:
+    				console.log("Monday");
+    				break;
+  			case 2:
+    				console.log("Tuesday");
+    				break;
+		}
+
+4.não usar corretamente o escopo de variáveis: declarar variáveis no escopo errado pode levar a erros de referência ou comportamento inesperado.
+
+5.esquecer de retornar valores em funções: iniciantes podem esquecer de usar a palavra-chave 'return' em funções que devem devolver um valor, resultando em 
+'indefined'.	
+
+	ex.:	function sum(a, b) {
+  			let result = a + b;
+  		// Esqueceu de retornar o resultado
+		}
+		console.log(sum(2, 3)); // undefined
+
+		function sum(a, b) {
+  			let result = a + b;
+  			return result;
+		}
+
+		console.log(sum(2, 3)); // 5
