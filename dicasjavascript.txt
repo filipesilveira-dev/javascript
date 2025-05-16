@@ -505,7 +505,10 @@ Comandos para arrays
 	da posição e consequentemente o conteúdo mostrado
 	.O que será mostrado então é "5 7 6"
 
--a.indexOf(7):	comando para buscar a posição do valor "7" na array que no caso é "1"
+-a.indexOf(7):				comando para buscar a posição do valor "7" na array que no caso é "1"
+-a.filter(numPar => numPar%2=0):	filtar os elementos do array com base em algo. Nesse caso, com base em ser par (especificado na função anônima com argumento
+					'numPar'
+-a.reduce():				C:\Users\Filipe\Documents\Dev\EBAC\Estudos\Front-end\javascript\EBAC\exercicios_fixacao150525\fixacao15_somarTodosElementos.js
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Funções (C:\Users\Filipe\Documents\Dev\EBAC\Estudos\Front-end\javascript\EBAC\exercícios_função) - para revisão
