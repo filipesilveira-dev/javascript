@@ -676,6 +676,67 @@ let amigo = {nome:'José', sexo:'M', peso:85.4, engordar(p){}}
 	.85.4:		conteúdo (número)
 	.engordar(p):	função   (funcionalidade)
 
+Conceitos fundamentais da Programação Orientada ao Objeto: POO é um paradigma bem como progamação funcional
+
+-Tipos de dados
+
+	.classes 
+	.objetos anônimos
+	.definições de tipos específicos
+
+	1-Classes: modelo ou molde que define as propriedeades (características) e métodos (comportamentos) que um objeto pode ter.Ex.:
+
+		.classe:	carta de baralho
+		.atributo(s):	valor e naipe
+		.método:	mostraCartas():void
+		
+		Caratcterísticas de classes
+
+		.define um tipo: serve como um modelo para criar novos tipos de dados personalizados.
+		.determina as características: especifica as propriedades que os objetos desse tipo terão.
+		.define comportamentos: define os métodos que os objetos desse tipo podem executar
+		.gera objetos: a partir de uma classe, podemos criar inúmeros objetos, cada um com seus prórpios dados únicos.
+
+		Método construtor
+		.o coração de uma classe no javascript está no seu construtor. É nele que definimos as características básicas de um objeto que será criado a partir 
+		dessa classe.
+		.inicialização: o método construtor é responsável por inicializar os atributos (propriedades) do objeto no momento da criação.
+		.atribuição de valores: é no método construtor que passamos os valores iniciais para esses atributos, ou seja, os dados que cada objeto individual 
+		terá.
+		.define cmportamentos: define os métodos que os objtos desse tipo podem executar.
+		.diferenças entre linguagens: embora o javascript centralize a declaração de atributos e métodos no construtor, outras linguagens como java e C# 
+		separam essas declarações.
+
+Obs: "métodos" são funções dentro de classes de objetos, mas são chamados assim por dois motivos:
+
+	.por estar no contexto POO e no interior de uma classe
+	.por ele poder manipular o estado interno de um objeto
+
+		Métodos de acesso: por boas práticas, alterações a serem realizadas em atributos dentro de objetos são realizadas por método, ou seja, por meio de 
+		funções como getValor():string ou getNaipe():string, utilizando o exemplo do baralho de cartas, esses atributos seriam alterados.
+
+		Herança e polimorfismo: uma classe pode dar origem à outa classa, como uma classe pessoa gerar as classes "cliente" e "colaborador", as quais guardam
+		tanto atributos semelhantes quanto diferentes entre si. No caso, a classe "pessoa" reuni todos os atributos que tanto as pessoas "clientes" quanto as
+		pessoas "colaboradores" devem ter, sendo que "cliente" e "colaborador" vão acrescentar (especializar) características particulares de cada um sem 
+		precisar criar outras duas classe com atributos semelhantes à "pessoa". O polimorfismo versa justamente sobre essa possibilidade da classe "pessoa" ser
+		ao mesmo tempo "cliente" e "colaborador".
+
+Paradigma da Programação Funcional em JavaScript
+
+	.foco em funções: funções são cidadãs de primeira classe, podendo ser atribuídas a variáveis, passadas como argumentos e retornadas por outras funções.
+	.imutabilidade: dados são geralmente imutáveis, ou seja, não são alterados após a criação. Isso ajuda a evitar efeitos colaterais e torna o código mais 
+	previsível.
+	.pureza: funções puras não causam efeitos colaterais e sempre retornam o mesmo resultado para os mesmos argumentos.
+	.higher-order functions: funções que aceitam outras funções como argumentos ou retornam funções. Exemplos: map, filter, reduce.
+
+Paradigma da Programação Orientada a Objetos(POO)
+
+	.foco em objetos: o código é organizado em torno de objetos que possuem propriedades (dados) e métodos (comportamentos)
+	.herança: objetos podem herdar propriedades e métodos de outros objeots, criando hierarquias de classes
+	.encapsulamento: esconde a implementação interna de um objeto, expondo apenas uma interface pública
+	.polimorfismo: permite que objetos de diferentes classes sejam tratados como se fossem do mesmo tipo
+	
+		
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Tipos de erros comuns
 
