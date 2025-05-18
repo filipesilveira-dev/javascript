@@ -29,7 +29,7 @@ class veiculo{
         console.log("O veículo foi desligado")
     }
 
-    //método get para obter valor do atributo privado (this._ligado())
+    //método getter para obter valor do atributo privado (this._ligado())
     get ligado(){
         return this._ligado//por meio desse método será retornado o estado interno do objeto veiculo
     }
