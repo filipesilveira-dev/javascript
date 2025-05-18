@@ -676,7 +676,8 @@ let amigo = {nome:'José', sexo:'M', peso:85.4, engordar(p){}}
 	.85.4:		conteúdo (número)
 	.engordar(p):	função   (funcionalidade)
 
-Conceitos fundamentais da Programação Orientada ao Objeto: POO é um paradigma bem como progamação funcional
+Conceitos fundamentais da Programação Orientada ao Objeto: POO é um paradigma bem como progamação funcional(C:\Users\Filipe\Documents\Dev\EBAC\Estudos\Front-end\
+javascript\EBAC\POO\poo.js)
 
 -Tipos de dados
 
