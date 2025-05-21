@@ -2,7 +2,7 @@
 class contaBancaria{
     #saldo
     constructor(){
-        this.#saldo;
+        this.#saldo = 0;    //deve declarar um valor
     }
 
     depositarC(valor){
@@ -28,7 +28,7 @@ class contaBancaria{
 //classe que trabalhará a interface com o usuário
 class caixaEletronico{
     constructor(conta){
-        this.conta;
+        this.conta = conta; //deve declarar um valor
     }
 
     //recebe o valor depositado e mostra em saldo
@@ -38,7 +38,7 @@ class caixaEletronico{
         this.mostrarSaldo(this.conta.saldo);    //chama outro método, mas agora dentro da prórpia classe
     }   
     //recebe o valor a ser sacado e mostra em saldo
-    //sacarCX(){}
+    sacarCX(){}
     mostrarSaldo(saldo){
         document.getElementById('saldo').textContent = `Saldo: R$ ${saldo}`;
         document.getElementById("deposito").value = '';
@@ -49,4 +49,4 @@ class caixaEletronico{
 const conta1 = new contaBancaria();
 
 //vai herdar a conta e os método de caixaEletronico
-const interfaceUsuario = new caixaEletronico(conta1);
+const interfaceUsuario = new caixaEletronico(conta1);   //refere-se à otra variável (objeto) criada
