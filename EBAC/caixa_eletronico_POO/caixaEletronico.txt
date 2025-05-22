@@ -1,0 +1,39 @@
+EXERCÍCIO CAIXA ELETRÔNICO POO (JavaScript)
+
+Criar classes separando por função: uma classe para realizar as operações fincanceiras (contaBancaria) e outra pra representar a interface (obter os valores informados e apresentar a saída) do usuário com o caixa eletrênico (caixaEletronico). Dessa forma, uma apresentará em seus métodos cálculos relacionados a depositar um valor (this.#saldo += valor), sacar um valor (this.#saldo -= valor) e uma validação para saber se o valor a ser sacado está disponível para saque (if(saque <= this.#saldo)); a outra apresentará também métodos relativos a depositar e sacar, porém com a função de obter os valores (const valorDeposito = parseFloat(document.getElementById('valor').value)), chamar o método para calcular o novo saldo (this.conta.depositar()) e retonar em tela para o usuário (this.mostraSaldo).
+
+    1º criar classe contaBancaria{}, estabelecendo o saldo como propriedade privada (#saldo), restringindo o acesso fora dessa classe. Ou seja, instâncias criadas a partir dessa classe só têm acesso a partir de método getter (get saldo(){return this.#saldo})
+
+        - estabelecer em seu constructor o atributo "this.#saldo" e atribuí-lo o valor de "0". Ou seja, toda e qualquer instância criada a partir essa classe inicia com seu saldo igua a zero. Saldo aqui funciona como uma variável, logo necessita de um valor declarado.
+        - agora é momento de implementar os métodos, os quais nessa classe estão ligados a operações fincanceiras. Todos os métodos possuem um valor como parâmetro obrigatório. Ou seja, para chamar essa "função"(método), é preciso passar esse "valor" também.
+
+            .depositar(valor): nesse método será introduzida a operação de depositar que consiste em pegar o saldo anterior e somar com o valor a depositar (this.#saldo += valor ou this #saldo = this.#saldo + valor)
+            .sacar(valor): nesse será introduzida a operação de retirada, ou seja, o saldo anterior menos o valor sacado (this.#saldo -= valor ou this.#saldo =  this.#saldo - valor)
+            .temSaldoParaSacar(valor): este método trata-se de uma verificação se há saldo para saque. Se o valor de saque for menor ou igual a this.#saldo, então é verdadeiro que tem saldo para saque. Senão será falso que há saldo (if valor <=this.#saldo)
+
+        - por possuir uma propriedade privada (#saldo), é necessário também estabelecer uma forma de acesso à mesma por meio do método getter já mencionado. Ele é declarado após o constructor.
+    
+    2º criar classe caixaEletronico{}, estabelecendo uma conta bancária como atributo
+
+        - estabelecer em seu constructor o parâmetro conta (constructor(conta)), tornando-o obrigatório. Ou seja, caso queira criar uma instânica da classe caixaEletronico, é obrigatório que você forneça uma conta bancária para ele operar. Além disso, estabelece-se o atributo this.conta e atribui ao mesmo o valor do parâmetro "conta" (que vem de fora. fornecido pelo usuário). Isso "guarda" a conta bancária (local onde as operações serão realizadas) fornecida pelo usuário dentro do caixa eletrônico para uso posterior.
+        - serão necessários também três métodos:
+
+            .depositar(): este método realizará três tarefas
+
+                1- vai pegar o valor do depósito (conts valorDeposito = parseFloat(document.getElementById('deposito'))). Nesse caso, a variável "valorDeposito" vai receber o valor (.value) numérico (parseFloat) do que foi colocado no elemento HMTL com id='deposito'
+                2- vai solicitar que esse valor da variável "valorDeposito" seja acrescentado ao saldo (this.conta.depositar(valorDeposito)). Vai ser chamado então o método depositar(valor) da classe conta bancária para realizar a operação que ele retorna (this.#saldo += valor), sendo que nesse caso "valor = valorDeposito"
+                3-mostrar o saldo (this.mostrarSaldo(this.conta.saldo)). O mostrarSaldo é acessado na mesma classe de depositar que é a "caixaEletronico". Dessa forma, não é preciso referenciar nada além do que this.mostrarSaldo, como foi feito em this.conta.depositar(valorDeposito), referenciando "this.conta" que é de outra classe. Porém o mostrarSaldo(saldo) tem como parâmetro obrigatório "saldo", logo é preciso passar o saldo para ele. Nesse caso, o saldo a ser mostrado é o propriedade privada (this.#saldo) saldo da "conta". Ele é acessado por meio do método getter estabelecido lá na classe contaBancaria (this.conta.saldo). Dessa forma "this.conta.saldo" será mostrado em tela.
+            
+            .mostrarSaldo(saldo): foi criado um método só para isso, pois ele será utilizado tanto no método depositar(), quanto no método sacar(). Ele atualizará o saldo na tela (document.getElementById('saldo').textContent = `Saldo: R$ ${}`)após a operação chamada na classe contaBancaria. Ele alterará o texto contido no elemento HTML com id='saldo' para `Saldo: R$ ${}`. Para evitar que o número digitado permaneça sendo mostrado, acrescenta-se mais duas linhas de código, uma para depositar e outra para sacar:
+
+                >document.getElementById('valorDeposito') = ''; vai atribuir um texto vazio    para o elemento HTML com id="valorDeposito"
+                >document.getElementById('valorSaque') = ''; vai atribuir um texto vazio para o elemento HTML com id="valorSaque"
+
+
+            .sacar()
+    
+    3º criar uma instância de contaBancaria: para isso é necessário criar uma variável (const conta1) e atribuí-la "new contaBancaria(). Agora "conta1" apresenta os mesmos atributos (this.#saldo) e métodos (depositar, sacar e temSaldoParaSacar) que a classe contaBancaria.
+
+    4º criar um instância de caixaEletronico: para isso é necessário criar uma variável (const CAIXA) e atribuí-la "new caixaEletronico(). Agora "CAIXA" apresenta os mesmos atributos (this.conta) e métodos (depositar, sacar e mostrarSaldo) que a classe caixaEletronico.
+
+    5º criar o "onclick" no arquivo HTML: para isso é preciso que no elemento button, no caso está como um input do tipo button, e acrescentar o onclick que chamará as as respectivas funções caixaEletronico.depositar() e caixaEletronico.sacar()

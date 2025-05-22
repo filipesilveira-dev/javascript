@@ -46,7 +46,7 @@ class caixaEletronico{
 }
 
 //vai herdar o #saldo e os métodos de contaBancaria (depositar, sacar e verificarSaldo)
-const conta1 = new contaBancaria();
+const conta1 = new contaBancaria(); //cria uma conta
 
 //vai herdar a conta e os método de caixaEletronico
-const interfaceUsuario = new caixaEletronico(conta1);   //refere-se à otra variável (objeto) criada
+const interfaceUsuario = new caixaEletronico(conta1);   //conecta o caixa à conta criada
