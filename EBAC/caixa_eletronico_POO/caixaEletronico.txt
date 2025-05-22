@@ -30,7 +30,11 @@ Criar classes separando por função: uma classe para realizar as operações fi
                 >document.getElementById('valorSaque') = ''; vai atribuir um texto vazio para o elemento HTML com id="valorSaque"
 
 
-            .sacar()
+            .sacar(): este método também realizará três tarefas:
+
+                1 - vai pegar o valor do saque digitado pelo usuário
+                2 - vai solicitar que esse valorSaque seja sacado do saldo da conta, caso haja saldo suficiente para o saque. Para isso será chamado o método temSaldoParaSacar(valorSaque) de "this.conta". Caso o retorno deste método sej true, ou seja, há saldo suficiente para sacar, então será chamado o método sacar(valorSaque) de "this.conta" e o método mostrarSaldo(this.conta.saldo), assim como foi feito no método anterior no código (depositar()). Caso não haja valor o suficiente (else), será retornada uma mensagem de "Saldo insuficiente!" (this.mostrarSaldo("Saldo insuficiente!"))
+                2 -  também vai chamar o método mostrarSaldo(saldo) para mostrar o saldo resultante para o usuário.
     
     3º criar uma instância de contaBancaria: para isso é necessário criar uma variável (const conta1) e atribuí-la "new contaBancaria(). Agora "conta1" apresenta os mesmos atributos (this.#saldo) e métodos (depositar, sacar e temSaldoParaSacar) que a classe contaBancaria.
 
