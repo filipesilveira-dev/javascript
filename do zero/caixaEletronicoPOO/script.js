@@ -38,10 +38,24 @@ class caixaEletronico{
         this.mostrarSaldo(this.conta.saldo);    //chama outro método, mas agora dentro da prórpia classe
     }   
     //recebe o valor a ser sacado e mostra em saldo
-    sacarCX(){}
+    sacarCX(){
+        const valorSaque = parseFloat(document.getElementById('saque').value); 
+        if(this.conta.verificarSaldo(valorSaque)){
+            this.conta.sacarC(valorSaque);
+            this.mostrarSaldo(this.conta.saldo);
+        } else {
+            return this.mostrarSaldo ("Saldo insuficiente!")
+        }
+    }
     mostrarSaldo(saldo){
-        document.getElementById('saldo').textContent = `Saldo: R$ ${saldo}`;
+        if(typeof saldo === 'number'){
+            document.getElementById('saldo').textContent = `Saldo: R$ ${saldo}`;
+        } else {
+            document.getElementById('saldo').textContent = saldo;
+        }
+        
         document.getElementById("deposito").value = '';
+        document.getElementById("saque").value = '';
     }
 }
 
