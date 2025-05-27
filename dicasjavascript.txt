@@ -789,3 +789,38 @@ casos são executados.
 		}
 
 		console.log(sum(2, 3)); // 5
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Obs: try{...}cathc{...}: o bloco try tenta executar um trecho de código que pode gerar um erro (exceção). Se nenhum erro ocorrer, ele simplesmente executa e continua.
+Se um erro acontecer dentro do try, o controle passa automaticamente para o catch. Quando usar:
+
+	 Use quando o código:
+
+	1- Interage com elementos incertos ou externos, como:
+
+		.APIs, requisições de rede (fetch);
+
+		.Leitura de arquivos (Node.js);
+
+		.Acesso ao localStorage, cookies, banco de dados;
+
+		.Entrada de usuário malformada;
+
+		.Conversão de tipos (ex: JSON.parse).
+
+	2 -Executa operações que explicitamente lançam erros com throw, como:
+
+		.Validações;
+
+		.Verificações de permissões;
+
+		.Lógicas de negócio com Error, RangeError, etc.
+
+	3- Não pode travar a aplicação caso algo falhe:
+
+		.Em interfaces gráficas (exibir uma mensagem e seguir);
+
+		.Em jogos ou sistemas interativos;
+
+		.Em servidores que não podem cair por causa de 1 requisição malformada.
+
