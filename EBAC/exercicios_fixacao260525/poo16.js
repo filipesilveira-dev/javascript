@@ -33,9 +33,9 @@ class gato extends animal{
 }
 
 const animais = [
-    new gato ("Tobias"),
-    new cachorro ("Táuba"),
-    new gato ("Miau"),
+    new gato ("Tobias"),    //extensão de "animal"
+    new cachorro ("Táuba"), //extensão de "animal"
+    new gato ("Miau"),      //extensão de "animal"
 ];
 
-animais.forEach((animal)=>animal.falar())
+animais.forEach((animal)=>animal.falar())   //vai ao objeto "animais" e percorre cada "animal"
