@@ -824,3 +824,65 @@ Se um erro acontecer dentro do try, o controle passa automaticamente para o catc
 
 		.Em servidores que não podem cair por causa de 1 requisição malformada.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fetch API
+
+-É uma API que permite que, por meio do JavaScript, o navegador faça solicitações de recursos (imagem, arquivo, conjunto de informações) aos servidores da web. O
+JavaScript utiliza a fetch API (um tipo de API) para se comunicar com um servidor externo: é feita uma solicitação a um servidor com base no CEP e o servidor devolve
+uma resposta. Na mairia das vezes, essa resposta virá no formato .json.
+
+JSON (JavaScript Object Notation)
+
+-É um formato leve de troca de dados, baseado em texto (string), que é fácil para humanos lerem e máquinas parsearem (conversão)
+-Estrutura básica:
+
+	.chaves "{}" para objetos
+	.colchetes [] para arrays
+	.pares chave-valor (ex: "nome": "João")
+	.tipos de dados suportados: strings, números, booleanos, objetos, arrays, null
+
+	Ex.:
+		//objeto em javascript
+		const pessoa = {
+			nome: "Maria",	//string
+			idade: 30,	//número
+			ativo: true,	//booleano
+		}
+
+		//objeto em JSon equivalente (o objeto todo é uma string)
+		const pessoa = {nome: "Maria", idade: 30, ativo: true,}
+
+-Conversão de objeto em JSON para JavaScript ou JavaScript para JSON
+
+	.JASON.parse():		converte uma string JSON em um objeto JavaSCript
+	.JSON.stringfy():	converte uma string JavaSCript em um objeto JSON
+
+	Ex.:
+		//string JSON -> objeto
+		const objeto = JSON.parse('{"nome": "Maria"}');
+		console.log(objeto.nome);			//retorna o nome (propriedade dentro do objeto) contido no objeto ("Maria")
+
+		//objeto -> string JSON
+		const json = JSON.stringfy({nome: "Maria"});
+		console.log(json);				//retorna a string criada ('{"nome":"Maria"}')
+
+Como obter dados JSON de uma API de terceiros? Por meio do fetch API
+
+-Sintaxe básica (GET)
+
+	.estrutura do fetch()
+
+	fetch(URL)					//(INICIA A REQUISIÇÃO PARA A URL ESPECIFICADA) método fetch: ele "promete" que buscará determinada informação 
+							(não dá pra saber de a info está lá antes de ir atrás)
+		.then(resposta => resposta.json())	//(CONVERTE RESPOSTA EM JSON)se tiver informação, então (then) pegue a "resposta" e retorne o json dela 
+							(resposta.json). Essa "respsota.json" também é uma promessa, pois não é certeza que retorne um objeto passível de "parseamento" 
+							(conversão) no formato "json"
+		.then(dados => console.log(dados))	//(PROCESSA DADOS) se foi possível transformar a "resposta" em "jason", então (then) mostre no console "dados"
+		.catch(erro => console.error(erro));	//(CAPTURA ERROS)se por algum motivo, seja por não ter conseguido buscar o recurso desejado ou por não ter conseguido 
+							transformar em "json", então será utilizado o método catch(), que é um método para tratativa de erros e que, 
+							nesse caso, retorna no console uma mensagem de erro.
+
+O que são as promessas (promises) mencionadas no método fetch()?
+
+-São objetos que representam a conclusão (ou falha) de uma operação assíncrona. Elas permitem encadear ações com .then() e .catch().
+	
