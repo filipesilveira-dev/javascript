@@ -25,4 +25,3 @@ document.getElementById("cep").addEventListener("blur", (evento)=>{
         .catch(error => console.error("Erro ao buscar CEP: ", error));       
         
 }) 
-

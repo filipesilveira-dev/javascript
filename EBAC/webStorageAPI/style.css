@@ -1,0 +1,26 @@
+
+@charset "UTF-8";
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* volta para center para centralizar o conteúdo */
+}
+
+main{
+    width: 70vw;
+    position: relative; /* adiciona contexto de posicionamento */
+}
+
+button{
+    position: absolute; /* remove do fluxo normal */
+    top: -50px; /* posiciona acima do main */
+    right: 0; /* alinha à direita */
+}
+
+body.dark{
+    background-color: #333;
+    color: #eee;
+}
+

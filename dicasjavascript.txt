@@ -885,4 +885,131 @@ Como obter dados JSON de uma API de terceiros? Por meio do fetch API
 O que são as promessas (promises) mencionadas no método fetch()?
 
 -São objetos que representam a conclusão (ou falha) de uma operação assíncrona. Elas permitem encadear ações com .then() e .catch().
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+EXEMPLO FETCH API
+
+EX. C:\Users\Filipe\Documents\Dev\EBAC\Estudos\Front-end\javascript\EBAC\fetchAPI\script.js:
+
+	document.getElementById("cep").addEventListener("blur", (evento)=>{ 
+    	const elemento = evento.target;
+    	const cepInformado = elemento.value;
+    
+    	if(!(cepInformado.length === 8)){
+        	return;
+    	}
+
+    
+    	fetch(`https://viacep.com.br/ws/${cepInformado}/json/`) //é possível verificar a requisição na guia "Network" do DevTools na página web
+        	.then(response => response.json())
+        	.then(data => {
+            
+            		if(!data.erro){ //se não tiver erro, então..
+                		document.getElementById('logradouro').value = data.logradouro;
+                		document.getElementById('bairro').value = data.bairro;
+                		document.getElementById('cidade').value = data.localidade;
+                		document.getElementById('estado').value = data.uf;
+            		}else{
+                		alert("CEP não encontrado.")
+            		}
+        })
+        .catch(error => console.error("Erro ao buscar CEP: ", error));       
+        
+	}) 
+	
+EXPLICAÇÃO
+
+	-document.getElementById("cep"):	seleciona o elemento HTML com id='cep'
+	-.addEventListener(tipo de evento, 
+	função que será chamada quando ocorrer 
+	o evento):				adiciona um listener no elemento HTML com id='cep'
+		.tipo de evento ("blur"):	evento que ocorre quando o usuário tira o foco de um campo
+		.função que será chamada:	todo o resto do código se encontra dentro dessa função. Tudo o que ocorrerá depois que o usuário tirar o foco do cep 
+						("blur") deverá estar contido aqui. Para facilitar a visualização, ela será repetida abaixo:
+
+	function(evento){
+		const elemento = evento.target;
+    		const cepInformado = elemento.value;
+    
+    		if(!(cepInformado.length === 8)){
+        		return;
+    		}
+
+    
+    		fetch(`https://viacep.com.br/ws/${cepInformado}/json/`) 
+        		.then(response => response.json())
+        		.then(data => {
+            
+            			if(!data.erro){ 
+                			document.getElementById('logradouro').value = data.logradouro;
+                			document.getElementById('bairro').value = data.bairro;
+                			document.getElementById('cidade').value = data.localidade;
+                			document.getElementById('estado').value = data.uf;
+            			}else{
+                			alert("CEP não encontrado.")
+            			}
+        	})
+        	.catch(error => console.error("Erro ao buscar CEP: ", error));       
+        
+		}) 
+	}
+	
+	
+	-function(evento){} ou (evento)=>{}:	função anônima com um argumento chamado "evento"
+	-const elemento = evento.target;:	é atribuído à uma variável "elemento" o alvo do evento criado (alvo: input de id="cep")
+	-const cepInformado = elemento.value;:	é atribuído à uma variável "cepInformado" o valor da variável elemento (que será o CEP digitado)
+	-if(!(cepInformado.length === 8)){
+        	return;
+    	}:					validação de cep: se o comprimento de "cepInformado" não for (!) igual a 8, então não retorne nada. Isso vai evitar que
+						ao digitar um CEP com menos de 8 dígitos (padrão brasileiro) seja solicitado algo do servidor. Poderia ser retornado
+						também uma mensagem de "alert" solicitando que informe um CEP válido.
+	-fetch(`https://viacep.com.br/ws/${cepInformado}/json/`):	início do método fetch para solicitar informações com base no CEP à URL especificada nos 
+									parênteses. É importante mencionar que no prórpio site são dadas informações sobre o uso
+									deste recurso e que foi acrescentado "${cepInformado}" para receber o CEP digitado pelo
+									usuário. Importante ressaltar que o que está contido dentro dos parênteses é uma string, sendo
+									necessário o uso de aspas("" ou '') ou de crase (``), como no caso.
+	-.then(response => response.json()):	caso obtenha resposta da URL, é solicitado o arquivo no formato .json referente ao CEP
+	-.then(data => {}):			caso obtenha o arquivo .json, então será realizado o processoamento dos dados
+	-if(!data.erro){}:			validação: caso esteja tudo ok com o arquivo .json recebido, ou seja, caso seja diferente de erro, então será exeutado ]
+						o resto do processamento.
+	-document.getElementById('logradouro').value = data.logradouro;:	será retornado no elemento com id="logradouro" os dados de "logradouro" obtidos no.json
+        -document.getElementById('bairro').value = data.bairro;:		será retornado no elemento com id="bairro" os dados de "bairro" obtidos no .json
+        -document.getElementById('cidade').value = data.localidade;:		será retornado no elemento com id="cidade" os dados de "localidade" obtidos no .json
+        -document.getElementById('estado').value = data.uf;:			será retornado no elemento com id="estado" os dados de "uf" obtidos no .json
+	-.catch(error => console.error("Erro ao buscar CEP: ", error));:	se em alguns dos processos ou validações ocorrer algum erro, então será retornada uma 
+										função anônima com o "error" ocorrido como parâmetro e será exibido no console
+
+Obs: documentação para consulta sobre o uso do fetch salva no navegador em leituras. É possível verificar a requisição do arquivo .json ao servidor na guia "Network" 
+do DevTools na página web.	
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Web Storage API
+
+-É uma web API que permite armazenar dados no navegador do usuário de forma persistente (localStorage) ou temporária (sessionStorage)
+
+Quando utilizar web storage API?
+
+-Para persolnalizar as preferências do site (ex.: tema 'claro' ou tema 'escuro')
+-Atividade anterior persistente (ex.: produtos salvos em carrinhos de e-comerce)
+-Deixar o site mais rápido usando dados persistidos (ex.: dados que são carregados de um servidor ou de alguma API já ficam salvos, deixando a página mais rápida)
+-Aplicações para uso offline (ex.: para atividades que podem continuar sendo realizadas mesmo estando offline)
+
+Tipos de armazenamento de dados persistidos
+
+-localStorage:		dados persistem mesmo após fechar o navegador
+-sessionStorage:	dados são apagados ao fechar a aba/navegador
+
+Métodos principais
+
+-setItem(key,value):	método usado para salvar dados no localStorage
+	.localStorage.setItem('chave', valor):	salva
+
+-getItem(key):		método usado para recuperar dados armazenados no localStorage
+	.localStorage.getItem('chave'):	recupera
+
+-removeItem(key):		método usado para remover um item específico do localStorage
+	.localStorage.removeItem('chave'): remover
+
+-clear():		método remove todos os itens armazenados no localStorage
+	.localStorage.clear():	salva	
 	
