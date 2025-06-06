@@ -1066,3 +1066,6 @@ Ex.: cegonha transportadora
 	// LINHA 24: Quando a página CARREGAR, restaura os dados salvos
 	document.addEventListener('DOMContentLoaded', restaurarForm);		// 'DOMContentLoaded' = evento que dispara quando a página termina de carregar. É como 
 										dizer: "Assim que a página estiver pronta, chame restaurarForm()"
+
+Obs: para visualizar o que está armazenado localmente, basta clicar em inspecionar --> aplicativo (application) --> e expandir "armazenamento local". Lá 
+você encontrará as chaves e seus respectivos valores.
