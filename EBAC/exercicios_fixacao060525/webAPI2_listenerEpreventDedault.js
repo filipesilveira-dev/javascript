@@ -42,10 +42,13 @@ form.addEventListener("submit", (event)=>{  //precisa passar o "event", que é o
 document.getElementById("nome").addEventListener("input", (e)=>{
     document.getElementById("resposta").textContent = `Olá, ${e.target.value}`
 })
-*/
+
 
 //5. crie um botão contador de clicks
-const btn2 = document.getElementById("btn2")
-btn2.addEventListener("click", ()=>{
-btn2.textContent = "Contador";   
+const botao = document.getElementById("btn2")
+let count = 0   //ao se trabalhar com números que variem, evite utilizar "const" para variáveis
+botao.addEventListener("click", ()=>{
+count ++;
+btn2.textContent = `Contador de clicks: ${count}`;   
 })
+*/
