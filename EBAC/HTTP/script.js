@@ -12,7 +12,7 @@ fetch("")
         //cria um novo elemento de lista (<li>) para cada tarefa
         const item = document.createElement("li");
         //define o conteúdo HTML do item, incluindo descrição e botão
-        item.innerHTML = `${tarefa.descrição} <button>X</button>`;
+        item.innerHTML = `${tarefa.descrição} <button oclick="remove()">X</button>>X</button>`;
         //adiciona o novo item à lista de tarefas no HTML
         tarefas.appendChild(item);
 
@@ -43,8 +43,28 @@ document.getElementById("add").addEventListener("click", ( => {
         //cria um novo elemento de lista (<li>) para cada tarefa
         const item = document.createElement("li");
         //define o conteúdo HTML do item, incluindo descrição e botão
-        item.innerHTML = `${tarefa.descrição} <button>X</button>`;
+        item.innerHTML = `${tarefa.descrição} <button oclick="remove()">X</button>`;
         //adiciona o novo item à lista de tarefas no HTML
         tarefas.appendChild(item);
     })
 }))
+
+remove(){
+    fetch("", {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if(!response.erro){
+            alert ("Usuário deletado!");
+            response.JSON();
+        } else {
+            alert ("Não foi possível deletar o usuário")
+        }
+    })
+    .then (data =>{
+
+    })
+}
