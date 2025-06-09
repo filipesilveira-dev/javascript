@@ -1,9 +1,11 @@
 //seleciona a <ul> com a lista de tarefas do HTML 
 const tarefas = document.getElementById("listaTarefas");
 
+//obs: "descricao" é a chave e seu valor é "Tarefa 1"
+
 //utilizar o fecth para pegar (GET) as tarefas criadas no Crudcrud no exercício com postman
-fetch("")
-.then (response => response.json());
+fetch("https://cafe17c542449caddf3c.free.beeceptor.com/api/tarefas/")
+.then ((response) => response.json())
 .then ((listaDeTarefas) =>{       //se der certo, será retornada uma array com várias tarefas
 
     //itera sobre cada tarefa do array. Para cada elemento (tarefa) de listaDeTarefas será executada o que está na arrow function
@@ -12,21 +14,21 @@ fetch("")
         //cria um novo elemento de lista (<li>) para cada tarefa
         const item = document.createElement("li");
         //define o conteúdo HTML do item, incluindo descrição e botão
-        item.innerHTML = `${tarefa.descrição} <button oclick="remove()">X</button>>X</button>`;
+        item.innerHTML = `${tarefa.descricao} <button oclick="remove(${tarefa.id})">X</button>`;
         //adiciona o novo item à lista de tarefas no HTML
         tarefas.appendChild(item);
-
     });
-});
+})
+.catch(error => console.error("Erro ao adicionar tarefa: ", error)); 
 
 //criar o evento de cadastrar um nova atrefa
-document.getElementById("add").addEventListener("click", ( => {
+document.getElementById("add").addEventListener("click", () => {
 
     //seleciona o elemento HTML (id="terefa") de onde será recebido o valor ou informação que será acrescentada na lista de tarefas 
     const description = document.getElementById("tarefa").value;  
     
     //a URL será a mesma utilizada anteriormente no método GET, porém ao final será acrecentado um objeto e suas informações que serão acrescidas
-    fetch("", {
+    fetch("https://cafe17c542449caddf3c.free.beeceptor.com/api/tarefas/", {
 
         method: "POST", //método de acrescentar
         headers: {
@@ -37,34 +39,38 @@ document.getElementById("add").addEventListener("click", ( => {
         body: JSON.stringify({descricao: description}) 
 
     })
-    .then (response => response.json());
+    .then (response => response.json())
     .then (tarefa => {
 
         //cria um novo elemento de lista (<li>) para cada tarefa
         const item = document.createElement("li");
         //define o conteúdo HTML do item, incluindo descrição e botão
-        item.innerHTML = `${tarefa.descrição} <button oclick="remove()">X</button>`;
+        item.innerHTML = `${tarefa.descricao} <button oclick="remove(${tarefa.id})">X</button>`;
         //adiciona o novo item à lista de tarefas no HTML
         tarefas.appendChild(item);
     })
-}))
+})
 
-remove(){
-    fetch("", {
+
+function remove(tarefaId){
+    fetch(`https://cafe17c542449caddf3c.free.beeceptor.com/api/tarefas/${tarefaId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     .then(response => {
-        if(!response.erro){
+        if(response.ok){
             alert ("Usuário deletado!");
-            response.JSON();
+            response.json();
         } else {
             alert ("Não foi possível deletar o usuário")
         }
     })
     .then (data =>{
-
+        if (data) {
+            console.log('Resposta:', data);
+        }
     })
+    .catch(error => console.error("Erro ao deletar tarefa: ", error));
 }
