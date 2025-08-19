@@ -4,7 +4,7 @@ const tarefas = document.getElementById("listaTarefas");
 //obs: "descricao" é a chave e seu valor é "Tarefa 1"
 
 //utilizar o fecth para pegar (GET) as tarefas criadas no Crudcrud no exercício com postman. Por utilizar o "fetch", o "GET" não precisa ser especificado como nos outros casos.
-fetch("https://crudcrud.com/api/1c70734bdef74bfea3733b6258bf11c2/tarefas")
+fetch("https://crudcrud.com/api/7b56a48d0dcc4226a1bafae91f098b3f/tarefas")
     //caso a requisição dê certo, ou seja, a resposta venha, visa-se buscar o json dela
     .then((response) => response.json())
     //se der certo pegar o json da resposta, será retornada uma array com várias tarefas
@@ -16,7 +16,7 @@ fetch("https://crudcrud.com/api/1c70734bdef74bfea3733b6258bf11c2/tarefas")
             //cria um novo elemento de lista (<li>) para cada tarefa
             const item = document.createElement("li");
             //define o conteúdo HTML do item, incluindo descrição e botão (o json se ordena "descricao":"valor". Nesse caso, está agindo na descrição, na chave). Adiciona-se também um botão
-            item.innerHTML = `${tarefa.descricao} <button onclick="remove(${tarefa._id})">X</button>`;
+            item.innerHTML = `${tarefa.descricao} <button data-id="${tarefa._id}" onclick="remove('${tarefa._id}')">X</button>`;
             //adiciona o novo item à constante "tarefas" a qual recebe o elemento HTML com id = "listaTarefas"
             tarefas.appendChild(item);
         });
@@ -30,7 +30,7 @@ document.getElementById("add").addEventListener("click", () => {
     const descricao = document.getElementById("tarefa").value;
 
     //a URL será a mesma utilizada anteriormente no método GET, porém ao final será acrecentado um objeto e suas informações que serão acrescidas
-    fetch("https://crudcrud.com/api/1c70734bdef74bfea3733b6258bf11c2/tarefas", {
+    fetch("https://crudcrud.com/api/7b56a48d0dcc4226a1bafae91f098b3f/tarefas", {
 
         method: "POST", //método de acrescentar
         headers: {
@@ -47,29 +47,52 @@ document.getElementById("add").addEventListener("click", () => {
             //cria um novo elemento de lista (<li>) para cada tarefa
             const item = document.createElement("li");
             //define o conteúdo HTML do item, incluindo descrição e botão
-            item.innerHTML = `${tarefa.descricao} <button onclick="remove(${tarefa._id})">X</button>`;
+            item.innerHTML = `${tarefa.descricao} <button data-id="${tarefa._id}" onclick="remove('${tarefa._id}')">X</button>`;
             //adiciona o novo item à lista de tarefas no HTML
             tarefas.appendChild(item);
         })
+    limparCampo()
+    
 })
 
+function limparCampo() {
+    const tarefa = document.getElementById('tarefa')
+    tarefa.value = ''
+    tarefa.focus();
+}
 
 function remove(tarefaId) {
-    fetch(`https://crudcrud.com/api/1c70734bdef74bfea3733b6258bf11c2/tarefas/${tarefaId}`, {
+    fetch(`https://crudcrud.com/api/7b56a48d0dcc4226a1bafae91f098b3f/tarefas/${tarefaId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         },
-    });
+    })
 
-    // Verifica se deu certo
-    if (response.ok) {
-        console.log(`Item com ID ${tarefaId} foi deletado com sucesso!`);
-        return true;
+        .then(response => {
+            // Verifica se deu certo para depois chamar a função para remover da tela
+            if (response.ok) {
+                console.log(`Item com ID ${tarefaId} foi deletado com sucesso!`);
+                removerItemDaTela(tarefaId);
+            } else {
+                console.log('Erro ao deletar item:', response.status);
+                alert('Erro ao deletar tarefa');
+            }
+        })
+        .catch(error => {
+            console.error('Erro na requisição de delete:', error);
+            alert('Erro ao conectar com o servidor');
+        });
+}
+
+function removerItemDaTela(tarefaId) {
+    const button = document.querySelector(`button[data-id="${tarefaId}"]`);
+    // se tiver um elemento com id='button'
+    if (button) {
+        // Remove o elemento pai (li) do botão encontrado
+        button.parentElement.remove();
+        console.log(`Item com ID ${tarefaId} removido da tela`);
     } else {
-        console.log('Erro ao deletar item:', response.status);
-        return false;
+        console.error(`Botão com ID ${tarefaId} não encontrado na tela`);
     }
-
-      
 }
