@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de gastos</title>
+    <link rel="stylesheet" href="gastosRef.css">
+</head>
+<body>
+    <main id="body">
+        <h1>Controle de Gastos</h1> <!--abaixo do h1 utilizar formulário-->
+        <form>
+            <input type="number" name="valor" id="valor" placeholder="Digite o valor do gasto">
+            <select name="categoria" id="categoria">
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Lazer">Lazer</option>
+                <option value="Outros">Outros</option>
+            </select>
+            <button type="submit" value="Adicionar" id="adicionar">Adicionar</button>
+        </form>
+        <section>
+            <div id="Alimentação">
+                Alimentação: R$ 0,00
+            </div>
+            <div id="Transporte">
+                Transporte: R$ 0,00
+            </div>
+            <div id="Lazer">
+                Lazer: R$ 0,00
+            </div>
+            <div id="Outros">
+                Outros: R$ 0,00
+            </div>
+            <div id="Total">
+                Total: R$ 0,00
+            </div>
+        </section>
+    </main>
+    <!-- importante o "type=module" para permitir a modulação, uso de mais de um arquivo js. -->
+    <script type="module" src="./js/appRef.js"></script>
+</body>
+</html>

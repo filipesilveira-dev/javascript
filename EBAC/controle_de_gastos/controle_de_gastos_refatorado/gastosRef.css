@@ -1,0 +1,161 @@
+
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+}
+
+/* container para h1, formulário e seção de resultados */
+main{
+    display: flex;
+    border: 1.5px solid #007bff98;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    min-height: 400px;
+    flex-direction: column;
+    justify-content: space-around;  
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+main > h1{
+    text-align: center;
+    color: rgb(109, 109, 224);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* formulário */
+form{
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-around; 
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+/* input de valor a ser cadastrado */
+#valor{
+    border: 1px solid rgb(109, 109, 224);
+    border-radius: 5px;
+    height: 35px;
+    padding: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#valor:focus{
+    outline: none;
+    border-color: #007CFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* select das categorias */
+#categoria{
+    border-radius: 5px;
+    border: 1px solid #007bff98;
+    box-shadow: 1px .5px #007bff98;
+    height: 35px; 
+    padding: 8px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#categoria:focus{
+    outline: none;
+    border-color: #007CFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* botão de adicionar o valor */
+#adicionar{
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #007bff98;
+    box-shadow: .5px .5px #007bff98;
+    padding: 10px;
+    background-color: #007CFF;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#adicionar:hover {
+    background-color: #55AFFF;
+    transform: translateY(-1px);
+}
+
+#adicionar:active {
+    transform: translateY(0);
+}
+
+/* seção de resultados */
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+/* divs das categorias e total */
+section > div{
+    border: 1px solid rgb(109, 109, 224);
+    border-radius: 5px;
+    box-shadow: .5px .5px #007bff98;
+    height: 35px;
+    padding: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+section > div:hover {
+    background-color: #e9ecef;
+}
+
+/* destaque para o total */
+#Total{
+    background-color: #55AFFF !important;
+    color: white;
+    font-weight: bold;
+    border-color: #007CFF;
+}
+
+#Total:hover {
+    background-color: #007CFF !important;
+}
+
+/* responsividade para telas menores */
+@media (max-width: 768px) {
+    main {
+        width: 90vw;
+        min-height: 450px;
+        padding: 15px;
+    }
+    
+    main > h1 {
+        font-size: 1.3rem;
+    }
+}
