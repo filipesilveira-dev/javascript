@@ -3,22 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agência Criativa Web</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="images/lightIcon.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <div>
             <!-- logo da empresa -->
+            <img src="images/logoAgenciaCriativaWeb.png" alt="logo da agência">
+            
+            <div class="nameSlogan">
+                <h3>Agência Criativa Web |</h3>
+                <p class="slogan">Criando e desenvolvendo</p>
+            </div>
         </div>
         <nav>
             <!-- menu de navegação -->
+             <a href="">Home</a>
+             <a href="">Sobre Nós</a>
+             <a href="">Serviços</a>
+             <a href="">Depoimentos</a>
+             <a href="">Contato</a>
         </nav>
-        <section>Home</section>
-        <section>Sobre Nós</section>
-        <section>Serviços</section>
-        <section>Depoimentos</section>
-        <section>Contato</section>
     </header>
+    <section>Home</section>
+    <section>Sobre Nós</section>
+    <section>Serviços</section>
+    <section>Depoimentos</section>
+    <section>Contato</section>
+            <form action="" id="meuFormulario">
+
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" required>
+
+                <label for="email">Email: </label>
+                <input type="email" name="sobrenome" id="email" required>
+
+                <label for="mensagem">Mensagem: </label>
+
+                <!-- utilizado para estilizar a caixa de mensagem -->
+                <textarea id="mensagem" name="mensagem" rows="3" placeholder="Digite aqui" minlength="20" maxlength="1000" required></textarea>
+                
+                <button type="submit" style="margin-top: 10px;">Enviar</button>
+            </form>
 </body>
 </html>
