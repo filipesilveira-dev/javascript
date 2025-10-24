@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 
 /* reset */
 * {
@@ -14,12 +17,26 @@
 }
 
 /* mobile first */
+
+body {
+    background-color: var(--primary-bg-color);
+    font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
+    /*Fonte importada do google fonts*/
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
 header{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin-top: 5rem;
     align-items: center;
-    height: 20vh;
+    
 }
 
 /* logo e nome da agência. Substituir por "class" */
@@ -27,7 +44,9 @@ header>div{
     display: flex;
     justify-content: center;
     width: 100vw;
-    gap: .5em;
+    gap: 1em;
+    height: 50%;
+    margin-bottom: 4.5rem;
 }
 
 .nameSlogan{
@@ -36,14 +55,21 @@ header>div{
     align-items: center;
     justify-content: center;
 }
+
+.name{
+    font-size: 3em;
+}
+
 .slogan{
-    font-size: .75em;  
+    font-size: 1.5em;  
 }
 
 header>div>img{
-    height: 3em;
-    width: 3em;
+    height: 5em;
+    width: 5em;
     align-self: center;
+    border: .5px solid black;
+    border-radius: 50%;
 }
 
 /* menu de navegação. Substituir por "class" */
@@ -51,9 +77,51 @@ header>nav{
     display: flex;
     justify-content: space-around;
     width: 100vw;
+    height: 3rem;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-header>nav>a{
-    color: inherit;
-    cursor: pointer;
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+section>p{
+    text-align: justify;
+    margin: 0;
+    padding: 1rem;
+}
+
+.services{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 40rem;
+    height: 30rem;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.myForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;   
+    width: 60%;
+}
+
+/* media query */
+@media (min-width: 768px){}
+
+@media (min-width: 992px){}
+
+@media (min-width: 1200px){}
+
+@media (min-width: 1400px){}
