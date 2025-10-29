@@ -3,6 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
 
+:root{
+    --primary-color: #F0F0F0;
+    --primary-bg-color: #3A0035;
+    --secondary-bg-color: #570E51;
+
+    --title-color: #F0F0F0;
+    --text-color: #AD74A8;
+    --link-color: #F0F0F0;
+    --icon-color: #AD74A8;
+}
+
 /* reset */
 * {
     margin: 0px;
@@ -27,28 +38,43 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--link-color);
     cursor: pointer;
 }
 
+h2{
+    color: var(--title-color);
+}
+
+/* contém a logo, o nome da empresa, slogan e menu de navegação */
 header{
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
     align-items: center;
-    
 }
 
-/* logo e nome da agência. Substituir por "class" */
-header>div{
+/* div que contém a imagem da logo e o nome da empresa */
+.logoAndName{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     gap: 1em;
     height: 50%;
     margin-bottom: 4.5rem;
 }
 
+/* logo da empresa ao lado do nome */
+.logo{
+    height: 5em;
+    width: 5em;
+    align-self: center;
+    border: .5px solid black;
+    border-radius: 50%;
+    background-color: var(--text-color);
+}
+
+/* div contida em ".logoAndName" que abarca o nome da empresa e seu slogan */
 .nameSlogan{
     display: flex;
     flex-direction: column;
@@ -56,34 +82,30 @@ header>div{
     justify-content: center;
 }
 
+/* nome da empresa */
 .name{
-    font-size: 3em;
+    font-size: 2em;
+    color: var(--title-color);
 }
 
+/* slogan da empresa */
 .slogan{
-    font-size: 1.5em;  
+    font-size: 1em;  
 }
 
-header>div>img{
-    height: 5em;
-    width: 5em;
-    align-self: center;
-    border: .5px solid black;
-    border-radius: 50%;
-}
-
-/* menu de navegação. Substituir por "class" */
-header>nav{
+/* nav que contém o menu de navegação */
+.menu{
     display: flex;
     justify-content: space-around;
-    width: 100vw;
+    width: 100%;
     height: 3rem;
     align-items: center;
     border: 1px solid black;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
 }
 
+/* padroniza todas as sections */
 section{
     display: flex;
     flex-direction: column;
@@ -91,6 +113,7 @@ section{
     align-items: center;
 }
 
+/* padroniza todos os parágrafos contidos em sections */
 section>p{
     text-align: justify;
     margin: 0;
@@ -101,11 +124,43 @@ section>p{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    width: 40rem;
-    height: 30rem;
+    width: 90%;
+    text-align: center;
     padding: 1rem;
-    font-size: 2rem;
+    gap: 1rem;
+    font-size: 1rem;
     font-weight: bold;
+    color: var(--primary-color);
+    
+}
+
+/* cada serviço */
+span{
+    background-color: var(--secondary-bg-color);
+    border-radius: 5%;
+    height: 120%;
+}
+
+/* section que contém os depoimentos */
+.statements{
+    padding: 1rem;
+}
+
+.client{
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+h3{
+    text-align: center;
+    gap: 1rem;
+}
+/* formulário */
+.formContainer{
+    padding: 1rem;
+    border-top: 1px solid var(--primary-color);
 }
 
 .myForm{
@@ -115,6 +170,19 @@ section>p{
     align-items: center;
     gap: 1em;   
     width: 60%;
+    padding: .5rem;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.phone{
+    color: var(--primary-color);
 }
 
 /* media query */

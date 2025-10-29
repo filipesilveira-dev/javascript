@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agência Criativa Web</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos1.css">
     <link rel="shortcut icon" href="images/lightIcon.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <div>
+        <div class="logoAndName">
             <!-- logo da empresa -->
-            <img src="images/logoAgenciaCriativaWeb.png" alt="logo da agência">
+            <img src="images/logoAgenciaCriativaWeb.png" alt="logo da agência" class="logo">
             
             <div class="nameSlogan">
                 <h3 class="name">Agência Criativa Web |</h3>
                 <p class="slogan">Criando e desenvolvendo</p>
             </div>
         </div>
-        <nav>
+        <nav class="menu">
             <!-- menu de navegação -->
              <a href="">Home</a>
              <a href="">Sobre Nós</a>
@@ -43,21 +43,40 @@
             <span>E-Commerce</span>
             <span>Chat Bots</span>
             <span>Apps</span>
+            <span>Branding</span>
         </div>
     </section>
-    <section>
+    <section class="statements">
         <h2>Depoimentos</h2>
-        <img src="images/imagemDepoimento1.png" alt="pessoa depoimento 1">
-        <p></p>
-        <img src="images/imagemDepoimento2.png" alt="pessoa depoimento 1">
-        <p></p>
-        <img src="images/imagemDepoimento3.png" alt="pessoa depoimento 1">
-        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quia tenetur perferendis minus aperiam neque eaque doloribus placeat ducimus quas magni, odit expedita suscipit? Suscipit enim dolorum in magni nisi.</p>
+        <img src="images/imagemDepoimento1.png" 
+                srcset="images/imagemDepoimento1-small.png 600w,
+                images/imagemDepoimento1.png 1200w,
+                images/imagemDepoimento1.png 1800w"
+        alt="pessoa depoimento 1" class="client">
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet alias eligendi nulla doloribus hic nobis ratione fugiat maxime? Autem sint amet eligendi, aliquam facilis explicabo officia quos fugiat est eius!</p>
+        <img src="images/imagemDepoimento2.png" 
+                srcset="images/imagemDepoimento2-small.png 600w,
+                images/imagemDepoimento2.png 1200w,
+                images/imagemDepoimento2.png 1800w"
+        alt="pessoa depoimento 2" class="client">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora suscipit rem, nulla fugit deleniti tempore ut incidunt laudantium nesciunt quibusdam officiis sed. Cumque, eum adipisci! Incidunt alias enim debitis mollitia?</p>
+       <img src="images/imagemDepoimento3.png" 
+                srcset="images/imagemDepoimento3-small.png 600w,
+                images/imagemDepoimento3.png 1200w,
+                images/imagemDepoimento3.png 1800w"
+        alt="pessoa depoimento 3" class="client">
+        
     </section>
-    <section>
+    <section class="formContainer">
         <h2>Contato</h2>
 
-            <form action="" id="myForm" class="myForm">
+        
+            <form action="" id="myForm" class="myForm"> 
+                <h3>Cadastre-se para receber novidades:</h3>
 
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome" required>
@@ -72,6 +91,12 @@
                 
                 <button type="submit" style="margin-top: 10px;">Enviar</button>
             </form>
+
+        <div class="contact">
+            <h3>Fale conosco:</h3>
+            <span class="phone">Telefone: +55 (11) 4200-2991</span>
+            <span class="phone">WhatsApp: +55 (11) 4200-2991</span>
+        </div>
 
         </section>
 </body>
