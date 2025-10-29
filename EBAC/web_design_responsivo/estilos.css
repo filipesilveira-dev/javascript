@@ -29,6 +29,11 @@
 
 /* mobile first */
 
+/* transição suave ao navegar via menu pela página */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--primary-bg-color);
     font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,14 +49,22 @@ a {
 
 h2{
     color: var(--title-color);
+    scroll-margin-top: 14.5rem;
 }
 
 /* contém a logo, o nome da empresa, slogan e menu de navegação */
 header{
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     align-items: center;
+    position: sticky;     /* fixa o menu na tela */
+    top: 0;              /* cola no topo */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-bg-color);
+    margin-bottom: 0px;
 }
 
 /* div que contém a imagem da logo e o nome da empresa */
@@ -61,7 +74,8 @@ header{
     width: 100%;
     gap: 1em;
     height: 50%;
-    margin-bottom: 4.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 /* logo da empresa ao lado do nome */
@@ -102,9 +116,11 @@ header{
     align-items: center;
     border: 1px solid black;
     font-size: 1rem;
-    margin-bottom: 2rem;
 }
 
+#home{
+    margin-top: 1rem;
+}
 /* padroniza todas as sections */
 section{
     display: flex;
@@ -113,6 +129,10 @@ section{
     align-items: center;
 }
 
+.bg-computer{
+    width: 100%;
+    padding-bottom: 1rem;
+}
 /* padroniza todos os parágrafos contidos em sections */
 section>p{
     text-align: justify;
@@ -124,10 +144,10 @@ section>p{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    width: 90%;
-    text-align: center;
+    width: 100%;
+    height: 16rem;
     padding: 1rem;
-    gap: 1rem;
+    gap: .5rem;
     font-size: 1rem;
     font-weight: bold;
     color: var(--primary-color);
@@ -136,9 +156,12 @@ section>p{
 
 /* cada serviço */
 span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--secondary-bg-color);
     border-radius: 5%;
-    height: 120%;
+    
 }
 
 /* section que contém os depoimentos */
@@ -146,10 +169,21 @@ span{
     padding: 1rem;
 }
 
+.statements>p{
+    border: 1px solid var(--secondary-bg-color);
+    border-radius: 5%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--icon-color);
+    color: var(--primary-bg-color);
+    box-shadow: inset 5px 5px 10px var(--secondary-bg-color),
+              inset -5px -5px 10px var(--text-color);
+}
+
 .client{
-    width: 18rem;
-    height: 18rem;
-    border-radius: 50%;
+    /* width: 18rem;
+    height: 18rem; */
+    border-radius: 10%;
     overflow: hidden;
 }
 
@@ -170,7 +204,10 @@ h3{
     align-items: center;
     gap: 1em;   
     width: 60%;
+    margin: .5rem;
     padding: .5rem;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5%;
 }
 
 .contact{
@@ -179,6 +216,17 @@ h3{
     justify-content: center;
     align-items: center;
     gap: .5rem;
+}
+
+.button{
+    width: 50%;
+    height: 1.5rem;
+    background-color: var(--text-color);
+    color: var(--primary-bg-color);
+    border: 1px solid var(--secondary-bg-color);
+    border-radius: 5%;
+    
+    cursor: pointer;
 }
 
 .phone{
