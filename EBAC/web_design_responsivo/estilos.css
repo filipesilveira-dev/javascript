@@ -118,9 +118,30 @@ header{
     font-size: 1rem;
 }
 
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 0;
+    padding: 1rem;
+}
+
 #home{
     margin-top: 1rem;
 }
+
+#aboutContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 0px;
+}
+
 /* padroniza todas as sections */
 section{
     display: flex;
@@ -133,6 +154,7 @@ section{
     width: 100%;
     padding-bottom: 1rem;
 }
+
 /* padroniza todos os parágrafos contidos em sections */
 section>p{
     text-align: justify;
@@ -151,6 +173,8 @@ section>p{
     font-size: 1rem;
     font-weight: bold;
     color: var(--primary-color);
+    max-width: 54rem;
+    margin: 0 auto;
     
 }
 
@@ -169,9 +193,26 @@ span{
     padding: 1rem;
 }
 
-.statements>p{
+#statement1,
+#statement2,
+#statement3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 54rem;
+    margin: 0 auto;
+}
+
+#statement1>p,
+#statement2>p,
+#statement3>p
+{
+    text-align: justify;
+    margin: 0;
+    padding: 1rem;
     border: 1px solid var(--secondary-bg-color);
-    border-radius: 5%;
+    border-radius: 10px;
     padding: 0.5rem;
     margin: 1rem;
     background-color: var(--icon-color);
@@ -234,7 +275,37 @@ h3{
 }
 
 /* media query */
-@media (min-width: 768px){}
+@media (min-width: 768px){
+    #statement1,
+    #statement3{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #statement2{
+        flex-direction: row-reverse;
+    }
+
+    #homeContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home{
+        width: 60%;
+        max-width: 27rem;
+    }
+
+    .bg-computer{
+        width: 40%;
+        max-width: 27rem;
+    }
+
+}
 
 @media (min-width: 992px){}
 
