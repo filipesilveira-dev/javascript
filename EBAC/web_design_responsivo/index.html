@@ -8,29 +8,45 @@
     <link rel="shortcut icon" href="images/lightIcon.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="logoAndName">
+    <header class="header">
+        <div class="header__logo-name">
             <!-- logo da empresa -->
-            <img src="images/logoAgenciaCriativaWeb.png" alt="logo da agência" class="logo">
+            <img src="images/logoAgenciaCriativaWeb.png" alt="logo da agência" class="header__logo">
             
-            <div class="nameSlogan">
-                <h3 class="name">Agência Criativa Web |</h3>
-                <p class="slogan">Criando e desenvolvendo</p>
+            <div class="header__name-slogan">
+                <h3 class="header__name">Agência Criativa Web |</h3>
+                <p class="header__slogan">Criando e desenvolvendo</p>
             </div>
         </div>
-        <nav class="menu">
-            <!-- menu de navegação -->
-             <a href="#home">Home</a>
-             <a href="#about">Sobre Nós</a>
-             <a href="#services">Serviços</a>
-             <a href="#statements">Depoimentos</a>
-             <a href="#contact">Contato</a>
-        </nav>
+
+         <nav class="menu">
+            
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a href="#home">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#about">Sobre Nós</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#services">Serviços</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#statements">Depoimentos</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#contact">Contato</a>
+                </li>
+            </ul>
+             
+        </nav>  
+        
     </header>
-    <section id="homeContainer">
-        <div class="home">
-            <h2 id="home">Home</h2>
-            <p><strong>Seja bem-vindo(a) à Agência Criativa Web!</strong> A líder de mercado no segmento que ajuda sua empresa a desenvolver sua marcar oderecendo serviços de qualidade e satisfação garantida. Nossa criatividade e o seu desenvolvimento.</p>
+
+    <section class="section section__home">
+        <div class="home__container">
+            <h2 class="home__header" id="home">Home</h2>
+            <p class="section__text"><strong>Seja bem-vindo(a) à Agência Criativa Web!</strong> A líder de mercado no segmento que ajuda sua empresa a desenvolver sua marcar oderecendo serviços de qualidade e satisfação garantida. Nossa criatividade e o seu desenvolvimento.</p>
         </div>
         <img src="images/bg-home.jpg" 
                 srcset="images/bg-home.jpg 600w,
@@ -38,10 +54,12 @@
                 images/bg-home.jpg 1800w"
         alt="bg com computadores" class="bg-computer">
     </section>
-    <section id="aboutContainer">
+
+    <section class="about__container">
         <h2 id="about">Sobre Nós</h2>
-        <p>A Agência Criativa Web nasceu da paixão por transformar ideias em experiências visuais impactantes. Nosso propósito é unir criatividade e estratégia digital para impulsionar o crescimento de marcas e negócios. Acreditamos que o design não é apenas estética — é uma ferramenta poderosa de desenvolvimento e conexão. Cada projeto é uma oportunidade de construir algo único, que inspire, comunique e gere resultados reais. Na Agência Criativa Web, criamos para fazer você crescer.</p>
+        <p class="section__text">A Agência Criativa Web nasceu da paixão por transformar ideias em experiências visuais impactantes. Nosso propósito é unir criatividade e estratégia digital para impulsionar o crescimento de marcas e negócios. Acreditamos que o design não é apenas estética — é uma ferramenta poderosa de desenvolvimento e conexão. Cada projeto é uma oportunidade de construir algo único, que inspire, comunique e gere resultados reais. Na Agência Criativa Web, criamos para fazer você crescer.</p>
     </section>
+
     <section>
         <h2 id="services">Serviços</h2>
         <div class="services">
@@ -53,6 +71,21 @@
             <span>Branding</span>
         </div>
     </section>
+
+    <!--  
+    <section class="services__container">
+        <h2 class="services__header" id="services">Serviços</h2>
+        <ul class="services__list">
+            <li>Landing Pages</li>
+            <li>Websites</li>
+            <li>E-Commerce</li>
+            <li>Chat Bots</li>
+            <li>Apps</li>
+            <li>Branding</li>
+        <li
+    </section>
+    -->
+
     <section class="statements">
         <h2 id="statements">Depoimentos</h2>
 

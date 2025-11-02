@@ -41,25 +41,43 @@ body {
     color: var(--text-color);
 }
 
+/* esilização padrão para as âncoras */
 a {
     text-decoration: none;
     color: var(--link-color);
     cursor: pointer;
 }
 
+/* estilização padrão ao posicionar o cursor em cima de uma âncora */
+a:hover{
+    color: var(--text-color);
+}
+
+/* estilização padrão ao clicar com o cursor em cima de uma âncora */
+a:active{
+    font-weight: bold;
+}
+
+/* estilização padrâo aos <h2> utilizados como títulos das partes da página */
 h2{
     color: var(--title-color);
+    /* acrescenta 14.5rem de margin-top toda vez que acessar alguma parte da página por meio de âncora. O tamneho da margem é o equivalente ao tamanho (altura) do header para faciliar a vizualização */
     scroll-margin-top: 14.5rem;
 }
 
+/* AQUI IINICIA ESTILIZAÇÃO DO HEADER COM BEM*/
+
 /* contém a logo, o nome da empresa, slogan e menu de navegação */
-header{
+.header{
     display: flex;
     flex-direction: column;
-    /* margin-top: 5rem; */
     align-items: center;
-    position: sticky;     /* fixa o menu na tela */
-    top: 0;              /* cola no topo */
+
+    /* fixa o menu na tela */
+    position: sticky;     
+    /* cola no topo */  
+    top: 0;     
+
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -68,7 +86,7 @@ header{
 }
 
 /* div que contém a imagem da logo e o nome da empresa */
-.logoAndName{
+.header__logo-name{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -79,7 +97,7 @@ header{
 }
 
 /* logo da empresa ao lado do nome */
-.logo{
+.header__logo{
     height: 5em;
     width: 5em;
     align-self: center;
@@ -88,8 +106,8 @@ header{
     background-color: var(--text-color);
 }
 
-/* div contida em ".logoAndName" que abarca o nome da empresa e seu slogan */
-.nameSlogan{
+/* div contida em ".header__logoAndName" que abarca o nome da empresa e seu slogan */
+.header__name-slogan{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,18 +115,18 @@ header{
 }
 
 /* nome da empresa */
-.name{
+.header__name{
     font-size: 2em;
     color: var(--title-color);
 }
 
 /* slogan da empresa */
-.slogan{
+.header__slogan{
     font-size: 1em;  
 }
 
-/* nav que contém o menu de navegação */
-.menu{
+/* <nav> e <ul> que contêm o menu de navegação e seus itens*/
+.menu, .menu__list{
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -118,23 +136,39 @@ header{
     font-size: 1rem;
 }
 
+/* AQUI TERMINA ESTILIZAÇÃO DO HEADER COM BEM*/
+
+/* padroniza todas as sections */
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* div com <h2> e <p> */
-.home{
+.home__container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: justify;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.home__header{
+    margin-top: 1rem;
+} 
+
+/* imagem do computador */
+.bg-computer{
+    width: 100%;
     padding: 1rem;
 }
 
-#home{
-    margin-top: 1rem;
-}
-
 /* container na seção sobre nós */
-#aboutContainer{
+.about__container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,22 +178,8 @@ header{
     padding: 0px;
 }
 
-/* padroniza todas as sections */
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* imagem do computador */
-.bg-computer{
-    width: 100%;
-    padding: 1rem;
-}
-
 /* padroniza todos os parágrafos contidos em sections */
-section>p{
+.section__text{
     text-align: justify;
     margin: 0;
     padding: 1rem;
@@ -286,6 +306,42 @@ h3{
 
 /* media query */
 @media (min-width: 768px){
+
+    h2{
+    scroll-margin-top: 9rem;
+    }
+    
+    .section.section__home{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0;
+        margin-left: 0;
+        width: 50%;
+        max-width: 27rem;
+    }
+
+    .home__header{
+        width: 60%;
+        max-width: 27rem;
+        margin: 0 auto;
+        text-align: center;
+        scroll-margin-top: 18rem;
+    }
+
+    .bg-computer{
+        width: 40%;
+        max-width: 27rem;
+    }
+
     #statement1,
     #statement3{
         display: flex;
@@ -298,27 +354,10 @@ h3{
         flex-direction: row-reverse;
     }
 
-    #homeContainer{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home{
-        width: 60%;
-        max-width: 27rem;
-    }
-
-    .bg-computer{
-        width: 40%;
-        max-width: 27rem;
-    }
-
 }
 
 @media (min-width: 992px){
-   .logoAndName{
+   .header__logo-name{
         padding-top: .5rem;
         padding-bottom: .5rem;
     }
