@@ -22,20 +22,20 @@
          <nav class="menu">
             
             <ul class="menu__list">
-                <li class="menu__item">
-                    <a href="#home">Home</a>
+                <li>
+                    <a class="menu__item" href="#home">Home</a>
                 </li>
-                <li class="menu__item">
-                    <a href="#about">Sobre Nós</a>
+                <li>
+                    <a class="menu__item" href="#about">Sobre Nós</a>
                 </li>
-                <li class="menu__item">
-                    <a href="#services">Serviços</a>
+                <li>
+                    <a class="menu__item" href="#services">Serviços</a>
                 </li>
-                <li class="menu__item">
-                    <a href="#statements">Depoimentos</a>
+                <li>
+                    <a class="menu__item" href="#statements">Depoimentos</a>
                 </li>
-                <li class="menu__item">
-                    <a href="#contact">Contato</a>
+                <li>
+                    <a class="menu__item" href="#contact">Contato</a>
                 </li>
             </ul>
              
@@ -45,7 +45,7 @@
 
     <section class="section section__home">
         <div class="home__container">
-            <h2 class="home__header" id="home">Home</h2>
+            <h2 class="home__header header__section" id="home">Home</h2>
             <p class="section__text"><strong>Seja bem-vindo(a) à Agência Criativa Web!</strong> A líder de mercado no segmento que ajuda sua empresa a desenvolver sua marcar oderecendo serviços de qualidade e satisfação garantida. Nossa criatividade e o seu desenvolvimento.</p>
         </div>
         <img src="images/bg-home.jpg" 
@@ -55,74 +55,61 @@
         alt="bg com computadores" class="bg-computer">
     </section>
 
-    <section class="about__container">
-        <h2 id="about">Sobre Nós</h2>
+    <section class="section about__container">
+        <h2 class="header__section" id="about">Sobre Nós</h2>
         <p class="section__text">A Agência Criativa Web nasceu da paixão por transformar ideias em experiências visuais impactantes. Nosso propósito é unir criatividade e estratégia digital para impulsionar o crescimento de marcas e negócios. Acreditamos que o design não é apenas estética — é uma ferramenta poderosa de desenvolvimento e conexão. Cada projeto é uma oportunidade de construir algo único, que inspire, comunique e gere resultados reais. Na Agência Criativa Web, criamos para fazer você crescer.</p>
     </section>
 
-    <section>
-        <h2 id="services">Serviços</h2>
-        <div class="services">
-            <span>Landing Pages</span>
-            <span>Websites</span>
-            <span>E-Commerce</span>
-            <span>Chat Bots</span>
-            <span>Apps</span>
-            <span>Branding</span>
-        </div>
+    <section class="section services__container">
+        <h2 class="services__header header__section" id="services">Serviços</h2>
+        <ul class="service__list">
+            <li class="services__item">Landing Pages</li>
+            <li class="services__item">Websites</li>
+            <li class="services__item">E-Commerce</li>
+            <li class="services__item">Chat Bots</li>
+            <li class="services__item">Apps</li>
+            <li class="services__item">Branding</li>
+        </ul>
     </section>
 
-    <!--  
-    <section class="services__container">
-        <h2 class="services__header" id="services">Serviços</h2>
-        <ul class="services__list">
-            <li>Landing Pages</li>
-            <li>Websites</li>
-            <li>E-Commerce</li>
-            <li>Chat Bots</li>
-            <li>Apps</li>
-            <li>Branding</li>
-        <li
-    </section>
-    -->
+    <section class="section statements">
+        <h2 class="header__section" id="statements">Depoimentos</h2>
 
-    <section class="statements">
-        <h2 id="statements">Depoimentos</h2>
-
-        <div id="statement1">
-            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quia tenetur perferendis minus aperiam neque eaque doloribus placeat ducimus quas magni, odit expedita suscipit? Suscipit enim dolorum in magni nisi." - <strong>Joana Maria</strong></p>
+        <div class="statement__container">
+            <p class="statement__text">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quia tenetur perferendis minus aperiam neque eaque doloribus placeat ducimus quas magni, odit expedita suscipit? Suscipit enim dolorum in magni nisi." - <strong>Joana Maria</strong></p>
             <img src="images/imagemDepoimento1-square.png"
                     srcset="images/imagemDepoimento1-square.png 600w,
                     images/imagemDepoimento1.png 1200w,
                     images/imagemDepoimento1.png 1800w"
-            alt="pessoa depoimento 1" class="client">
+            alt="pessoa depoimento 1" class="photo-client">
         </div>
 
-        <div id="statement2">
-            <p>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet alias eligendi nulla doloribus hic nobis ratione fugiat maxime? Autem sint amet eligendi, aliquam facilis explicabo officia quos fugiat est eius!" - <strong>Lineu Albano</strong></p>
+        <div class="statement__container statement__container--reverse">
+            <p class="statement__text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet alias eligendi nulla doloribus hic nobis ratione fugiat maxime? Autem sint amet eligendi, aliquam facilis explicabo officia quos fugiat est eius!" - <strong>Lineu Albano</strong></p>
             <img src="images/imagemDepoimento2.png"
                     srcset="images/imagemDepoimento2-square.png 600w,
                     images/imagemDepoimento2.png 1200w,
                     images/imagemDepoimento2.png 1800w"
-            alt="pessoa depoimento 2" class="client">
+            alt="pessoa depoimento 2" class="photo-client">
         </div>
 
-        <div id="statement3">
-            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora suscipit rem, nulla fugit deleniti tempore ut incidunt laudantium nesciunt quibusdam officiis sed. Cumque, eum adipisci! Incidunt alias enim debitis mollitia?" - <strong>Júlia Moura</strong></p>
+        <div class="statement__container">
+            <p class="statement__text">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora suscipit rem, nulla fugit deleniti tempore ut incidunt laudantium nesciunt quibusdam officiis sed. Cumque, eum adipisci! Incidunt alias enim debitis mollitia?" - <strong>Júlia Moura</strong></p>
                    <img src="images/imagemDepoimento3.png"
                     srcset="images/imagemDepoimento3-square.png 600w,
                     images/imagemDepoimento3.png 1200w,
                     images/imagemDepoimento3.png 1800w"
-            alt="pessoa depoimento 3" class="client">
+            alt="pessoa depoimento 3" class="photo-client">
         </div>
         
     </section>
-    <section class="formContainer">
-        <h2 id="contact">Contato</h2>
+
+    <section class="section form__container">
+        <h2 class="header__section" id="contact">Contato</h2>
 
         
-            <form action="" id="myForm" class="myForm"> 
-                <h3>Cadastre-se para receber novidades:</h3>
+            <form action="" id="form" class="form"> 
+                <h3 class="form__header">Cadastre-se para receber novidades:</h3>
 
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome" required>
@@ -138,7 +125,7 @@
                 <button type="submit" class="button" id="button"><strong>Enviar</strong></button>
             </form>
 
-        <div class="contact">
+        <div class="contact-numbers__container">
             <h3>Fale conosco:</h3>
             <span class="phone">Telefone: +55 (11) 4200-2991</span>
             <span class="phone">WhatsApp: +55 (11) 4200-2991</span>

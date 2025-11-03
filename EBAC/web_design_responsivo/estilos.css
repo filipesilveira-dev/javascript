@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
 /* variáveis de cores */
-:root{
+:root {
     --primary-color: #F0F0F0;
     --primary-bg-color: #3A0035;
     --secondary-bg-color: #570E51;
@@ -31,7 +31,7 @@
 
 /* transição suave ao navegar via menu pela página */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,25 +41,8 @@ body {
     color: var(--text-color);
 }
 
-/* esilização padrão para as âncoras */
-a {
-    text-decoration: none;
-    color: var(--link-color);
-    cursor: pointer;
-}
-
-/* estilização padrão ao posicionar o cursor em cima de uma âncora */
-a:hover{
-    color: var(--text-color);
-}
-
-/* estilização padrão ao clicar com o cursor em cima de uma âncora */
-a:active{
-    font-weight: bold;
-}
-
 /* estilização padrâo aos <h2> utilizados como títulos das partes da página */
-h2{
+.header__section {
     color: var(--title-color);
     /* acrescenta 14.5rem de margin-top toda vez que acessar alguma parte da página por meio de âncora. O tamneho da margem é o equivalente ao tamanho (altura) do header para faciliar a vizualização */
     scroll-margin-top: 14.5rem;
@@ -68,15 +51,15 @@ h2{
 /* AQUI IINICIA ESTILIZAÇÃO DO HEADER COM BEM*/
 
 /* contém a logo, o nome da empresa, slogan e menu de navegação */
-.header{
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     /* fixa o menu na tela */
-    position: sticky;     
-    /* cola no topo */  
-    top: 0;     
+    position: sticky;
+    /* cola no topo */
+    top: 0;
 
     left: 0;
     width: 100%;
@@ -86,7 +69,7 @@ h2{
 }
 
 /* div que contém a imagem da logo e o nome da empresa */
-.header__logo-name{
+.header__logo-name {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -97,7 +80,7 @@ h2{
 }
 
 /* logo da empresa ao lado do nome */
-.header__logo{
+.header__logo {
     height: 5em;
     width: 5em;
     align-self: center;
@@ -107,7 +90,7 @@ h2{
 }
 
 /* div contida em ".header__logoAndName" que abarca o nome da empresa e seu slogan */
-.header__name-slogan{
+.header__name-slogan {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,18 +98,19 @@ h2{
 }
 
 /* nome da empresa */
-.header__name{
+.header__name {
     font-size: 2em;
     color: var(--title-color);
 }
 
 /* slogan da empresa */
-.header__slogan{
-    font-size: 1em;  
+.header__slogan {
+    font-size: 1em;
 }
 
 /* <nav> e <ul> que contêm o menu de navegação e seus itens*/
-.menu, .menu__list{
+.menu,
+.menu__list {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -136,10 +120,27 @@ h2{
     font-size: 1rem;
 }
 
+/* esilização padrão para as âncoras */
+.menu__item {
+    text-decoration: none;
+    color: var(--link-color);
+    cursor: pointer;
+}
+
+/* estilização padrão ao posicionar o cursor em cima de uma âncora */
+.menu__item:hover {
+    color: var(--text-color);
+}
+
+/* estilização padrão ao clicar com o cursor em cima de uma âncora */
+.menu__item:active {
+    font-weight: bold;
+}
+
 /* AQUI TERMINA ESTILIZAÇÃO DO HEADER COM BEM*/
 
 /* padroniza todas as sections */
-.section{
+.section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -147,7 +148,7 @@ h2{
 }
 
 /* div com <h2> e <p> */
-.home__container{
+.home__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,36 +158,32 @@ h2{
     padding: 0px;
 }
 
-.home__header{
+.home__header {
     margin-top: 1rem;
-} 
+}
 
 /* imagem do computador */
-.bg-computer{
+.bg-computer {
     width: 100%;
     padding: 1rem;
 }
 
 /* container na seção sobre nós */
-.about__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.about__container {
     max-width: 54rem;
     margin: 0 auto;
     padding: 0px;
 }
 
 /* padroniza todos os parágrafos contidos em sections */
-.section__text{
+.section__text {
     text-align: justify;
     margin: 0;
     padding: 1rem;
 }
 
 /* seção de serviços */
-.services{
+.service__list {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -199,28 +196,26 @@ h2{
     color: var(--primary-color);
     max-width: 54rem;
     margin: 0 auto;
-    
+
 }
 
 /* cada serviço */
-span{
+.services__item {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-bg-color);
     border-radius: 5%;
-    
+
 }
 
 /* section que contém os depoimentos */
-.statements{
+.statements {
     padding: 1rem;
 }
 
 /* estilização dos depoimentos */
-#statement1,
-#statement2,
-#statement3{
+.statement__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -230,10 +225,7 @@ span{
 }
 
 /* estilização dos parágrafos dos depoimentos */
-#statement1>p,
-#statement2>p,
-#statement3>p
-{
+.statement__text {
     text-align: justify;
     margin: 0;
     padding: 1rem;
@@ -244,43 +236,42 @@ span{
     background-color: var(--icon-color);
     color: var(--primary-bg-color);
     box-shadow: inset 5px 5px 10px var(--secondary-bg-color),
-              inset -5px -5px 10px var(--text-color);
+        inset -5px -5px 10px var(--text-color);
 }
 
 /* classe das fotos dos usuários */
-.client{
-    /* width: 18rem;
-    height: 18rem; */
+.photo-client {
     border-radius: 10%;
     overflow: hidden;
 }
 
-h3{
+.form__header {
     text-align: center;
-    gap: 1rem;
+    padding-top: 1rem;
 }
 
 /* formulário */
-.formContainer{
+.form__container {
     padding: 1rem;
     border-top: 1px solid var(--primary-color);
 }
 
-.myForm{
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;   
+    gap: 1em;
     width: 60%;
     margin: .5rem;
     padding: .5rem;
+    padding-bottom: 1.5rem;
     background-color: var(--secondary-bg-color);
     border-radius: 5%;
 }
 
 /* seção de contato */
-.contact{
+.contact-numbers__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -289,36 +280,44 @@ h3{
 }
 
 /* estilização do botão */
-.button{
+.button {
     width: 50%;
     height: 1.5rem;
     background-color: var(--text-color);
     color: var(--primary-bg-color);
     border: 1px solid var(--secondary-bg-color);
-    border-radius: 5%;
+    border-radius: 10px;
     max-width: 10rem;
     cursor: pointer;
+    margin-top: .5rem;
 }
 
-.phone{
+.button:hover{
+    color: var(--primary-color);
+}
+
+.button:active {
+    font-weight: bold;
+}
+.phone {
     color: var(--primary-color);
 }
 
 /* media query */
-@media (min-width: 768px){
+@media (min-width: 768px) {
 
-    h2{
-    scroll-margin-top: 9rem;
+    .header__section {
+        scroll-margin-top: 9rem;
     }
-    
-    .section.section__home{
+
+    .section.section__home {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
 
-    .home__container{
+    .home__container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -329,7 +328,7 @@ h3{
         max-width: 27rem;
     }
 
-    .home__header{
+    .home__header {
         width: 60%;
         max-width: 27rem;
         margin: 0 auto;
@@ -337,27 +336,26 @@ h3{
         scroll-margin-top: 18rem;
     }
 
-    .bg-computer{
+    .bg-computer {
         width: 40%;
         max-width: 27rem;
     }
 
-    #statement1,
-    #statement3{
+    .statement__container {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
 
-    #statement2{
+    .statement__container--reverse {
         flex-direction: row-reverse;
     }
 
 }
 
-@media (min-width: 992px){
-   .header__logo-name{
+@media (min-width: 992px) {
+    .header__logo-name {
         padding-top: .5rem;
         padding-bottom: .5rem;
     }
