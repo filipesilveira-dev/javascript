@@ -1,0 +1,29 @@
+
+@use 'variaveis';
+
+/* reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /*estabelece o tamanho total da caixa considerando o conteúdo, o padding e a borda. Isso possibilita que alterações em algum desses elementos não altere o tamanho total da caixa*/
+    vertical-align: baseline;
+    /*o baseline é especialmente importante quando você tem elementos de diferentes tamanhos na mesma linha e quer que eles se alinhem de forma natural com o texto, mantendo a legibilidade*/
+    list-style: none;
+    /* remove o sublinhado dos links */
+    text-decoration: none;
+}
+
+/* mobile first */
+
+/* transição suave ao navegar via menu pela página */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: variaveis.$primary-bg-color;
+    font-family: variaveis.$primary-font;
+    /*Fonte importada do google fonts*/
+    color: variaveis.$text-color;
+}
