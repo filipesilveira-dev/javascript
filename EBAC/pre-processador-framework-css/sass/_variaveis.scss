@@ -1,0 +1,7 @@
+// habilita o uso de operadores
+@use "sass:math";
+
+$cor-primaria: #007bff;
+$espacamento-padrao: 20px;
+// exemplo de uso do operador "/"
+$espacamento-metade: calc($espacamento-padrao/2);

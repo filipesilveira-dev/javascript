@@ -1,9 +1,11 @@
 @use 'variaveis';
+@use 'mixins';
 
 .cabecalho{
     background: variaveis.$cor-primaria;
     color: white;
-    padding: variaveis.$espacamento-padrão;
+    @include mixins.espacamento-padrao;
+    // padding: variaveis.$espacamento-padrão;
 
     // (aninhado e com o operador "&") equivalente a cabecalho__titulo
     &__titulo{
