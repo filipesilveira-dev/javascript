@@ -1,0 +1,12 @@
+@use 'variaveis';
+
+.cabecalho{
+    background: variaveis.$cor-primaria;
+    color: white;
+    padding: variaveis.$espacamento-padrão;
+
+    // (aninhado e com o operador "&") equivalente a cabecalho__titulo
+    &__titulo{
+        text-align: center;
+    }
+}

@@ -1,0 +1,18 @@
+@use 'variaveis';
+
+.conteudo{
+    padding: variaveis.$espacamento-padrão
+
+    &__paragrafo{
+        font-size: 1rem;
+    }
+
+    &__link{
+        color: variaveis.$cor-primaria;
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
