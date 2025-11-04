@@ -1,0 +1,30 @@
+$cor-primaria: #007bff;
+$espacamento-padrão: 20px;
+
+.cabecalho{
+    background: $cor-primaria;
+    color: white;
+    padding: $espacamento-padrão;
+
+    // (aninhado e com o operador "&") equivalente a cabecalho__titulo
+    &__titulo{
+        text-align: center;
+    }
+}
+
+conteudo{
+    padding: $espacamento-padrão;
+
+    &__paragrafo{
+        font-size: 1rem;
+    }
+
+    &__link{
+        color: $cor-primaria;
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
