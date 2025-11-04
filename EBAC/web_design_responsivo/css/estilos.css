@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 /* variáveis de cores */
+/* estilização padrâo aos <h2> utilizados como títulos das partes da página */
+/* padroniza todas as sections */
+/* padroniza todos os parágrafos contidos em sections */
 /* reset */
 * {
   margin: 0px;
@@ -13,6 +16,7 @@
   list-style: none;
   /* remove o sublinhado dos links */
   text-decoration: none;
+  font-size: 1rem;
 }
 
 /* mobile first */
@@ -26,6 +30,324 @@ body {
   font-family: "Inter", Tahoma, Geneva, Verdana, sans-serif;
   /*Fonte importada do google fonts*/
   color: #AD74A8;
+}
+
+/* padroniza todas as sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* padroniza todos os parágrafos contidos em sections */
+.section__text {
+  text-align: justify;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* estilização padrâo aos <h2> utilizados como títulos das partes da página */
+.header__section {
+  color: #F0F0F0;
+  /* acrescenta 14.5rem de margin-top toda vez que acessar alguma parte da página por meio de âncora. O tamneho da margem é o equivalente ao tamanho (altura) do header para faciliar a vizualização */
+  scroll-margin-top: 14.5rem;
+}
+@media (min-width: 768px) {
+  .header__section {
+    scroll-margin-top: 9rem;
+  }
+}
+
+/* contém a logo, o nome da empresa, slogan e menu de navegação */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* fixa o menu na tela */
+  position: sticky;
+  /* cola no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #3A0035;
+  margin-bottom: 0px;
+  /* div que contém a imagem da logo e o nome da empresa */
+}
+.header__logo-name {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1em;
+  height: 50%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+@media (min-width: 992px) {
+  .header__logo-name {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+.header {
+  /* logo da empresa ao lado do nome */
+}
+.header__logo {
+  height: 5em;
+  width: 5em;
+  align-self: center;
+  border: 0.5px solid black;
+  border-radius: 50%;
+  background-color: #AD74A8;
+}
+.header {
+  /* div contida em ".header__logoAndName" que abarca o nome da empresa e seu slogan */
+}
+.header__name-slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  /* nome da empresa */
+}
+.header__name {
+  font-size: 2em;
+  color: #F0F0F0;
+}
+.header {
+  /* slogan da empresa */
+}
+.header__slogan {
+  font-size: 1em;
+}
+
+@media (min-width: 768px) {
+  .section__home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* div com <h2> e <p> */
+.home__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  margin: 0 auto;
+  padding: 0px;
+}
+@media (min-width: 768px) {
+  .home__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
+    width: 50%;
+    max-width: 27rem;
+  }
+}
+
+.home__header {
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .home__header {
+    width: 60%;
+    max-width: 27rem;
+    margin: 0 auto;
+    text-align: center;
+    scroll-margin-top: 18rem;
+  }
+}
+
+/* imagem do computador */
+.bg-computer {
+  width: 100%;
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .bg-computer {
+    width: 40%;
+    max-width: 27rem;
+  }
+}
+
+/* container na seção sobre nós */
+.about__container {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+/* seção de serviços */
+.service__list {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 16rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #F0F0F0;
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+/* cada serviço */
+.services__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #570E51;
+  border-radius: 5%;
+}
+
+/* section que contém os depoimentos */
+.statements {
+  padding: 1rem;
+}
+
+/* estilização dos depoimentos */
+.statement__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 54rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .statement__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .statement__container--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* estilização dos parágrafos dos depoimentos */
+.statement__text {
+  text-align: justify;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #570E51;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: #AD74A8;
+  color: #3A0035;
+  box-shadow: inset 5px 5px 10px #570E51, inset -5px -5px 10px #AD74A8;
+}
+
+/* classe das fotos dos usuários */
+.photo-client {
+  border-radius: 10%;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 60%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  padding-bottom: 1.5rem;
+  background-color: #570E51;
+  border-radius: 5%;
+}
+
+.form__header {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* formulário */
+.form__container {
+  padding: 1rem;
+  border-top: 1px solid #F0F0F0;
+}
+
+/* seção de contato */
+.contact-numbers__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phone {
+  color: #F0F0F0;
+}
+
+/* <nav> e <ul> que contêm o menu de navegação e seus itens*/
+.menu,
+.menu__list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 3rem;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+/* esilização padrão para as âncoras */
+.menu__item {
+  text-decoration: none;
+  color: #F0F0F0;
+  cursor: pointer;
+}
+
+/* estilização padrão ao posicionar o cursor em cima de uma âncora */
+.menu__item:hover {
+  color: #AD74A8;
+}
+
+/* estilização padrão ao clicar com o cursor em cima de uma âncora */
+.menu__item:active {
+  font-weight: bold;
+}
+
+/* estilização do botão */
+.button {
+  width: 50%;
+  height: 1.5rem;
+  background-color: #AD74A8;
+  color: #3A0035;
+  border: 1px solid #570E51;
+  border-radius: 10px;
+  max-width: 10rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.button:hover {
+  color: #F0F0F0;
+}
+
+.button:active {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=estilos.css.map */

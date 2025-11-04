@@ -311,7 +311,7 @@ body {
         scroll-margin-top: 9rem;
     }
 
-    .section.section__home {
+    .section__home {
         display: flex;
         flex-direction: row;
         justify-content: center;

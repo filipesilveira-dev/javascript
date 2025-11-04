@@ -2,6 +2,7 @@
 @use 'variaveis';
 @use 'mixins';
 
+
 /* reset */
 * {
     margin: 0px;
@@ -13,6 +14,8 @@
     list-style: none;
     /* remove o sublinhado dos links */
     text-decoration: none;
+    // uso do operador
+    font-size: variaveis.$primary-font-size/2;
 }
 
 /* mobile first */
@@ -31,15 +34,18 @@ body {
 
 /* padroniza todas as sections */
 .section {
-    @include standard-section;
+    @include mixins.standard-section;
 }
 
 /* padroniza todos os parágrafos contidos em sections */
 .section__text {
-    @include standard-section-text
+    @include mixins.standard-section-text;
 }
 
 /* estilização padrâo aos <h2> utilizados como títulos das partes da página */
 .header__section{
-    @include header-spacement;
+    @include mixins.header-spacement;
+    @media (min-width: 768px){
+        scroll-margin-top: 9rem;
+    }
 }

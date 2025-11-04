@@ -37,9 +37,9 @@
 .button {
     width: 50%;
     height: 1.5rem;
-    background-color: var(--text-color);
-    color: var(--primary-bg-color);
-    border: 1px solid var(--secondary-bg-color);
+    background-color: variaveis.$text-color;
+    color: variaveis.$primary-bg-color;
+    border: 1px solid variaveis.$secondary-bg-color;
     border-radius: 10px;
     max-width: 10rem;
     cursor: pointer;
@@ -47,7 +47,7 @@
 }
 
 .button:hover{
-    color: var(--primary-color);
+    color: variaveis.$primary-color;
 }
 
 .button:active {
