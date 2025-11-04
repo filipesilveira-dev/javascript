@@ -1,5 +1,6 @@
 
 @use 'variaveis';
+@use 'mixins';
 
 /* reset */
 * {
@@ -26,4 +27,19 @@ body {
     font-family: variaveis.$primary-font;
     /*Fonte importada do google fonts*/
     color: variaveis.$text-color;
+}
+
+/* padroniza todas as sections */
+.section {
+    @include standard-section;
+}
+
+/* padroniza todos os parágrafos contidos em sections */
+.section__text {
+    @include standard-section-text
+}
+
+/* estilização padrâo aos <h2> utilizados como títulos das partes da página */
+.header__section{
+    @include header-spacement;
 }

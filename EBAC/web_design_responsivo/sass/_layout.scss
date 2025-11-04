@@ -1,0 +1,201 @@
+@use 'variaveis';
+@use 'mixins';
+
+
+// HEADER
+
+/* contém a logo, o nome da empresa, slogan e menu de navegação */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* fixa o menu na tela */
+    position: sticky;
+    /* cola no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: variaveis.$primary-bg-color;
+    margin-bottom: 0px;
+
+    /* div que contém a imagem da logo e o nome da empresa */
+    &__logo-name {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1em;
+        height: 50%;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* logo da empresa ao lado do nome */
+    &__logo {
+        height: 5em;
+        width: 5em;
+        align-self: center;
+        border: .5px solid black;
+        border-radius: 50%;
+        background-color: variaveis.$text-color;
+    }
+
+    /* div contida em ".header__logoAndName" que abarca o nome da empresa e seu slogan */
+    &__name-slogan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* nome da empresa */
+    &__name {
+        font-size: 2em;
+        color: variaveis.$title-color;
+    }
+
+    /* slogan da empresa */
+    &__slogan {
+        font-size: 1em;
+    }
+}
+
+// HOME
+
+/* div com <h2> e <p> */
+.home__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.home__header {
+    margin-top: 1rem;
+}
+
+/* imagem do computador */
+.bg-computer {
+    width: 100%;
+    padding: 1rem;
+}
+
+// ABOUT
+
+/* container na seção sobre nós */
+.about__container {
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+// SERVICES
+
+/* seção de serviços */
+.service__list {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 16rem;
+    padding: 1rem;
+    gap: .5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    max-width: 54rem;
+    margin: 0 auto;
+
+}
+
+/* cada serviço */
+.services__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5%;
+}
+
+// STATEMENTS
+
+/* section que contém os depoimentos */
+.statements {
+    padding: 1rem;
+}
+
+/* estilização dos depoimentos */
+.statement__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 54rem;
+    margin: 0 auto;
+}
+
+/* estilização dos parágrafos dos depoimentos */
+.statement__text {
+    text-align: justify;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid var(--secondary-bg-color);
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--icon-color);
+    color: var(--primary-bg-color);
+    box-shadow: inset 5px 5px 10px var(--secondary-bg-color),
+        inset -5px -5px 10px var(--text-color);
+}
+
+/* classe das fotos dos usuários */
+.photo-client {
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+// FORM
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 60%;
+    margin: .5rem;
+    padding: .5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5%;
+}
+
+.form__header {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+/* formulário */
+.form__container {
+    padding: 1rem;
+    border-top: 1px solid var(--primary-color);
+}
+
+// CONTACT
+
+/* seção de contato */
+.contact-numbers__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.phone {
+    color: var(--primary-color);
+}

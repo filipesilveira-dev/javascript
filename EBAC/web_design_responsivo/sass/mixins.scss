@@ -1,0 +1,24 @@
+@use 'variaveis';
+
+/* estilização padrâo aos <h2> utilizados como títulos das partes da página */
+@mixin header-spacement {
+    color: variaveis.$title-color;
+    /* acrescenta 14.5rem de margin-top toda vez que acessar alguma parte da página por meio de âncora. O tamneho da margem é o equivalente ao tamanho (altura) do header para faciliar a vizualização */
+    scroll-margin-top: 14.5rem;
+}
+
+/* padroniza todas as sections */
+@mixin standard-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* padroniza todos os parágrafos contidos em sections */
+@mixin standard-section-text {
+    text-align: justify;
+    margin: 0;
+    padding: 1rem;
+}
+
