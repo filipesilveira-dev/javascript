@@ -1,0 +1,268 @@
+### Body ###
+
+.bg-success: cor de fundo
+.pt-7: padding top
+
+
+### Header ### 
+
+.position-sticky: posição sticky (grudada)
+.top-0: mantém, juntamente com o pisition stiky, o elemento no topo mesmo com rolagem
+.w-100: largura (width) de 100%
+.z-3: coloca o elemento em questão na posição 3 (z-index) de superioridade em relação aos outros elementos, permitondo que o elemento seja mostrado por cima dos outros, sem ser sobreposto.
+.opacity-75: opacidade (transparência). Quanto menor o valor, maior a transparência
+
+
+### Nav ### 
+
+.navbar:	Define a barra de navegação
+
+.navbar-expand-lg	A navbar fica colapsada em telas pequenas e expande apenas acima do breakpoint lg
+
+bg-body-tertiary: Cor de fundo da navbar (tema claro suave).
+
+.h-100: altura
+
+    ### Dentro da navbar ###
+
+    .container-fluid: Container que ocupa 100% da largura, com espaçamento interno
+
+    .navbar-brand: Estilo padrão aplicado ao nome/logo da marca
+
+    .d-inline-block: Exibe a imagem como elemento inline-block.
+
+    .align-text-top: Alinha verticalmente o item ao topo da linha de texto.
+
+    .navbar-toggler: Botão do menu hambúrguer
+
+    .navbar-toggler-icon: ícone de três barras
+
+    .collapse: transforma o conteúdo em colapsável.
+
+    .navbar-collapse: area que abre/fecha na versão mobile.
+
+    .navbar-nav: container padrão para os links da navbar.
+
+    .m-auto: centraliza horizontalmente.
+
+    .nav-link: estilo padrão dos links.
+
+    .lead e fs-5: aumentam ligeiramente o tamanho da fonte.
+
+    .active: marca um link como ativo.
+
+
+### Home ###
+
+.bg-dark: fundo preto.
+
+.text-white: texto branco.
+
+.text-center: centraliza o texto.
+
+    ### No interior ###
+
+    .container: centraliza e limita a largura.
+
+    .h-100: altura total.
+
+    .d-flex: ativa flexbox.
+
+    .flex-column: organiza os itens em coluna.
+
+    .justify-content-center: centraliza verticalmente.
+
+    .align-items-center: centraliza horizontalmente.
+
+    ### Conteúdos ###
+
+    .display-2: tamanho grande de título.
+
+    .fw-bold: negrito.
+
+    .mb-4, mb-5: margens inferiores.
+
+    .lead e fs-4: aumentam o tamanho e destaque do texto.
+
+    .btn, btn-secondary, btn-lg: botão estilizado e grande.
+
+    .px-5 e py-3: espaçamento interno horizontal e vertical.
+
+
+### Sobre nós ###
+
+.py-5: espaçamento vertical amplo.
+
+    ### Dentro ###
+
+    .container: limita e centraliza o conteúdo.
+
+    .row: estrutura do grid.
+
+    .align-items-center: centraliza verticalmente os itens da linha.
+
+    .g-5: espaçamento entre colunas.
+
+    ### Colunas ###
+
+    .col-lg-6: metade da largura em telas grandes.
+
+    .img-fluid: imagem responsiva.
+
+    .rounded: bordas arredondadas.
+
+    .shadow-lg: sombra forte.
+
+    ### Textos ###
+
+    .display-4: título grande.
+
+    .fw-bold: negrito.
+
+    .mb-4: margem inferior.
+
+    .text-center: centraliza.
+
+    .text-lg-start: alinha à esquerda em telas grandes.
+
+    .border-bottom, border-warning, border-3: borda inferior amarela espessa.
+
+    .w-25: largura de 25%.
+
+    .mx-auto: centraliza horizontalmente.
+
+    .mx-lg-0: remove a centralização em telas grandes.
+
+    .mb-2: margem inferior pequena.
+
+
+### Serviços ###
+
+    .py-5: espaçamento vertical.
+
+    .bg-light: fundo claro.
+
+    ### Textos ###
+
+    .text-center: centralizado.
+
+    .mb-5: margem inferior ampla.
+
+    .display-4: título de destaque.
+
+    .fw-bold: negrito.
+
+    .lead: destaca o subtítulo.
+
+    ### Grid ###
+
+    .row: inicia linha.
+
+    .g-4: espaçamento entre colunas.
+
+    .col-md-6: largura média de metade da tela.
+
+    .col-lg-4: largura de um terço em telas grandes
+
+    ### Cards ###
+
+    .card: componente card do Bootstrap.
+
+    .text-center: texto centralizado.
+
+    .card-body: conteúdo interno do card.
+
+    .fw-bold: negrito para o título.
+
+
+### Depoimentos ###
+
+.py-5: espaçamento vertical.
+
+.container: centralização.
+
+.text-center: texto centralizado.
+
+.mb-5: margem inferior
+
+    ### Carrossel ###
+
+    .carousel: define que é um carrossel.
+
+    .slide: ativa animação.
+
+    .shadow: aplica sombra.
+
+    .rounded: cantos arredondados.
+
+    .carousel-indicators: as bolinhas de navegação.
+
+    .carousel-inner: container dos slides.
+
+    .bg-dark e text-white: slide escuro com texto branco.
+
+    .carousel-item: cada slide.
+
+    .active: slide inicial.
+
+    .d-flex: uso de flexbox.
+
+    .flex-column: elementos em coluna.
+
+    .justify-content-center: centralização vertical.
+
+    .h-100: altura completa.
+
+    .fs-5 e fst-italic: fonte maior e itálica.
+
+    .blockquote: estilo de citação.
+
+    .fw-bold: negrito.
+
+    .carousel-control-prev e carousel-control-next: botões de navegação.
+
+    .visually-hidden: acessibilidade para leitores de tela.
+
+
+### Contato ###
+
+.pt-6: padding superior (provavelmente customizado).
+
+.py-5: padding vertical.
+
+.bg-white: fundo branco.
+
+    ### Formulário ###
+
+    .container: organiza o conteúdo.
+
+    .display-6: título grande.
+
+    .fw-bold: negrito.
+
+    .text-center: centralizado.
+
+    .mb-3 e mt-4: margens.
+
+    .form-label: estilo dos rótulos.
+
+    .form-control: estilo dos inputs.
+
+    .btn, btn-success: botão verde.
+
+    .w-100: largura total.
+
+
+### Footer ###
+
+.bg-dark: fundo escuro.
+
+.text-white: texto branco.
+
+.text-center: centralizado.
+
+.py-4: padding vertical.
+
+.container: organiza o conteúdo.
+
+.mb-1 e mb-0: margens inferiores.

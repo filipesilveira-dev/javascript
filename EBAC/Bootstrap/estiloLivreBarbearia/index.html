@@ -8,17 +8,18 @@
     <link rel="shortcut icon" href="img/scissors.svg" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/custom.css">
 </head>
 
-<body class="bg-success">
-    <header class="position-sticky top-0 z-3" style="height: 5rem;">
+<body class="bg-success pt-7">
+    <header class="position-sticky top-0 w-100 z-3 opacity-75">
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="./img/logo-barber.png" alt="Logo" width="30" height="30"
                         class="d-inline-block align-text-top">
-                    <span class="navbar-brand">Estilo Livre Barbearia</span>
+                    <span class="navbar-brand fw-bold mb-4">Estilo Livre Barbearia</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -27,11 +28,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav m-auto">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                        <a class="nav-link" href="#about">Sobre nós</a>
-                        <a class="nav-link" href="#services">Serviços</a>
-                        <a class="nav-link" href="#statements">Depoimentos</a>
-                        <a class="nav-link" href="#contact">Contatos</a>
+                        <a class="nav-link lead fs-5 active" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link lead fs-5" href="#about">Sobre nós</a>
+                        <a class="nav-link lead fs-5" href="#services">Serviços</a>
+                        <a class="nav-link lead fs-5" href="#statements">Depoimentos</a>
+                        <a class="nav-link lead fs-5" href="#contact">Contatos</a>
                     </div>
                 </div>
             </div>
@@ -39,219 +40,225 @@
 
     </header>
 
-    <section id="home" style="scroll-margin-top: 5rem;">
-        <img src="" alt="">
-        <h2 class="text-center m-5 text-white">Home</h2>
-        <p class="lead text-center">A Estilo Livre nasceu da paixão pela arte de cuidar da aparência masculina com
-            excelência e
-            autenticidade.</p>
+    <!-- Home -->
+    <section id="home" class="bg-dark text-white text-center "
+        style="scroll-margin-top: auto; min-height: 600px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600') center/cover; ">
+        <div class="container h-100 d-flex flex-column justify-content-center align-items-center"
+            style="min-height: 600px;">
+            <h1 class="display-2 fw-bold mb-4">Bem-vindo à Estilo Livre</h1>
+            <p class="lead fs-4 mb-5">Onde seu estilo ganha vida com qualidade e sofisticação</p>
+            <a href="#contato" class="btn btn-secondary btn-lg px-5 py-3 fw-bold">Agende seu Horário</a>
+        </div>
+    </section>
 
-        <div class="mt-4 text-center">
-            <a href="#" class="btn btn-success">Quero ir</a>
+    <!-- Sobre nós -->
+    <section id="about" class="py-5" style="scroll-margin-top: auto;">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800" alt="Barbearia"
+                        class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-4 fw-bold mb-4 text-center text-lg-start">Sobre Nós</h2>
+                    <div class="border-bottom border-warning border-3 w-25 mb-4 mx-auto mx-lg-0"></div>
+                    <p class="lead text-white" style="font-weight: bolder;">A Estilo Livre nasceu da paixão pela arte de cuidar da aparência masculina com excelência e autenticidade.</p>
+                    <p class="text-white">Somos mais que uma barbearia tradicional. Nosso espaço foi criado para homens que valorizam
+                        qualidade, conforto e um atendimento personalizado. Com profissionais experientes e apaixonados
+                        pelo que fazem, oferecemos serviços que vão desde cortes clássicos até as tendências mais
+                        modernas.</p>
+                    <p class="text-white">Aqui, cada cliente é único e recebe um tratamento exclusivo, em um ambiente descontraído onde
+                        você pode relaxar enquanto cuida do seu visual.</p>
+                    <ul>
+                        <li class="mb-2 lead text-white" style="font-weight: bolder;">Profissionais qualificados</li>
+                        <li class="mb-2 lead text-white" style="font-weight: bolder;">Produtos premium</li>
+                        <li class="mb-2 lead text-white" style="font-weight: bolder;">Ambiente acolhedor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="about" style="scroll-margin-top: 5rem;">
-        <h2 class="text-center m-5 text-white">Sobre nós</h2>
-        <p class="text-center">Somos mais que uma barbearia tradicional. Nosso espaço foi criado para homens que
-            valorizam qualidade,
-            conforto e um atendimento personalizado. Com profissionais experientes e apaixonados pelo que fazem,
-            oferecemos serviços que vão desde cortes clássicos até as tendências mais modernas.</p>
-        <p class="text-center">Aqui, cada cliente é único e recebe um tratamento exclusivo, em um ambiente descontraído
-            onde você pode
-            relaxar enquanto cuida do seu visual.</p>
-    </section>
+
 
     <!-- Serviços -->
-    <section id="services" style="scroll-margin-top: 5rem;">
-        <!-- cria um grid system -->
-
-        <!-- <h2 class="text-center m-5 text-white">Serviços</h2>
-        <div class="row g-4 mx-auto">
-            <div class="col-md-6 col-lg-4">
-                <div class="card m-auto" style="width: 18rem;">
-                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Show Musical</h5>
-                        <p class="card-text">Uma noite inesquecível com a banda mais animada da cidade! Local:
-                            Teatro Municipal.</p>
-                        <a href="#" class="btn btn-success">Quero ir</a>
-                    </div>
-                </div>
+    <section id="services" class="py-5 bg-light" style="scroll-margin-top: auto;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">Nossos Serviços</h2>
+                <p class="lead">Oferecemos uma gama completa de serviços para você ficar impecável</p>
             </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class=" card text-center">
+                        <div class="card-body">
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card m-auto" style="width: 18rem;">
-                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Show Musical</h5>
-                        <p class="card-text">Uma noite inesquecível com a banda mais animada da cidade! Local:
-                            Teatro Municipal.</p>
-                        <a href="#" class="btn btn-success">Quero ir</a>
+                            <h4>Corte de Cabelo</h4>
+                            <p>Cortes clássicos e modernos executados com precisão por nossos barbeiros
+                                especializados.</p>
+                            <p class="fw-bold">A partir de R$ 45</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card m-auto" style="width: 18rem;">
-                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Show Musical</h5>
-                        <p class="card-text">Uma noite inesquecível com a banda mais animada da cidade! Local:
-                            Teatro Municipal.</p>
-                        <a href="#" class="btn btn-success">Quero ir</a>
+                            <h4>Barba & Bigode</h4>
+                            <p>Modelagem completa de barba com navalha, toalha quente e produtos premium.</p>
+                            <p class="fw-bold">A partir de R$ 35</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
 
-        <!-- Serviços -->
-        <section id="servicos" class="py-5 bg-light">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2>Nossos Serviços</h2>
-                    <p class="lead">Oferecemos uma gama completa de serviços para você ficar impecável</p>
+                            <h4>Hidratação</h4>
+                            <p>Tratamento capilar profundo para revitalizar e fortalecer os fios.</p>
+                            <p class="fw-bold">A partir de R$ 50</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class=" card text-center">
-                            <div class="card-body">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
 
-                                <h4>Corte de Cabelo</h4>
-                                <p>Cortes clássicos e modernos executados com precisão por nossos barbeiros
-                                    especializados.</p>
-                                <p class="fw-bold">A partir de R$ 45</p>
-                            </div>
+                            <h4>Coloração</h4>
+                            <p>Coloração e descoloração com produtos de alta qualidade e acabamento natural.</p>
+                            <p class="fw-bold">A partir de R$ 80</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-
-                                <h4>Barba & Bigode</h4>
-                                <p>Modelagem completa de barba com navalha, toalha quente e produtos premium.</p>
-                                <p class="fw-bold">A partir de R$ 35</p>
-                            </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4>Pacote Completo</h4>
+                            <p>Corte + Barba + Hidratação. O tratamento VIP completo para você.</p>
+                            <p class="fw-bold">R$ 110</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-
-                                <h4>Hidratação</h4>
-                                <p>Tratamento capilar profundo para revitalizar e fortalecer os fios.</p>
-                                <p class="fw-bold">A partir de R$ 50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-
-                                <h4>Coloração</h4>
-                                <p>Coloração e descoloração com produtos de alta qualidade e acabamento natural.</p>
-                                <p class="fw-bold">A partir de R$ 80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h4>Pacote Completo</h4>
-                                <p>Corte + Barba + Hidratação. O tratamento VIP completo para você.</p>
-                                <p class="fw-bold">R$ 110</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h4>Infantil</h4>
-                                <p>Corte especial para crianças em ambiente acolhedor e divertido.</p>
-                                <p class="fw-bold">R$ 35</p>
-                            </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4>Infantil</h4>
+                            <p>Corte especial para crianças em ambiente acolhedor e divertido.</p>
+                            <p class="fw-bold">R$ 35</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
-        <!-- Depoimentos -->
-        <section id="statements" style="scroll-margin-top: 5rem;">
-            <div id="carouselExampleCaptions" class="carousel slide">
+    <!-- Depoimentos -->
+    <section id="statements" class="py-5" style="scroll-margin-top: auto;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">Depoimentos</h2>
+                <div class="border-bottom border-warning border-3 w-25 mb-4 mx-auto"></div>
+                <div class="mx-auto"></div>
+                <p class="lead">Veja o que nossos clientes dizem sobre nós</p>
+            </div>
+            <div id="carouselDepoimentos" class="carousel slide shadow rounded" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="2"></button>
                 </div>
-                <div class="carousel-inner">
+                <div class="carousel-inner bg-dark text-white rounded">
                     <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                        <div class="text-center p-5" style="min-height: 300px;">
+                            <div class="d-flex flex-column justify-content-center h-100">
+                                <blockquote class="blockquote fs-5 fst-italic mb-4">
+                                    <p>"Melhor barbearia que já frequentei! Os profissionais são extremamente
+                                        capacitados e o ambiente é muito agradável. Sempre saio de lá com o corte
+                                        perfeito."</p>
+                                </blockquote>
+                                <cite class="fs-5 fw-bold">— Carlos Silva, Cliente há 2 anos</cite>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                        <div class="text-center p-5" style="min-height: 300px;">
+                            <div class="d-flex flex-column justify-content-center h-100">
+                                <blockquote class="blockquote fs-5 fst-italic mb-4">
+                                    <p>"Atendimento impecável e produtos de primeira linha. A atenção aos detalhes
+                                        faz toda a diferença. Recomendo demais!"</p>
+                                </blockquote>
+                                <cite class="fs-5 fw-bold">— Roberto Santos, Cliente há 1 ano</cite>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                        <div class="text-center p-5" style="min-height: 300px;">
+                            <div class="d-flex flex-column justify-content-center h-100">
+                                <blockquote class="blockquote fs-5 fst-italic mb-4">
+                                    <p>"Encontrei na Estilo Livre não apenas uma barbearia, mas um lugar onde me
+                                        sinto em casa. A equipe é sensacional e o resultado sempre supera as
+                                        expectativas!"</p>
+                                </blockquote>
+                                <cite class="fs-5 fw-bold">— Fernando Costa, Cliente há 3 anos</cite>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Anterior</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos"
                     data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Próximo</span>
                 </button>
             </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="pt-6" style="scroll-margin-top: auto;">
+        <!-- formulário de inscrição -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <h2 class="display-6 fw-bold mb-3 mt-4 text-center">Entre em contato conosco</h2>
+                <!-- obtido em "forms - form control" -->
+                <form>
+                    <div class="mb-3">
+                        <label for="nome-completo" class="form-label">Nome completo</label>
+                        <input type="text" class="form-control" id="nome-completo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="e-mail" placeholder="name@example.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem: </label>
+                        <textarea id="mensagem" class="form-control" name="mensagem" rows="3" placeholder="Digite aqui"
+                            minlength="20" maxlength="1000" required></textarea>
+
+                    </div>
+                    <button class="btn btn-success w-100">Inscrever-se</button>
+                </form>
+            </div>
         </section>
-        <section id="contact">
-            <!-- formulário de inscrição -->
-            <section class="py-5 bg-white">
-                <div class="container">
-                    <h2 class="text-center fw-bold mb-5">Garanta sua vaga</h2>
-                    <!-- obtido em "forms - form control" -->
-                    <form>
-                        <div class="mb-3">
-                            <label for="nome-completo" class="form-label">Nome completo</label>
-                            <input type="text" class="form-control" id="nome-completo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="e-mail" placeholder="name@example.com">
-                        </div>
+    </section>
 
-                        <div class="mb-3">
-                            <label for="mensagem" class="form-label">Mensagem: </label>
-                            <textarea id="mensagem" class="form-control" name="mensagem" rows="3"
-                                placeholder="Digite aqui" minlength="20" maxlength="1000" required></textarea>
+     <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-4">
+            <div class="container">
+                <p class="mb-1">&copy; 2025 Estilo Livre Barbearia. Todos os direitos reservados.</p>
+                <p class="mb-0">Desenvolvido por <strong>Filipe P. Silveira</strong></p>
+            </div>
+        </footer>
 
-                        </div>
-                        <button class="btn btn-success w-100">Inscrever-se</button>
-                    </form>
-                </div>
-            </section>
-        </section>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
