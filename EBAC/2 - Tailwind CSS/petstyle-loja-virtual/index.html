@@ -1,23 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-behavior: smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/output.css">
     <title>Pet Style</title>
 </head>
+
 <body>
-    <header>
-        <img src="" alt="">
-        <nav>
-            <ul class=" flex flex-row gap-4">
-                <li>Home</li>
-                <li>Produtos</li>
-                <li>Depoimentos</li>
-                <li>Contato</li>
+    <header class="flex flex-col justify-center items-center">
+        <a href="#"><img src="./img/logoReduzidaPetStyle.png" alt="logo"></a>
+        <nav class="w-full">
+            <ul class=" flex flex-col justify-center items-center">
+                <a href="" class="w-full">
+                    <li class=" text-center border rounded">Home</li>
+                </a>
+                <a href="" class="w-full">
+                    <li class=" text-center border rounded">Produtos</li>
+                </a>
+                <a href="" class="w-full">
+                    <li class=" text-center border rounded">Depoimentos</li>
+                </a>
+                <a href="" class="w-full">
+                    <li class=" text-center border rounded">Contato</li>
+                </a>
             </ul>
         </nav>
     </header>
-    <h1>Hello world!</h1>
+
+    <!-- Home -->
+    <section id="home">
+        <p class="text-justify m-4"><strong>Bem-vindo(a) à Pet Style!</strong> Nossa pet shop reúne tudo o que seu pet
+            precisa em um só lugar: rações premium que garantem saúde e vitalidade, brinquedos irresistíveis para horas
+            de diversão, acessórios estilosos e produtos de cuidado que fazem toda a diferença. Com atendimento
+            especializado e apaixonado por animais, estamos prontos para ajudar você a proporcionar o melhor para quem
+            só te dá amor incondicional. Descubra por que somos a escolha favorita de pets e tutores que não abrem mão
+            de qualidade e carinho! 🐾</p>
+    </section>
+    <img src="./img/fotoPetHome.jpg" alt="fot pet">
+
+    <!-- Produtos -->
+    <section id="products">
+
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="statements">
+
+    </section>
+
+    <!-- Contatos -->
+    <section id="contact" class="m-4">
+        <div class="flex flex-col justify-center items-center">
+            <h2 class="">Entre em contato conosco</h2>
+            
+            <form class="flex flex-col justify-center items-center">
+                <div class="">
+                    <label for="nome-completo" class="form-label">Nome completo</label>
+                    <input type="text" class="form-control" id="nome-completo">
+                </div>
+                <div class="w-full flex flex-col">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="e-mail" placeholder="name@example.com">
+                </div>
+
+                <div class="w-full flex flex-col">
+                    <label for="mensagem" class="form-label">Mensagem: </label>
+                    <textarea id="mensagem" class="form-control" name="mensagem" rows="3" placeholder="Digite aqui"
+                        minlength="20" maxlength="1000" required></textarea>
+
+                </div>
+                <button class="">Inscrever-se</button>
+            </form>
+        </div>
+    </section>
 </body>
+
 </html>
