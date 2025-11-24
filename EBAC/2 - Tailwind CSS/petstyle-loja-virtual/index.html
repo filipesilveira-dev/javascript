@@ -11,30 +11,31 @@
     <title>Pet Style</title>
 </head>
 
-<body>
-    <header class="flex flex-col justify-center items-center">
+<body class="bg-(--pet-offwhite)">
+    <header class="flex flex-col justify-center items-center bg-(--pet-offwhite) text-white">
         <a href="#"><img src="./img/logoReduzidaPetStyle.png" alt="logo"></a>
         <nav class="w-full">
             <ul class=" flex flex-col justify-center items-center">
-                <a href="" class="w-full">
-                    <li class=" text-center border rounded">Home</li>
+                <a href="" class="w-full bg-(--pet-menu) ">
+                    <li class=" text-center border rounded py-2">Home</li>
                 </a>
-                <a href="" class="w-full">
-                    <li class=" text-center border rounded">Produtos</li>
+                <a href="" class="w-full bg-(--pet-menu)">
+                    <li class=" text-center border rounded py-2">Produtos</li>
                 </a>
-                <a href="" class="w-full">
-                    <li class=" text-center border rounded">Depoimentos</li>
+                <a href="" class="w-full bg-(--pet-menu)">
+                    <li class=" text-center border rounded py-2">Depoimentos</li>
                 </a>
-                <a href="" class="w-full">
-                    <li class=" text-center border rounded">Contato</li>
+                <a href="" class="w-full bg-(--pet-menu)">
+                    <li class=" text-center border rounded py-2">Contato</li>
                 </a>
             </ul>
         </nav>
     </header>
 
     <!-- Home -->
-    <section id="home">
-        <p class="text-justify m-4"><strong>Bem-vindo(a) à Pet Style!</strong> Nossa pet shop reúne tudo o que seu pet
+    <section id="home" class="bg-(--pet-offwhite)">
+        <p class="text-xl text-(--pet-text-grafite) text-justify p-4"><strong class="text-(--pet-headers-grafite)">Bem-vindo(a) à Pet Style!</strong> Nossa pet shop reúne tudo o que
+            seu pet
             precisa em um só lugar: rações premium que garantem saúde e vitalidade, brinquedos irresistíveis para horas
             de diversão, acessórios estilosos e produtos de cuidado que fazem toda a diferença. Com atendimento
             especializado e apaixonado por animais, estamos prontos para ajudar você a proporcionar o melhor para quem
@@ -44,57 +45,52 @@
     <img src="./img/fotoPetHome.jpg" alt="fot pet" class="mx-auto">
 
     <!-- Produtos -->
-    <section id="products">
+    <section id="products" class="py-5 bg-(--pet-bege)">
         <div class="text-center mb-5">
-            <h2 class="text-4xl font-bold mb-3">Nossos Serviços</h2>
-            <p class="text-xl">Oferecemos uma gama completa de serviços para você ficar impecável</p>
+            <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Nossos Serviços</h2>
+            <p class="text-xl mx-2">Oferecemos uma gama completa de serviços para você ficar impecável</p>
         </div>
 
         <!-- estabelece o uso de uma coluna em telas pequenas -->
         <div class="grid grid-cols-1 m-4 gap-4">
-            <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
-            <div class="col-md-6 col-lg-4">
-                <div class="text-center ">
-                    <div class="">
 
-                        <h4 class="mb-2 font-medium text-xl">Corte de Cabelo</h4>
-                        <p>Cortes clássicos e modernos executados com precisão por nossos barbeiros
-                            especializados.</p>
-                        <p class="font-bold">A partir de R$ 45</p>
-                    </div>
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+                <img src="./img/racaoPremium.jpg" class="w-full" alt="...">
+                <div class="text-center mb-4">
+                    <h4 class="my-2 font-medium text-xl">Ração Premium</h4>
+                    <p class="px-2 text-(--pet-text-grafite)">Alimento de alta qualidade, com ingredientes selecionados, alto valor nutritivo e
+                        boa digestibilidade para a saúde do pet.</p>
+                    <p class="font-bold">A partir de R$ 35 (por kg)</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
-                <div class="card text-center">
-                    <div class="card-body">
 
-                        <h4>Barba & Bigode</h4>
-                        <p>Modelagem completa de barba com navalha, toalha quente e produtos premium.</p>
-                        <p class="fw-bold">A partir de R$ 35</p>
-                    </div>
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+                <img src="./img/brinquedoPet.jpg" class="w-full" alt="...">
+                <div class="text-center mb-4">
+                    <h4 class="my-2 font-medium text-xl">Brinquedo Pet</h4>
+                    <p class="px-2 text-(--pet-text-grafite)">osso de borracha resistente ideal para cães, ajudando a aliviar o estresse,
+                        estimular a mastigação e promover diversão.</p>
+                    <p class="font-bold">R$ 60</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
-                <div class="card text-center">
-                    <div class="card-body">
 
-                        <h4>Hidratação</h4>
-                        <p>Tratamento capilar profundo para revitalizar e fortalecer os fios.</p>
-                        <p class="fw-bold">A partir de R$ 50</p>
-                    </div>
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+                <img src="./img/coleteAmareloPet.jpg" class="w-full" alt="...">
+                <div class="text-center mb-4">
+                    <h4 class="my-2 font-medium text-xl">Colete Estiloso</h4>
+                    <p class="px-2 text-(--pet-text-grafite)">roupa confortável e estilosa para cães, oferecendo proteção leve e mantendo o pet
+                        aquecido com charme.</p>
+                    <p class="font-bold">R$ 90</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
-                <div class="card text-center">
-                    <div class="card-body">
 
-                        <h4>Coloração</h4>
-                        <p>Coloração e descoloração com produtos de alta qualidade e acabamento natural.</p>
-                        <p class="fw-bold">A partir de R$ 80</p>
-                    </div>
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+                <img src="./img/caixaDeTransportePet.jpg" class="w-full" alt="...">
+                <div class="text-center mb-4">
+                    <h4 class="my-2 font-medium text-xl">Caixa de Transporte</h4>
+                    <p class="px-2 text-(--pet-text-grafite)">recipiente seguro e ventilado para transportar pets com conforto e proteção em
+                        viagens ou deslocamentos.</p>
+                    <p class="font-bold">A partir de R$ 250</p>
                 </div>
             </div>
         </div>
@@ -104,12 +100,12 @@
     <!-- Depoimentos -->
     <section id="statements" class="py-5" style="scroll-margin-top: auto;">
         <div class="text-center mb-5">
-            <h2 class="text-4xl font-bold mb-3">Depoimentos</h2>
+            <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Depoimentos</h2>
             <p class="text-xl">Veja o que nossos clientes dizem sobre nós</p>
         </div>
 
         <div class="">
-            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm bg-(--pet-bg-pessego)">
                 <div class="">
                     <blockquote class="mb-4">
                         <p class="italic">"Melhor petshop que já frequentei! Os profissionais são extremamente
@@ -121,7 +117,7 @@
         </div>
 
         <div class="">
-            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm bg-(--pet-bg-pessego)">
                 <div class="">
                     <blockquote>
                         <p class="italic">"Atendimento impecável e produtos de primeira linha. A atenção aos detalhes
@@ -133,7 +129,7 @@
         </div>
 
         <div class="">
-            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm bg-(--pet-bg-pessego)">
                 <div class="">
                     <blockquote>
                         <p class="italic">"Encontrei na Pet Style não apenas um petshop, mas um lugar onde me
@@ -149,30 +145,38 @@
     </section>
 
     <!-- Contatos -->
-    <section id="contact" class="m-4">
-        <div class="flex flex-col justify-center items-center">
-            <h2 class="text-4xl font-bold mb-3">Entre em contato conosco</h2>
+    <section id="contact" class="w-full py-5 mt-2 bg-(--pet-bege)">
+        <div class="flex flex-col justify-center items-center gap-3">
+            <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Entre em contato conosco</h2>
 
-            <form class="flex flex-col justify-center items-center">
-                <div class="">
+            <form class="flex flex-col justify-center items-center bg-(--pet-offwhite) p-3 border border-(--pet-menu) mb-3 rounded-sm w-90">
+                <div class="w-full flex flex-col mb-3">
                     <label for="nome-completo" class="form-label">Nome completo</label>
-                    <input type="text" class="form-control" id="nome-completo">
+                    <input type="text" class="w-full border rounded-sm mt-2 p-1" id="nome-completo">
                 </div>
-                <div class="w-full flex flex-col">
+                <div class="w-full flex flex-col mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="e-mail" placeholder="name@example.com">
+                    <input type="email" class="w-full border rounded-sm mt-2 p-1" id="e-mail" placeholder="name@example.com">
                 </div>
 
-                <div class="w-full flex flex-col">
+                <div class="w-full flex flex-col mb-3">
                     <label for="mensagem" class="form-label">Mensagem: </label>
-                    <textarea id="mensagem" class="form-control" name="mensagem" rows="3" placeholder="Digite aqui"
+                    <textarea id="mensagem" class="w-full border rounded-sm mt-2 p-1" name="mensagem" rows="3" placeholder="Digite aqui"
                         minlength="20" maxlength="1000" required></textarea>
 
                 </div>
-                <button class="">Inscrever-se</button>
+                <button class="bg-(--pet-menu) text-white border border-solid border-black shadow-md rounded-sm p-2 w-40 mb-3">Inscrever-se</button>
             </form>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center py-4">
+        <div class="">
+            <p class="mb-1">&copy; 2025 Pet Style Pet-shop. Todos os direitos reservados.</p>
+            <p class="mb-0">Desenvolvido por <strong>Filipe P. Silveira</strong></p>
+        </div>
+    </footer>
 </body>
 
 </html>
