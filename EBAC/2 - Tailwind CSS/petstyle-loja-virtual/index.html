@@ -1,3 +1,5 @@
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-behavior: smooth">
 
@@ -43,85 +45,114 @@
 
     <!-- Produtos -->
     <section id="products">
-        <div class="">
-            <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold mb-3">Nossos Serviços</h2>
-                <p class="lead">Oferecemos uma gama completa de serviços para você ficar impecável</p>
+        <div class="text-center mb-5">
+            <h2 class="text-4xl font-bold mb-3">Nossos Serviços</h2>
+            <p class="text-xl">Oferecemos uma gama completa de serviços para você ficar impecável</p>
+        </div>
+
+        <!-- estabelece o uso de uma coluna em telas pequenas -->
+        <div class="grid grid-cols-1 m-4 gap-4">
+            <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
+            <div class="col-md-6 col-lg-4">
+                <div class="text-center ">
+                    <div class="">
+
+                        <h4 class="mb-2 font-medium text-xl">Corte de Cabelo</h4>
+                        <p>Cortes clássicos e modernos executados com precisão por nossos barbeiros
+                            especializados.</p>
+                        <p class="font-bold">A partir de R$ 45</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-2 m-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class=" card text-center">
-                        <div class="card-body">
+            <div class="col-md-6 col-lg-4">
+                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
+                <div class="card text-center">
+                    <div class="card-body">
 
-                            <h4>Corte de Cabelo</h4>
-                            <p>Cortes clássicos e modernos executados com precisão por nossos barbeiros
-                                especializados.</p>
-                            <p class="fw-bold">A partir de R$ 45</p>
-                        </div>
+                        <h4>Barba & Bigode</h4>
+                        <p>Modelagem completa de barba com navalha, toalha quente e produtos premium.</p>
+                        <p class="fw-bold">A partir de R$ 35</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card text-center">
-                        <div class="card-body">
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
+                <div class="card text-center">
+                    <div class="card-body">
 
-                            <h4>Barba & Bigode</h4>
-                            <p>Modelagem completa de barba com navalha, toalha quente e produtos premium.</p>
-                            <p class="fw-bold">A partir de R$ 35</p>
-                        </div>
+                        <h4>Hidratação</h4>
+                        <p>Tratamento capilar profundo para revitalizar e fortalecer os fios.</p>
+                        <p class="fw-bold">A partir de R$ 50</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card text-center">
-                        <div class="card-body">
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <img src="https://placehold.co/600x400" class="mx-auto" alt="...">
+                <div class="card text-center">
+                    <div class="card-body">
 
-                            <h4>Hidratação</h4>
-                            <p>Tratamento capilar profundo para revitalizar e fortalecer os fios.</p>
-                            <p class="fw-bold">A partir de R$ 50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card text-center">
-                        <div class="card-body">
-
-                            <h4>Coloração</h4>
-                            <p>Coloração e descoloração com produtos de alta qualidade e acabamento natural.</p>
-                            <p class="fw-bold">A partir de R$ 80</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h4>Pacote Completo</h4>
-                            <p>Corte + Barba + Hidratação. O tratamento VIP completo para você.</p>
-                            <p class="fw-bold">R$ 110</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h4>Infantil</h4>
-                            <p>Corte especial para crianças em ambiente acolhedor e divertido.</p>
-                            <p class="fw-bold">R$ 35</p>
-                        </div>
+                        <h4>Coloração</h4>
+                        <p>Coloração e descoloração com produtos de alta qualidade e acabamento natural.</p>
+                        <p class="fw-bold">A partir de R$ 80</p>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Depoimentos -->
-    <section id="statements">
+    <section id="statements" class="py-5" style="scroll-margin-top: auto;">
+        <div class="text-center mb-5">
+            <h2 class="text-4xl font-bold mb-3">Depoimentos</h2>
+            <p class="text-xl">Veja o que nossos clientes dizem sobre nós</p>
+        </div>
+
+        <div class="">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+                <div class="">
+                    <blockquote class="mb-4">
+                        <p class="italic">"Melhor petshop que já frequentei! Os profissionais são extremamente
+                            capacitados e o ambiente é muito agradável."</p>
+                    </blockquote>
+                    <cite><strong>— Carla Cristina (mãe do Pacote), Cliente há 2 anos</strong></cite>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+                <div class="">
+                    <blockquote>
+                        <p class="italic">"Atendimento impecável e produtos de primeira linha. A atenção aos detalhes
+                            faz toda a diferença. Recomendo demais!"</p>
+                    </blockquote>
+                    <cite><strong>— Silvério Santos (pai da Lalá), Cliente há 1 ano</strong></cite>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="text-center p-5 m-4 border border-solid border-black rounded-sm">
+                <div class="">
+                    <blockquote>
+                        <p class="italic">"Encontrei na Pet Style não apenas um petshop, mas um lugar onde me
+                            sinto tranquilo em deixar o Thor nos aos cuidados. A equipe é sensacional e o
+                            resultado sempre supera as
+                            expectativas!"</p>
+                    </blockquote>
+                    <cite><strong>— Camila Costa (mãe do Thor), Cliente há 3 anos</strong></cite>
+                </div>
+            </div>
+        </div>
 
     </section>
 
     <!-- Contatos -->
     <section id="contact" class="m-4">
         <div class="flex flex-col justify-center items-center">
-            <h2 class="">Entre em contato conosco</h2>
-            
+            <h2 class="text-4xl font-bold mb-3">Entre em contato conosco</h2>
+
             <form class="flex flex-col justify-center items-center">
                 <div class="">
                     <label for="nome-completo" class="form-label">Nome completo</label>
