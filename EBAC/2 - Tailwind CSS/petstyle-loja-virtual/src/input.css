@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-    --pet-primary: #F97316;
-    --pet-secondary: #2563EB;
-    --pet-bg-light: #FFF7ED;
-    --pet-text-dark: #1A1A1A;
-    --pet-accent: #10B981;
     --pet-menu: #ff5a3d;
     --pet-offwhite: #F8F7F5;
     --pet-bege: #E5D5C2;

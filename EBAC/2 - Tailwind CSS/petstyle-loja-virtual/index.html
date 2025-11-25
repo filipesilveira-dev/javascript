@@ -6,89 +6,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --pet-menu: #ff5a3d;
+            --pet-offwhite: #F8F7F5;
+            --pet-bege: #E5D5C2;
+            --pet-text-grafite: #2A2A2A;
+            --pet-headers-grafite: #3B241F;
+            --pet-bg-pessego: #FFC97A;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="./src/output.css"> -->
     <link rel="shortcut icon" href="./img/Iconka-Cat-Secrets-Cat-laptop.256.png" type="image/x-icon">
     <title>Pet Style</title>
 </head>
 
 <body class="bg-(--pet-offwhite)">
-    <header class="flex flex-col justify-center items-center bg-(--pet-offwhite) text-white">
-        <a href="#"><img src="./img/logoReduzidaPetStyle.png" alt="logo"></a>
-        <nav class="w-full">
+    <header class="flex flex-col justify-center items-center bg-(--pet-offwhite) text-white lg:hidden">
+        <a href="#home"><img src="./img/logoReduzidaPetStyle.png" alt="logo" class="lg:hidden"></a>
+        <nav class="w-full lg:hidden">
             <ul class=" flex flex-col justify-center items-center">
-                <a href="" class="w-full bg-(--pet-menu) ">
+                <a href="#home" class="w-full bg-(--pet-menu) ">
                     <li class=" text-center border rounded py-2">Home</li>
                 </a>
-                <a href="" class="w-full bg-(--pet-menu)">
+                <a href="#products" class="w-full bg-(--pet-menu)">
                     <li class=" text-center border rounded py-2">Produtos</li>
                 </a>
-                <a href="" class="w-full bg-(--pet-menu)">
+                <a href="#statements" class="w-full bg-(--pet-menu)">
                     <li class=" text-center border rounded py-2">Depoimentos</li>
                 </a>
-                <a href="" class="w-full bg-(--pet-menu)">
+                <a href="#contact" class="w-full bg-(--pet-menu)">
                     <li class=" text-center border rounded py-2">Contato</li>
                 </a>
             </ul>
         </nav>
     </header>
 
+    <!-- header em telas maiores -->
+    <header class="sm:hidden md:hidden lg:flex flex-row bg-(--pet-bege) lg:justify-between">
+
+        <a href="#home"><img src="./img/logoReduzidaPetStyle.png" alt="logo" class="sm:hidden md:hidden lg:flex"></a>
+        <nav class="sm:hidden md:hidden lg:flex w-1/2">
+            <ul class=" flex flex-row justify-center items-center lg:flex w-full items-end">
+                <a href="#home" class="w-full bg-(--pet-menu) lg:flex">
+                    <li class=" text-center border rounded py-2 lg:border-none mx-auto">Home</li>
+                </a>
+                <a href="#products" class="w-full bg-(--pet-menu) lg:flex">
+                    <li class=" text-center border rounded py-2 lg:border-none mx-auto">Produtos</li>
+                </a>
+                <a href="#statements" class="w-full bg-(--pet-menu) lg:flex">
+                    <li class=" text-center border rounded py-2 lg:border-none mx-auto">Depoimentos</li>
+                </a>
+                <a href="#contact" class="w-full bg-(--pet-menu) lg:flex">
+                    <li class=" text-center border rounded py-2 lg:border-none mx-auto">Contato</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Home -->
-    <section id="home" class="bg-(--pet-offwhite)">
-        <p class="text-xl text-(--pet-text-grafite) text-justify p-4"><strong class="text-(--pet-headers-grafite)">Bem-vindo(a) à Pet Style!</strong> Nossa pet shop reúne tudo o que
+    <section id="home" class="bg-(--pet-offwhite) lg:flex flex-row">
+        <p class="text-xl text-(--pet-text-grafite) text-justify p-4 "><strong
+                class="text-(--pet-headers-grafite)">Bem-vindo(a) à Pet Style!</strong> Nossa pet shop reúne tudo o que
             seu pet
             precisa em um só lugar: rações premium que garantem saúde e vitalidade, brinquedos irresistíveis para horas
             de diversão, acessórios estilosos e produtos de cuidado que fazem toda a diferença. Com atendimento
             especializado e apaixonado por animais, estamos prontos para ajudar você a proporcionar o melhor para quem
             só te dá amor incondicional. Descubra por que somos a escolha favorita de pets e tutores que não abrem mão
             de qualidade e carinho! 🐾</p>
+        <img src="./img/fotoPetHome.jpg" alt="fot pet" class="mx-auto">
     </section>
-    <img src="./img/fotoPetHome.jpg" alt="fot pet" class="mx-auto">
+
 
     <!-- Produtos -->
     <section id="products" class="py-5 bg-(--pet-bege)">
         <div class="text-center mb-5">
-            <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Nossos Serviços</h2>
-            <p class="text-xl mx-2">Oferecemos uma gama completa de serviços para você ficar impecável</p>
+            <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Nossos Produtos</h2>
+            <p class="text-xl mx-2">Oferecemos uma gama completa de produtos para seu pet</p>
         </div>
 
         <!-- estabelece o uso de uma coluna em telas pequenas -->
-        <div class="grid grid-cols-1 m-4 gap-4">
+        <div class="grid grid-cols-1 m-4 gap-4 md:grid-cols-2">
 
-            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite) lg:mx-auto">
                 <img src="./img/racaoPremium.jpg" class="w-full" alt="...">
                 <div class="text-center mb-4">
                     <h4 class="my-2 font-medium text-xl">Ração Premium</h4>
-                    <p class="px-2 text-(--pet-text-grafite)">Alimento de alta qualidade, com ingredientes selecionados, alto valor nutritivo e
+                    <p class="px-2 text-(--pet-text-grafite)">Alimento de alta qualidade, com ingredientes selecionados,
+                        alto valor nutritivo e
                         boa digestibilidade para a saúde do pet.</p>
                     <p class="font-bold">A partir de R$ 35 (por kg)</p>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite) lg:mx-auto">
                 <img src="./img/brinquedoPet.jpg" class="w-full" alt="...">
                 <div class="text-center mb-4">
                     <h4 class="my-2 font-medium text-xl">Brinquedo Pet</h4>
-                    <p class="px-2 text-(--pet-text-grafite)">osso de borracha resistente ideal para cães, ajudando a aliviar o estresse,
+                    <p class="px-2 text-(--pet-text-grafite)">osso de borracha resistente ideal para cães, ajudando a
+                        aliviar o estresse,
                         estimular a mastigação e promover diversão.</p>
                     <p class="font-bold">R$ 60</p>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite) lg:mx-auto">
                 <img src="./img/coleteAmareloPet.jpg" class="w-full" alt="...">
                 <div class="text-center mb-4">
                     <h4 class="my-2 font-medium text-xl">Colete Estiloso</h4>
-                    <p class="px-2 text-(--pet-text-grafite)">roupa confortável e estilosa para cães, oferecendo proteção leve e mantendo o pet
+                    <p class="px-2 text-(--pet-text-grafite)">roupa confortável e estilosa para cães, oferecendo
+                        proteção leve e mantendo o pet
                         aquecido com charme.</p>
                     <p class="font-bold">R$ 90</p>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite)">
+            <div class="col-md-6 col-lg-4 rounded-sm shadow-md/20 bg-(--pet-offwhite) lg:mx-auto">
                 <img src="./img/caixaDeTransportePet.jpg" class="w-full" alt="...">
                 <div class="text-center mb-4">
                     <h4 class="my-2 font-medium text-xl">Caixa de Transporte</h4>
-                    <p class="px-2 text-(--pet-text-grafite)">recipiente seguro e ventilado para transportar pets com conforto e proteção em
+                    <p class="px-2 text-(--pet-text-grafite)">recipiente seguro e ventilado para transportar pets com
+                        conforto e proteção em
                         viagens ou deslocamentos.</p>
                     <p class="font-bold">A partir de R$ 250</p>
                 </div>
@@ -149,23 +188,26 @@
         <div class="flex flex-col justify-center items-center gap-3">
             <h2 class="text-4xl font-bold mb-3 text-(--pet-headers-grafite)">Entre em contato conosco</h2>
 
-            <form class="flex flex-col justify-center items-center bg-(--pet-offwhite) p-3 border border-(--pet-menu) mb-3 rounded-sm w-90">
+            <form
+                class="flex flex-col justify-center items-center bg-(--pet-offwhite) p-3 border border-(--pet-menu) mb-3 rounded-sm w-90">
                 <div class="w-full flex flex-col mb-3">
                     <label for="nome-completo" class="form-label">Nome completo</label>
                     <input type="text" class="w-full border rounded-sm mt-2 p-1" id="nome-completo">
                 </div>
                 <div class="w-full flex flex-col mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="w-full border rounded-sm mt-2 p-1" id="e-mail" placeholder="name@example.com">
+                    <input type="email" class="w-full border rounded-sm mt-2 p-1" id="e-mail"
+                        placeholder="name@example.com">
                 </div>
 
                 <div class="w-full flex flex-col mb-3">
                     <label for="mensagem" class="form-label">Mensagem: </label>
-                    <textarea id="mensagem" class="w-full border rounded-sm mt-2 p-1" name="mensagem" rows="3" placeholder="Digite aqui"
-                        minlength="20" maxlength="1000" required></textarea>
+                    <textarea id="mensagem" class="w-full border rounded-sm mt-2 p-1" name="mensagem" rows="3"
+                        placeholder="Digite aqui" minlength="20" maxlength="1000" required></textarea>
 
                 </div>
-                <button class="bg-(--pet-menu) text-white border border-solid border-black shadow-md rounded-sm p-2 w-40 mb-3">Inscrever-se</button>
+                <button
+                    class="bg-(--pet-menu) text-white border border-solid border-black shadow-md rounded-sm p-2 w-40 mb-3">Inscrever-se</button>
             </form>
         </div>
     </section>
