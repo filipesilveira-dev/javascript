@@ -1,14 +1,16 @@
-import Tarefa from "./components/tarefa"
+import { useState } from "react";
+import Tarefa from "./components/Tarefa"
 
 
 function App() {
+  // inicialamente uma array, posteriormente transformada em setState. Perceba que foi passada o que era a array "tarefas" dentro do argumento de useStaete. A transformação foi feita para tornar possível adicionar e remover tarefa de UI.
   const tarefas = [
     // aqui está simulado um pequeno banco de dados, possuindo cada objeto ou item da lista um id único. Dessa forma, a propriedade "key" pode identificar acada um individualemnte. 
     { id: 1, texto: "Estudar React" },
     { id: 2, texto: "Fazer compras" },
     { id: 3, texto: "Responder e-mails" }
-  
-  ]
+  ];
+
   return (
     <main>
       <h1>To-Do List App</h1>
