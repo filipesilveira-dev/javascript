@@ -1,17 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tarefa from "./components/Tarefa"
 
+// const criada para receber o endpoint do crudcrud. Foi acrescentado o "/tarefas" ao final pois será criada essa API lá no crudcrud
+const API_URL = 'https://crudcrud.com/api/a8a7e76074ba4ee5bdacbaaee416f7a8/tarefas';
 
 function App() {
   // inicialamente uma array, posteriormente transformada em setState. Perceba que foi passada o que era a array "tarefas" dentro do argumento de useStaete. A transformação foi feita para tornar possível adicionar e remover tarefa de UI.
+
+  // Iniciando como uma array vazia "[]" é possível que ele seja atualizada do zero. Permite cadastrar e recuperar tarefas de uma API
+  const [tarefas, setTarefas] = useState([]);
+
+  /*
+
   const [tarefas, setTarefas] = useState([
     // aqui está simulado um pequeno banco de dados, possuindo cada objeto ou item da lista um id único. Dessa forma, a propriedade "key" pode identificar acada um individualemnte. 
-    { id: 1, texto: "Estudar React" },
-    { id: 2, texto: "Fazer compras" },
-    { id: 3, texto: "Responder e-mails" }
+
+    // ao criar essa lista estática, o programa já iniciava com essas três atividades. Iniciando como uma array vazia "[]" é possível que ele seja atualizada do zero
+     { id: 1, texto: "Estudar React" },
+     { id: 2, texto: "Fazer compras" },
+     { id: 3, texto: "Responder e-mails" }
   ]);
 
+  */
+
   const [novaTarefa, setNovaTarefa] = useState('');
+
+  // Buscar os dados na API quando o componente for montado
+  useEffect(() => {
+    //passada como argumento a const com a URL do endpoint do crudcrud
+    fetch(API_URL)
+      //a resposta que vier da solicitação será transformada em json pela função json()
+      .then(res => res.json())
+      //caso dê certa a solicitação, os dados obtidos serão de setTarefas
+      .then(dados => setTarefas(dados))
+      //caso dê algum erro, será retornado para o usuário (tratamento de erros)
+      .catch(error => console.error("Erro ao buscar tarefas: ", error))
+  }, [])
 
   // função para receber o submit (evento em questão) do input
   const handleSubmit = (e) => {
@@ -21,9 +45,37 @@ function App() {
     // trata-se de uma pequena validação. Caso não haja nada escrito para ser feito o "submit" será retornado nada também para o usuário.
     if (novaTarefa.trim() === '') return;
 
-    // como os objetos de "tarefas" possuem id e texto {id: valor, texto: valor}, será simulada a criação de um id. Nesse caso, o novo id será o id do último elemento [tarefas.length - 1] da lista mais "1".
-    const novoId = tarefas[tarefas.length - 1].id + 1;
+    // Após feita essa validação básica, é preciso configurar para enviar a tarefa para a API do crudcrud
 
+    // função para criar uma nova tarefa. O ID foi removido, pois o crudcrud já gera um ID para cada item
+    const nova = { texto: novaTarefa.trim() }
+    // por se tratar de um "POST" é preciso acrescentar algumas informações em relação ao "GET"
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // especifica que será a tarefa a ser adicionada, mas convertida em string
+      body: JSON.stringify(nova)
+    })
+      //a resposta que vier da solicitação será transformada em json pela função json()
+      .then(res => res.json())
+      //caso dê certa a solicitação, a tarefa criada será armazenados em setTarefas
+      .then(tarefaCriada => {
+        // recupera toda a lista "tarefas" atuais com o spread operator (...) e acrescenta a nova lista. PPrimeiro manda para a API e depois recupera com ID
+        setTarefas([...tarefas, tarefaCriada]);
+        // apaga o texto do input
+        setNovaTarefa('');
+      })
+      //caso dê algum erro, será retornado para o usuário (tratamento de erros)
+      .catch(error => console.error("Erro ao buscar tarefas: ", error))
+
+
+    /*
+    COMO ESTAVA ANTES DE ENTRAR A API DO CRUDCRUD NO CÓDIGO:
+  
+    //como os objetos de "tarefas" possuem id e texto {id: valor, texto: valor}, será simulada a criação de um id. Nesse caso, o novo id será o id do último elemento [tarefas.length - 1] da lista mais "1"
+  
+     const novoId = tarefas[tarefas.length - 1].id + 1;
+  
     // função para criar uma nova tarefa
     const nova = {
       // obtido com "const novoId"
@@ -34,6 +86,8 @@ function App() {
     setTarefas([...tarefas, nova]);
     // apaga o texto do input
     setNovaTarefa('');
+    */
+
   }
 
   return (
@@ -44,8 +98,8 @@ function App() {
         {/* o uso da propriedade value no input serve para utilizar o setState "novaTarefa" definido como iniciando com duas aspas vazias (''), ou seja, sem nada escrito inicialmente */}
         <input type="text" placeholder="Digite uma nova tarefa" value={novaTarefa}
           onChange={(e) => setNovaTarefa(e.target.value)} />
-          {/* no caso acima em "onChange" o evento (e) será passado como argumento na arrow function na qual será retornado o valor desse evento, ou seja, o que será escrito no input*/}
-          <button type="submit">Adicionar</button>
+        {/* no caso acima em "onChange" o evento (e) será passado como argumento na arrow function na qual será retornado o valor desse evento, ou seja, o que será escrito no input*/}
+        <button type="submit">Adicionar</button>
       </form>
       <ul>
         {/* 
@@ -56,7 +110,8 @@ function App() {
           A propriedade "key" é necessária pois funciona como um identificador único de cada elemento. Dessa forma, ao invés de precisar renderizar tudo caso algum texto mude, ele renderiza apenas o texto alterado. Funciona aliado ao "id" que geralmente é utilizado em bancos de dados para identificar cada objeto.
           Para referenciar então os objetos dentro da array tarefas, sendo cada objeto uma "tarefa", será necessário utilizar "tarefa.id" e "tarefa.texto"
         */}
-        {tarefas.map(tarefa => <Tarefa key={tarefa.id} texto={tarefa.texto} />)}
+        {/* o ID retornado da API do CRUDCRUD começa com um "_" */}
+        {tarefas.map(tarefa => <Tarefa key={tarefa._id} texto={tarefa.texto} />)}
       </ul>
     </main>
   )
