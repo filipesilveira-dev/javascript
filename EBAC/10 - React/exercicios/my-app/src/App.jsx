@@ -47,7 +47,7 @@ function App() {
 
     // Após feita essa validação básica, é preciso configurar para enviar a tarefa para a API do crudcrud
 
-    // função para criar uma nova tarefa. O ID foi removido, pois o crudcrud já gera um ID para cada item
+    // variável criada para receber o objeto literal "novaTarefa". Nele contém a informação do nome da tarefa (introduzido onde tem "Digite uma nova tarefa"). O ID foi removido, pois o crudcrud já gera um ID para cada item
     const nova = { texto: novaTarefa.trim() }
     // por se tratar de um "POST" é preciso acrescentar algumas informações em relação ao "GET"
     fetch(API_URL, {
@@ -124,6 +124,6 @@ function App() {
 4 - Em seguida será pego um "id" provisório
 5 - Gera-se um objeto {id: valor, texto: valor} da nova tarefa
 6 - Por meio de "setTarefas([...tarefas, nova]);", cria-se um novo array com a tarefa nova
-7 - Alista (array) "tarefas é então atualizada com a nova tarefa", o que implica na <ul> na qual foi passada uma função map() para percorrer a lista. Isso renderizará na UI a nova array criada com a nova tarefa
+7 - A lista (array) "tarefas é então atualizada com a nova tarefa", o que implica na <ul> na qual foi passada uma função map() para percorrer a lista. Isso renderizará na UI a nova array criada com a nova tarefa
 */
 export default App
