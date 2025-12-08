@@ -1,14 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-function AddProduct() {
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState()
-    const [description, setDescription] = useState('')
+// function AddProduct() {
+//     const [name, setName] = useState('')
+//     const [price, setPrice] = useState()
+//     const [description, setDescription] = useState('')
 
-    return (
+//     return (
         
-    )
+//     )
 
-}
+// }
 
-export default AddProduct;
+// export default AddProduct;
