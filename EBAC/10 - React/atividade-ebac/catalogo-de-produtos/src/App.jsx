@@ -5,7 +5,6 @@ import guitarImg from './assets/images/guitar.jpg'
 import bassImg from './assets/images/baixo.jpg'
 import drumsImg from './assets/images/bateria.jpg'
 import keyboardImg from './assets/images/piano.jpg'
-// import AddProduct from './components/AddProduct'
 
 const API_URL = 'https://crudcrud.com/api/0d47f27d4e214a88971532601a57534c/products'
 
@@ -41,45 +40,49 @@ function App() {
   // variável que receberá os produtos adicionados
   const [products, setProducts] = useState([])
 
+  // estado de carregamento
+  const [loading, setLoading] = useState(true);
+
   // cada informação obtida em cada input
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
 
-  // setTimeout(()=>{
-      
-  //   }, 2000)
-  
   // buscar os dados na API quando o componente for montado
   useEffect(() => {
 
-    // constante criada para possibilitar o async/await (mais moderno)
+    // função criad para receber o async/await dentro do useEffect
     const fetchProducts = async () => {
       try {
-        // constante criada para receber o fetch com sua URL e suas informações (method, header) 
-        const response = await fetch(API_URL, { method: 'GET' })
+        const response = await fetch(API_URL, { method: 'GET' });
 
-        // validação para tratar eventual erro com o protocolo HTTP
+        // tratamento de erro em caso de erro com o protocolo HTTP
         if (!response.ok) {
-          throw new Error(`Erro HTTP! Status: ${response.status}`)
+          throw new Error(`Erro HTTP! Status: ${response.status}`);
         }
 
-        // constante que receber as informações obtidas da URL e as transformando em arquivo json (vêm como strings)
+        // constante que recebe os dados da API trnasformados em json (vêm como strings)
         const data = await response.json();
 
-        // estabelece o novo valor de "products"
-        setProducts(data);
+        // simulação de carregamento: só realiza o "setProducts(data) e, em seguida, o "setLoading(false) após 3000 milissegundos
+        setTimeout(() => {
+          setProducts(data);
+          setLoading(false);
+        }, 3000);
 
+        // tratamento de erro caso o que estiver em "try" falhe
       } catch (error) {
         console.error("Houve um erro ao buscar as tarefas:", error.message);
-        // setError(error.message);
         setProducts([]);
+        setLoading(false);
       }
-    }
+    };
 
+    // executa a função assíncrona
     fetchProducts();
-  }, [])
+  }, []);
 
+  // função para lidar com o que será feito após o "submit" do formulário
   const handleSubmit = (e) => {
     // evita o recarregamento da página
     e.preventDefault();
@@ -97,6 +100,7 @@ function App() {
       description: description.trim()
     };
 
+    // função criada para realizar o 'POST' de um novo produto na API
     const fetchNewProduct = async () => {
       try {
         const response = await fetch(API_URL, {
@@ -119,6 +123,7 @@ function App() {
       }
     }
 
+    // executa a função assíncrona que fará um 'POST' de um novo produto na API
     fetchNewProduct()
   }
 
@@ -133,24 +138,36 @@ function App() {
 
       <div className='flex flex-row justify-evenly'>
         <div className='grid grid-cols-4 h-1/3 p-4 w-2/3 gap-2'>
-          {/* exemplos fixos de produtos com suas respectivas imagens */}
+
+          {/* produtos fixos */}
           {fixedProduts.map((product) =>
-            <ProdutoCard 
-            key={product.id} 
-            img={product.img} 
-            title={product.title} 
-            price={product.price} 
-            description={product.description}
-            />)}
-          {/* Percorre cada elemento da array "products", pega de cada produto a informação sobre seu name, price e description e cria, para cada produto presente na array um Card com base no componente ProdutoCard */}
-          {products.map((product) =>
-            <ProdutoCard 
-            key={product._id} 
-            img={product.img} 
-            title={product.title} 
-            price={product.price} 
-            description={product.description}
-            />)}
+            <ProdutoCard
+              key={product.id}
+              img={product.img}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+            />
+          )}
+
+          {/* mensagem que será exibida enquanto "loading" for verdadeira */}
+          {loading && (
+            <div className="col-span-4 text-center text-white text-xl font-semibold animate-pulse py-6">
+              Carregando...
+            </div>
+          )}
+
+          {/* elementos que serão exibidos enqianto "loading" for falsa */}
+          {!loading && products.map((product) =>
+          
+            <ProdutoCard
+              key={product._id}
+              img={product.img}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+            />
+          )}
         </div>
         <div className="flex flex-col justify-center h-screen w-1/3">
 
