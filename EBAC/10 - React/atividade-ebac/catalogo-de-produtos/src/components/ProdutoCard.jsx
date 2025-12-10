@@ -5,15 +5,15 @@ function ProdutoCard(props) {
             <li 
             className="flex flex-col justify-center" >
                 <img src={props.img}
-                className="w-xl h-md object-contain" alt="..." />
+                className="w-full object-contain" alt="..." />
                 <div 
                 className="flex flex-col justify-center items-center p-2 gap-2">
                     <h5 
-                    className="font-bold text-sm">{props.name}</h5><span className="text-xs"><span className="font-bold">Preço:</span> R$ {Number(props.price)}</span>
+                    className="font-bold text-sm">{props.title}</h5><span className="text-xs"><span className="font-bold">Preço:</span> R$ {Number(props.price)}</span>
                     <p 
                     className="text-xs text-justify"><span className="font-bold">Descrição:</span> {props.description}</p>
-                    <button 
-                    className="bg-slate-400 p-1 rounded-md text-white text-sm"><a href="#" >Comprar</a></button>
+                    <button
+                    className="bg-slate-400 p-1 rounded-md text-white text-sm hover:bg-slate-500 hover:cursor-pointer">Deletar</button>
                 </div>
             </li>
         </ul>
