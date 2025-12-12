@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Tarefa from "./components/Tarefa"
 
 // const criada para receber o endpoint do crudcrud. Foi acrescentado o "/tarefas" ao final pois será criada essa API lá no crudcrud
-const API_URL = 'https://crudcrud.com/api/a8a7e76074ba4ee5bdacbaaee416f7a8/tarefas';
+const API_URL = 'https://crudcrud.com/api/d188d50ca127459bb0a2274d723f9164/tarefas';
 
 function App() {
   // inicialamente uma array, posteriormente transformada em setState. Perceba que foi passada o que era a array "tarefas" dentro do argumento de useStaete. A transformação foi feita para tornar possível adicionar e remover tarefa de UI.
