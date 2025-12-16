@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState(
+    // pega as strings armazenadas no localstorage e atribui à variável "tasks"
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
@@ -35,9 +36,10 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  // utilizado para salvar os objetos "tarefa" no local storage. Necessita transformá-los para string
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-  });
+  }, [tasks]);
 
   return (
     <div className="w-screen min-h-screen bg-purple-500 p-6 flex flex-col items-center">
