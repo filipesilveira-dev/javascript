@@ -1,23 +1,11 @@
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Surfar",
-      description: "Acordar cedo para ir surfar",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Estudar",
-      description:
-        "Dedicar maior parte do tempo para estudo (assistir aula e fazer exercícios)",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
   // Função para mudar o estado de conclusão de uma tarefa, aplicando !task.isCompleted na tarefa com id idêntico ao id passado como argumento
   function onTaskClick(taskId) {
@@ -37,6 +25,7 @@ function App() {
     setTasks(newTasks);
   }
 
+  // Função chamada ao clicar para adicionar uma tarefa. Ela cria um objeto que será adicionado ao useState que recebe as tarefas
   function onAddTaskSubmit(title) {
     const newTask = {
       id: tasks.length + 1,
@@ -46,14 +35,17 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  });
+
   return (
     <div className="w-screen min-h-screen bg-purple-500 p-6 flex flex-col items-center">
       <div className="w-125 flex flex-col gap-4">
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           To-do List
         </h1>
-        <AddTask 
-        onAddTaskSubmit={onAddTaskSubmit} />
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
