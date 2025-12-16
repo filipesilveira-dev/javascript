@@ -6,13 +6,27 @@
 import { useState } from "react";
 // import { useInput } from "../../../../exercicios/my-app/src/hooks/useInput";
 
-
-function AddTask(){
-    return(
-        <form>
-            
-        </form>
-    )
+function AddTask({ onAddTaskSubmit }) {
+  // variável criada para receber o setState que receberá o valor do input (título da tarefa)
+  const [title, setTitle] = useState("");
+  return (
+    <form
+      className="space-y-4 p-6 bg-purple-200 rounded-md shadow flex flex-col"
+      //onSubmit={onAddTaskSubmit(Tasks.title)}
+    >
+      <input
+        type="text"
+        placeholder="Digite uma tarefa"
+        className="bg-white border border-purple-300 outline-purple-400 px-4 py-2 rounded-md"
+        value={title}
+        // estabelece o que o usuário inserir em setTitle
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <button className="bg-purple-950 text-white px-4 py-2 rounded-md hover:cursor-pointer" onClick={()=>onAddTaskSubmit(title)}>
+        Adicionar
+      </button>
+    </form>
+  );
 }
 
-export default AddTask
+export default AddTask;

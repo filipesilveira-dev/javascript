@@ -19,7 +19,7 @@ function App() {
     },
   ]);
 
-  // Função para mudar o estado aplicando !task.isCompleted na tarefa com id idêntico ao id passado como argumento
+  // Função para mudar o estado de conclusão de uma tarefa, aplicando !task.isCompleted na tarefa com id idêntico ao id passado como argumento
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
@@ -37,10 +37,22 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onAddTaskSubmit(title) {
+    const newTasks = {
+      id: tasks.length + 1,
+      title: title,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTasks]);
+  }
+
   return (
-    <div className="w-screen h-screen bg-purple-500 justify-center p-6 ">
-      <div className="w-125 m-auto">
-        {/* <AddTask /> */}
+    <div className="w-screen h-screen bg-purple-500 p-6 flex flex-col items-center">
+      <div className="w-125 flex flex-col gap-4">
+        <h1 className="text-3xl text-slate-100 font-bold text-center">
+          To-do List
+        </h1>
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
