@@ -38,21 +38,22 @@ function App() {
   }
 
   function onAddTaskSubmit(title) {
-    const newTasks = {
+    const newTask = {
       id: tasks.length + 1,
       title: title,
       isCompleted: false,
     };
-    setTasks([...tasks, newTasks]);
+    setTasks([...tasks, newTask]);
   }
 
   return (
-    <div className="w-screen h-screen bg-purple-500 p-6 flex flex-col items-center">
+    <div className="w-screen min-h-screen bg-purple-500 p-6 flex flex-col items-center">
       <div className="w-125 flex flex-col gap-4">
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           To-do List
         </h1>
-        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+        <AddTask 
+        onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
