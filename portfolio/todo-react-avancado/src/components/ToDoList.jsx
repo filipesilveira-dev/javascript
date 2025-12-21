@@ -3,7 +3,8 @@ import AddTask from "../components/AddTask";
 import Task from "./Task";
 
 export default function ToDoList() {
-  const [tasks, setTasks] = useState(
+  // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       title: "surfar",
@@ -15,8 +16,8 @@ export default function ToDoList() {
       title: "estudar",
       description: "acordar cedo pra estudar",
       isCompleted: false,
-    }
-  );
+    },
+  ]);
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function ToDoList() {
       <AddTask />
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => 
-        <Task title={task.title} />
+        <Task key={task. id}title={task.title} />
       )}
     </>
   );

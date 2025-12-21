@@ -1,7 +1,7 @@
-export default function Task ({tasks}){
+export default function Task ({title}){
     return(
        
-       <li>{tasks.title}</li>
+       <li>{title}</li>
        
     );
 }
