@@ -25,7 +25,7 @@ export default function ToDoList() {
       <AddTask />
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => 
-        <Task key={task. id}title={task.title} />
+        <Task key={task.id}title={task.title} />
       )}
     </>
   );
