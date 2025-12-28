@@ -1,12 +1,42 @@
-export default function AddTask(){
-    return(
-        <main>
-            <h1>Lista de Tarefas</h1>
-            <form>
-                <input type="text" />
-                <input type="text" />
-                <button></button>
-            </form>
-        </main>
-    )
+import { useState } from "react";
+
+export default function AddTask({ setTasks, tasks }) {
+  // constante criada para receber o valor do input com o nome da tarefa
+  const [newTask, setNewTask] = useState("");
+
+  //   Objetivos da função: prevenir recarregamento da página, validação simples, impedindo a inserção de tarefas sem nada escrito e adicionar a tarefa à lista preexeistente
+  const handleSubmit = (e) => {
+    // evita o recarregamento completo da página
+    e.preventDefault();
+
+    if (newTask.trim() === "") return;
+
+    const newId = tasks[tasks.length - 1].id + 1;
+    const nova = {
+      id: newId,
+      title: newTask.trim(),
+    };
+    // utiliza o setTasks para alterar tasks
+    setTasks(tasks => [...tasks, nova]);
+    setNewTask("");
+  };
+
+  return (
+    <main>
+      <h1>Lista de Tarefas</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Digite uma nova tarefa"
+          value={newTask}
+          //   captura o evento como argumento da arrow function e vai estabelecer a variável nexTask com o valor gerado no input em específico
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <input type="text" />
+        <button type="submit" className="hover:cursor-pointer">
+          Adicionar
+        </button>
+      </form>
+    </main>
+  );
 }

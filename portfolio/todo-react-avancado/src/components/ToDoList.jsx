@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddTask from "../components/AddTask";
+import AddTask from "./AddTask";
 import Task from "./Task";
 
 export default function ToDoList() {
@@ -21,11 +21,11 @@ export default function ToDoList() {
 
   return (
     <>
-      {/* componente responsável pelas tarefas adicionadas */}
-      <AddTask />
+      {/* componente responsável pelas tarefas adicionadas. Passadas as propriedades para alterar o useState "tasks" */}
+      <AddTask  setTasks={setTasks} tasks={tasks}/>
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => 
-        <Task key={task.id}title={task.title} />
+        <Task key={task.id} title={task.title} />
       )}
     </>
   );
