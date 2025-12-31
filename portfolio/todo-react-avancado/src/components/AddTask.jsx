@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddTask({ setTasks, tasks, apiUrl }) {
+export default function AddTask({ setTasks, apiUrl }) {
   // constante criada para receber o valor do input com o nome da tarefa
   const [newTask, setNewTask] = useState("");
 
@@ -14,18 +14,16 @@ export default function AddTask({ setTasks, tasks, apiUrl }) {
     // Envio da tarefa para a API
     const nova = { title: newTask.trim() };
     fetch(apiUrl, {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify(nova)
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(nova),
     })
       .then((res) => res.json())
       .then((createdTask) => {
         setTasks((tasks) => [...tasks, createdTask]);
         setNewTask("");
       })
-      .catch((error) => console.error("Falha ao buscar tarefa"));
-    // utiliza o setTasks para alterar tasks
-  
+      .catch((error) => console.error("Falha ao buscar tarefa", error));
   };
 
   return (
