@@ -4,7 +4,7 @@ import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/e3f3f2b773ff4176b74881cc87a18eaf/tasks";
+    "https://crudcrud.com/api/1573c4f404a94d3da455e2160ca21d5f/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
@@ -26,7 +26,17 @@ export default function ToDoList() {
       <AddTask setTasks={setTasks} tasks={tasks} apiUrl={API_URL} />
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => (
-        <Task key={task._id} title={task.title} />
+        <Task
+          key={task._id}
+          // setter para manipular o estado de tasks
+          setTasks={setTasks}
+          // trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
+          tasks={tasks}
+          // criado pelo método map() abrange todas as características de UMA tarefa (_id e title). Trata-se de uma variável temporária. Representa cada item da array durante a iteração. Utilizado em filter() para comparar o _id da tarefa em questão com o id recebido como argumento da função "deleteTask". 
+          task={task}
+          // utilizado para deletar tarefa do servidor de API
+          apiUrl={API_URL}
+        />
       ))}
     </>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Task({ title }) {
+export default function Task({ setTasks, tasks, task, apiUrl }) {
   // constante que recebe o useState que controlará o estado de concluída da tarefa
   const [completed, setCompleted] = useState(false);
 
@@ -9,12 +9,31 @@ export default function Task({ title }) {
     setCompleted(!completed);
   };
 
+  const deleteTask = (id) => {
+    fetch(`${apiUrl}/${id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+    })
+      .then(() => {
+        setTasks(tasks.filter((task) => task._id !== id));
+        console.log("Tarefa deletada com sucesso!");
+      })
+      .catch((error) => {
+        console.error("Falha ao deletar tarefa", error);
+        alert("Não foi possível deletar a tarefa.");
+      });
+  };
+
   return (
     <li>
+      {/* arrow function desnecessária por não possuir parâmetro */}
       <button onClick={changeCompleted}>
-        <span className={completed ? 'line-through' : " "}>{title} </span>
+        <span className={completed ? "line-through" : " "}>{task.title} </span>
       </button>
-      <button className="hover:cursor-pointer">Remover</button>
+      {/* necessário o uso de arrow function em deleteTask por necessitar de um parâmetro (task._id) */}
+      <button onClick={()=>{deleteTask(task._id)}} className="hover:cursor-pointer">
+        Remover
+      </button>
     </li>
   );
 }

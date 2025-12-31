@@ -20,7 +20,8 @@ export default function AddTask({ setTasks, apiUrl }) {
     })
       .then((res) => res.json())
       .then((createdTask) => {
-        setTasks((tasks) => [...tasks, createdTask]);
+        setTasks((prev) => [...prev, createdTask]);
+        console.log("Tarefa adicionada com sucesso!");
         setNewTask("");
       })
       .catch((error) => console.error("Falha ao buscar tarefa", error));
