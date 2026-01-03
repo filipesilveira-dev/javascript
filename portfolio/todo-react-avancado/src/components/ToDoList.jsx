@@ -24,15 +24,16 @@ export default function ToDoList() {
     <>
       {/* componente responsável pelas tarefas adicionadas. Passadas as propriedades para alterar o useState "tasks" */}
       <AddTask 
+      // setter para manipular o estado de tasks, adicionando task
       setTasks={setTasks} 
-      tasks={tasks} 
+      // utilizado para salvar tarefa no servidor de API 
       apiUrl={API_URL} />
 
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => (
         <Task
           key={task._id}
-          // setter para manipular o estado de tasks
+          // setter para manipular o estado de tasks, excluindo task
           setTasks={setTasks}
           // trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
           tasks={tasks}
