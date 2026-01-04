@@ -4,10 +4,16 @@ import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/f557eb8a062b41bc953476a18068026d/tasks";
+    "https://crudcrud.com/api/5f84803a3a9044018a215762fccf6cd9/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
+
+  console.log("Componente ToDoList executado")
+
+  useEffect(()=>{
+    console.log("Componente montado")
+  }, [])
 
   // Busca os dados na API quando o componente for montado
   useEffect(() => {
