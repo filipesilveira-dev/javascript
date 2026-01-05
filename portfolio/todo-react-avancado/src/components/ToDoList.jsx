@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/5f84803a3a9044018a215762fccf6cd9/tasks";
+    "https://crudcrud.com/api/f6b7e00d37ef47ea9496263375ac193a/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
 
-  console.log("Componente ToDoList executado")
+  console.log("Componente ToDoList executado");
 
-  useEffect(()=>{
-    console.log("Componente montado")
-  }, [])
+  useEffect(() => {
+    console.log("Componente montado");
+  }, []);
 
   // Busca os dados na API quando o componente for montado
   useEffect(() => {
@@ -26,27 +26,62 @@ export default function ToDoList() {
       });
   }, []);
 
+  const addTask = useCallback((title) => {
+    // Envio da tarefa para a API
+    const nova = { title };
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(nova),
+    })
+      .then((res) => res.json())
+      .then((createdTask) => {
+        setTasks((prev) => [...prev, createdTask]);
+        console.log("Tarefa adicionada com sucesso!");
+      })
+      .catch((error) => console.error("Falha ao buscar tarefa", error));
+  });
+
+  // função retirada de Task e trazida para cá evitando passar tasks via props, passando apaenas agora a referência da função via props para Task
+  const deleteTask = useCallback((id) => {
+    fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+    })
+      .then(() => {
+        setTasks(tasks.filter((task) => task._id !== id));
+        console.log("Tarefa deletada com sucesso!");
+      })
+      .catch((error) => {
+        console.error("Falha ao deletar tarefa", error);
+        alert("Não foi possível deletar a tarefa.");
+      });
+  });
+
   return (
     <>
       {/* componente responsável pelas tarefas adicionadas. Passadas as propriedades para alterar o useState "tasks" */}
-      <AddTask 
-      // setter para manipular o estado de tasks, adicionando task
-      setTasks={setTasks} 
-      // utilizado para salvar tarefa no servidor de API 
-      apiUrl={API_URL} />
+      <AddTask
+        // REMOVIDO setter para manipular o estado de tasks, adicionando task
+        // setTasks={setTasks}
+        // REMOVIDO utilizado para salvar tarefa no servidor de API
+        // apiUrl={API_URL}
+        onAddTask={addTask}
+      />
 
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks.map((task) => (
         <Task
           key={task._id}
-          // setter para manipular o estado de tasks, excluindo task
-          setTasks={setTasks}
-          // trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
-          tasks={tasks}
+          // REMOVIDO (DESNECESSÁRIO APÓS MUDANÇA DA FUNÇÃO DE DELETAR PARA CÁ) setter para manipular o estado de tasks, excluindo task
+          // setTasks={setTasks}
+          // REMOVIDO (PROBLEMA DE PERFORMANCE) trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
+          // tasks={tasks}
           // criado pelo método map() abrange todas as características de UMA tarefa (_id e title). Trata-se de uma variável temporária. Representa cada item da array durante a iteração. Utilizado em filter() para comparar o _id da tarefa em questão com o id recebido como argumento da função "deleteTask".
           task={task}
-          // utilizado para deletar tarefa do servidor de API
-          apiUrl={API_URL}
+          // REMOVIDO (DESNECESSÁRIO QUANDO A FUNÇÃO DE DELETAR VEIO PARA CÁ) utilizado para deletar tarefa do servidor de API
+          // apiUrl={API_URL}
+          onDeleteTask={deleteTask}
         />
       ))}
     </>
