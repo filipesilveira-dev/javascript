@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react"
-import AddTask from "./components/AddTask"
-import Tasks from "./components/Tasks"
+import { useEffect, useState } from "react";
+import AddTask from "./components/AddTask";
+import Tasks from "./components/Tasks";
 
 function App() {
-
   const [tasks, setTasks] = useState(
     // Inicialmente, dentro de useState, foi passada uma pequena quantidade de atividades (tasks). Após a introdução do local storage para armazenar as informações para que estivessem disponíveis mesmo ao recarregar a página, foi realizada a alteração abaixo.
     // aqui está sendo transformado em JSON a string com o nome de "tasks" armazenada no localStorage. Se não houver nada dentro de "tasks" será retornada uma lista vazia.
     JSON.parse(localStorage.getItem("tasks")) || []
   );
+
+  console.log("Componente ToDoList executado");
+
+  useEffect(() => {
+    console.log("Componente montado");
+  }, []);
 
   // ESTRUTURA INICIAL ANTIGA
   // const [tasks, setTasks] = useState([{
@@ -36,16 +41,17 @@ function App() {
   useEffect(() => {
     // estabelece o nome do item que será armazenado (poderia ser "tarefas", mas foi escolhido "tasks") e converte esse item, que está em formato JSON, em uma string (no caso, o item é a lista com useState "tasks")
     // importante perceber que , apesar do mesmo nome, trata-se de estruturas diferentes: o primeiro "tasks" do comando é apenas o nome que o item receberá. O segundo é a referência à lista em formato JSON que será convertida em string e que possue as tarefas cadastradas.
-    localStorage.setItem("tasks", JSON.stringify(tasks))
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     // essa função será executada sempre que "[tasks]" for alterada. Porém, ainda é necessário passar (atualiazar) o que ficou armazenado no local storage na lista com useState "tasks". Para isso, é necessário retornar lá na const [tasks, setTasks] criada.
   }, [tasks]);
 
-  // função criada para interação com API
+  // função criada para interação com API (GET)
   useEffect(() => {
     // função criada para receber o "async", já que o "useEffect" não pode receber e é necessário no processo de async/await
     const fetchTasks = async () => {
       // chamar a API
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10',
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
         {
           // por padrão, o método já é "GET", mas aqui foi explicitado para ficar mais clara a sintaxe
           method: "GET",
@@ -57,10 +63,10 @@ function App() {
 
       // armazenar/persistir esses dados no state
       setTasks(data);
-    }
+    };
     // SE QUISER PODE CHAMAR UMA API PARA PEGAR AS TAREFAS. BASTA DESCOMENTAR A LINHA ABAIXO
     // fetchTasks();
-  }, [])
+  }, []);
 
   // função para alterar o estado de conclusão de uma tarefa
   // ESSA FUNÇÃO PRECISA ESTAR AQUI POIS O STATE (TASKS) ESTÁ AQUI
@@ -81,9 +87,8 @@ function App() {
   // função para remover uma tarefa
   // ESSA FUNÇÃO PRECISA ESTAR AQUI POIS O STATE (TASKS) ESTÁ AQUI
   function onDeleteTaskClick(taskId) {
-
     // comando que especifica para manter na lista todas as tarefas com id diferente da tarefa que está sendo deletada. A lista que se originará desse comando conterá todas as tarefas menos a passada como argumento
-    const newTasks = tasks.filter(task => task.id !== taskId);
+    const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   }
 
@@ -96,21 +101,21 @@ function App() {
       id: tasks.length + 1,
       title: title,
       description: description,
-      isCompleted: false
+      isCompleted: false,
     };
 
     // o novo setState de tasks (setTasks) será tudo o que já tem em tasks acrescido da newTask
-    setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask]);
   }
 
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
+        <h1 className="text-3xl text-slate-100 font-bold text-center">
+          Gerenciador de Tarefas
+        </h1>
         {/* componente AddTask */}
-        <AddTask
-          onAddTaskSubmit={onAddTaskSubmit}
-        />
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         {/* componente Tasks */}
         {/* tudo o que é passado aqui, é possível ter acesso no seu componente.jsx por meio de props. No exemplo a seguir, é dado acesso aos valores contidos na array "tasks" lá no componente Tasks*/}
         {/* também é possível passar função como props. No caso está sendo chamada a função "onTaskClick", alterando o estado de conclusão da tarefa */}
@@ -121,7 +126,7 @@ function App() {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/f6b7e00d37ef47ea9496263375ac193a/tasks";
+    "https://crudcrud.com/api/f669907a38f54c28aa324e57a881a7c0/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
@@ -26,7 +26,7 @@ export default function ToDoList() {
       });
   }, []);
 
-  const addTask = useCallback((title) => {
+  const addTask = (title) => {
     // Envio da tarefa para a API
     const nova = { title };
     fetch(API_URL, {
@@ -40,15 +40,16 @@ export default function ToDoList() {
         console.log("Tarefa adicionada com sucesso!");
       })
       .catch((error) => console.error("Falha ao buscar tarefa", error));
-  });
+  };
 
   // função retirada de Task e trazida para cá evitando passar tasks via props, passando apaenas agora a referência da função via props para Task
-  const deleteTask = useCallback((id) => {
+  const deleteTask = (id) => {
     fetch(`${API_URL}/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })
       .then(() => {
+        // setTasks((prev)=>prev.filter((task) => task._id !== id))
         setTasks(tasks.filter((task) => task._id !== id));
         console.log("Tarefa deletada com sucesso!");
       })
@@ -56,7 +57,7 @@ export default function ToDoList() {
         console.error("Falha ao deletar tarefa", error);
         alert("Não foi possível deletar a tarefa.");
       });
-  });
+  };
 
   return (
     <>
