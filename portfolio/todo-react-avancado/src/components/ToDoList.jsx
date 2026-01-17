@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/f669907a38f54c28aa324e57a881a7c0/tasks";
+    "https://crudcrud.com/api/89f4da31ca504bf4a4730cfa44a3cf4b/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
+
 
   console.log("Componente ToDoList executado");
 
@@ -42,22 +43,23 @@ export default function ToDoList() {
       .catch((error) => console.error("Falha ao buscar tarefa", error));
   };
 
-  // função retirada de Task e trazida para cá evitando passar tasks via props, passando apaenas agora a referência da função via props para Task
-  const deleteTask = (id) => {
+  // A função de deletar foi movida para o componente ToDoList para evitar a passagem do estado completo de tasks via props. Ao utilizar useCallback, garante-se que a referência da função deleteTask seja preservada entre os re-renders do ToDoList. Isso não impede que o componente pai seja re-renderizado quando o estado muda, mas evita que os componentes Task, que estão memorizados com memo, sejam re-renderizados desnecessariamente apenas por causa da recriação da função. Dessa forma, apenas o item efetivamente removido deixa de ser exibido, enquanto os demais componentes permanecem intactos, resultando em uma renderização mais eficiente.
+  const deleteTask = useCallback((id) => {
     fetch(`${API_URL}/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })
       .then(() => {
-        // setTasks((prev)=>prev.filter((task) => task._id !== id))
-        setTasks(tasks.filter((task) => task._id !== id));
+        // uso de callback evitando adicionar o array tasks (utilizado "prev" no lugar. Versão anterior logo abaixo)
+        setTasks((prev)=>prev.filter((task) => task._id !== id));
+        //setTasks(tasks.filter((task) => task._id !== id));
         console.log("Tarefa deletada com sucesso!");
       })
       .catch((error) => {
         console.error("Falha ao deletar tarefa", error);
         alert("Não foi possível deletar a tarefa.");
       });
-  };
+  }, []);
 
   return (
     <>
