@@ -4,7 +4,7 @@ import Task from "./Task";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/89f4da31ca504bf4a4730cfa44a3cf4b/tasks";
+    "https://crudcrud.com/api/7ac8424dc3584897b5ba54fe465ba00b/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
