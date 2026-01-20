@@ -9,7 +9,7 @@ function App() {
   // variável que será provida a componentes filhos sem o prop drilling (passada commo value no <UserContext.provider>)
   const [user, setUser] = useState({ name: null, isLogged: false });
 
-  //Criar um estado geral de tarefa com {title, isCompleted: false} para utilizar tanto em ToDoList quanto em Task?
+  //Criar um estado geral de tarefa com {title, isCompleted: false} em ToDoList para utilizar tanto em ToDoList quanto em Task?
 
   return (
     // ETAPA 2: utilizar o "UserContext" com o provider, passando os valores que serão providos aos componentes, onde serão consumidos
