@@ -25,8 +25,7 @@ export default function AddTask({ onAddTask }) {
   };
 
   return (
-    <main>
-      <h1>Lista de Tarefas</h1>
+    <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -40,6 +39,6 @@ export default function AddTask({ onAddTask }) {
           Adicionar
         </button>
       </form>
-    </main>
+    </>
   );
 }
