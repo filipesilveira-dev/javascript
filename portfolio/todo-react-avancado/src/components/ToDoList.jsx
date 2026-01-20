@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
+import { UserContext } from "../UserContext";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/7ac8424dc3584897b5ba54fe465ba00b/tasks";
+    "https://crudcrud.com/api/40086cb9f5324f669933bdde018c9d75/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
 
+  const { user } = useContext(UserContext);
 
   console.log("Componente ToDoList executado");
 
@@ -28,8 +30,9 @@ export default function ToDoList() {
   }, []);
 
   const addTask = (title) => {
-    // Envio da tarefa para a API
-    const nova = { title };
+    // Envio da tarefa para a API. O nome do usuário vem do useContext estabelecido lá em App. O nome do usuário está salvo em "name", logo para resgatá-lo aqui será necessário o "user.name"
+    const nova = { user: user.name, title, isCompleted: false };
+
     fetch(API_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -51,7 +54,7 @@ export default function ToDoList() {
     })
       .then(() => {
         // uso de callback evitando adicionar o array tasks (utilizado "prev" no lugar. Versão anterior logo abaixo)
-        setTasks((prev)=>prev.filter((task) => task._id !== id));
+        setTasks((prev) => prev.filter((task) => task._id !== id));
         //setTasks(tasks.filter((task) => task._id !== id));
         console.log("Tarefa deletada com sucesso!");
       })
@@ -73,7 +76,10 @@ export default function ToDoList() {
       />
 
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
-      {tasks.map((task) => (
+      {tasks
+      // filtra apenas as tarefas em que o nome do usuário salvo no ato de adicionar a tarefa seja igual ao nome do usuário do login no momento
+      .filter((task)=>task.user === user.name)
+      .map((task) => (
         <Task
           key={task._id}
           // REMOVIDO (DESNECESSÁRIO APÓS MUDANÇA DA FUNÇÃO DE DELETAR PARA CÁ) setter para manipular o estado de tasks, excluindo task

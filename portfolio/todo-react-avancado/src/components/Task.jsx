@@ -1,8 +1,8 @@
 import { useState, useEffect, memo } from "react";
 
 function Task({ task, onDeleteTask }) {
-  // constante que recebe o useState que controlará o estado de concluída da tarefa
-  const [completed, setCompleted] = useState(false);
+  // constante que recebe o useState que controlará o estado de concluída da tarefa (Substituir pelo useContext??)
+  const [isCompleted, setCompleted] = useState(false);
 
   useEffect(()=>{
       console.log("Componente Task executa", task)
@@ -12,14 +12,14 @@ function Task({ task, onDeleteTask }) {
 
   // função criada para alterar o estado da tarefa. Estabelece o valor booleano inverso do que estava antes. Ela é chamada com o evento de "onClick" (por se tratar de um button, mas se fosse um <input>, seria um "onChange") na tarefa selecionada (cada tarefa tem o pr´órpio "onChange")
   const changeCompleted = () => {
-    setCompleted(!completed);
+    setCompleted(!isCompleted);
   };
 
   return (
     <li>
       {/* arrow function desnecessária por não possuir parâmetro */}
       <button onClick={changeCompleted}>
-        <span className={completed ? "line-through" : " "}>{task.title} </span>
+        <span className={isCompleted ? "line-through" : " "}>{task.title} </span>
       </button>
       {/* necessário o uso de arrow function em deleteTask por necessitar de um parâmetro (task._id) */}
       <button onClick={()=>{onDeleteTask(task._id)}} className="hover:cursor-pointer">
