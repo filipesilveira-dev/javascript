@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import useInput from "../hooks/useInput";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../contexts/UserContext";
 
 export default function Login() {
   const userName = useInput();

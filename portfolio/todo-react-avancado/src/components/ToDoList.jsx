@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../contexts/UserContext";
 
 export default function ToDoList() {
   const API_URL =
@@ -10,6 +10,7 @@ export default function ToDoList() {
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
 
+  // Uso do useContext para receber o usuário que está utilizando a aplicação
   const { user } = useContext(UserContext);
 
   console.log("Componente ToDoList executado");
@@ -77,22 +78,22 @@ export default function ToDoList() {
 
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {tasks
-      // filtra apenas as tarefas em que o nome do usuário salvo no ato de adicionar a tarefa seja igual ao nome do usuário do login no momento
-      .filter((task)=>task.user === user.name)
-      .map((task) => (
-        <Task
-          key={task._id}
-          // REMOVIDO (DESNECESSÁRIO APÓS MUDANÇA DA FUNÇÃO DE DELETAR PARA CÁ) setter para manipular o estado de tasks, excluindo task
-          // setTasks={setTasks}
-          // REMOVIDO (PROBLEMA DE PERFORMANCE) trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
-          // tasks={tasks}
-          // criado pelo método map() abrange todas as características de UMA tarefa (_id e title). Trata-se de uma variável temporária. Representa cada item da array durante a iteração. Utilizado em filter() para comparar o _id da tarefa em questão com o id recebido como argumento da função "deleteTask".
-          task={task}
-          // REMOVIDO (DESNECESSÁRIO QUANDO A FUNÇÃO DE DELETAR VEIO PARA CÁ) utilizado para deletar tarefa do servidor de API
-          // apiUrl={API_URL}
-          onDeleteTask={deleteTask}
-        />
-      ))}
+        // filtra apenas as tarefas em que o nome do usuário salvo no ato de adicionar a tarefa seja igual ao nome do usuário do login no momento
+        .filter((task) => task.user === user.name)
+        .map((task) => (
+          <Task
+            key={task._id}
+            // REMOVIDO (DESNECESSÁRIO APÓS MUDANÇA DA FUNÇÃO DE DELETAR PARA CÁ) setter para manipular o estado de tasks, excluindo task
+            // setTasks={setTasks}
+            // REMOVIDO (PROBLEMA DE PERFORMANCE) trata-se do estado inteiro de todas as tarefas. Utilizado no filter(0 para remover a tarefa da tela)
+            // tasks={tasks}
+            // criado pelo método map() abrange todas as características de UMA tarefa (_id e title). Trata-se de uma variável temporária. Representa cada item da array durante a iteração. Utilizado em filter() para comparar o _id da tarefa em questão com o id recebido como argumento da função "deleteTask".
+            task={task}
+            // REMOVIDO (DESNECESSÁRIO QUANDO A FUNÇÃO DE DELETAR VEIO PARA CÁ) utilizado para deletar tarefa do servidor de API
+            // apiUrl={API_URL}
+            onDeleteTask={deleteTask}
+          />
+        ))}
     </>
   );
 }

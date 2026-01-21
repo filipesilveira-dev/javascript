@@ -11,7 +11,7 @@ function Task({ task, onDeleteTask }) {
     console.log("Componente Task executado", task)
 
   // função criada para alterar o estado da tarefa. Estabelece o valor booleano inverso do que estava antes. Ela é chamada com o evento de "onClick" (por se tratar de um button, mas se fosse um <input>, seria um "onChange") na tarefa selecionada (cada tarefa tem o pr´órpio "onChange")
-  const changeCompleted = () => {
+  const changeCompleted = (task) => { 
     setCompleted(!isCompleted);
   };
 
