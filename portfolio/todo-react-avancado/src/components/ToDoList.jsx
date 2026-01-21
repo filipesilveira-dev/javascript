@@ -5,13 +5,23 @@ import { UserContext } from "../contexts/UserContext";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/40086cb9f5324f669933bdde018c9d75/tasks";
+    "https://crudcrud.com/api/c1c234e948da4ff6858dad039d83d33d/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
 
   // Uso do useContext para receber o usuário que está utilizando a aplicação
   const { user } = useContext(UserContext);
+
+  // useState criado para controlar o filtro aplicado nas tarefas
+  const [filter, setFilter] = useState("all");
+
+  // Constante que recebe o array com tasks depois de filtro aplicado pelo usuário. Utilizado com map() no momento de renderizar <Task />
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "completed") return task.isCompleted;
+    if (filter === "pending") return !task.isCompleted;
+    return true;
+  });
 
   console.log("Componente ToDoList executado");
 
@@ -66,11 +76,14 @@ export default function ToDoList() {
   }, []);
 
   // função criada para alterar a propriedade isCompleted da task clicada como concluída
-  const changeTaskStatus =(taskId)=>{
-    setTasks(prev => prev.map(task =>
-      task._id === taskId? {...task, isCompleted: !task.isCompleted} : task
-      )
-    )
+  const changeTaskStatus = (taskId) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task._id === taskId
+          ? { ...task, isCompleted: !task.isCompleted }
+          : task,
+      ),
+    );
   };
 
   return (
@@ -84,8 +97,27 @@ export default function ToDoList() {
         onAddTask={addTask}
       />
 
+      {/* Alternativa ao select
+      
+      <div>
+        <button onClick={() => setFilter("all")}>Todas</button>
+
+        <button onClick={() => setFilter("completed")}>Concluídas</button>
+
+        <button onClick={() => setFilter("pending")}>Pendentes</button>
+      </div> */}
+
+        <div>
+          <select value={filter} onChange={(e)=>{setFilter(e.target.value)}}>
+            <option value="all"> Todas </option>
+            <option value="completed"> Concluídas </option>
+            <option value="pending"> Pendentes </option>
+          </select>
+        </div>
+
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
-      {tasks
+      {/* map() feito em filteredTasks: só aparecerão as tarefas que passarem pelo filtro */}
+      {filteredTasks
         // filtra apenas as tarefas em que o nome do usuário salvo no ato de adicionar a tarefa seja igual ao nome do usuário do login no momento
         .filter((task) => task.user === user.name)
         .map((task) => (
