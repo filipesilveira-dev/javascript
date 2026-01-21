@@ -65,6 +65,14 @@ export default function ToDoList() {
       });
   }, []);
 
+  // função criada para alterar a propriedade isCompleted da task clicada como concluída
+  const changeTaskStatus =(taskId)=>{
+    setTasks(prev => prev.map(task =>
+      task._id === taskId? {...task, isCompleted: !task.isCompleted} : task
+      )
+    )
+  };
+
   return (
     <>
       {/* componente responsável pelas tarefas adicionadas. Passadas as propriedades para alterar o useState "tasks" */}
@@ -92,6 +100,7 @@ export default function ToDoList() {
             // REMOVIDO (DESNECESSÁRIO QUANDO A FUNÇÃO DE DELETAR VEIO PARA CÁ) utilizado para deletar tarefa do servidor de API
             // apiUrl={API_URL}
             onDeleteTask={deleteTask}
+            onChangeTaskStatus={changeTaskStatus}
           />
         ))}
     </>
