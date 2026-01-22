@@ -12,3 +12,8 @@
 4. Para remover alguma tarefa da lista, clique no botão de remover
 5. Para mudar de usuário, atualize a página e recomece do item 1
 
+## Próximas melhorias a serem implementadas
+
+1. Finalizar estilização
+2. Implementar fetch PATCH para atualizar o status da tarefa no backend
+
