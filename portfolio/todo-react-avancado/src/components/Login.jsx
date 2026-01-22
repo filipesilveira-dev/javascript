@@ -19,14 +19,17 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="flex flex-col justify-center items-center gap-4">
       <input
+      className="m-2 p-3"
         type="text"
         placeholder="Digite seu nome"
         value={userName.value}
         onChange={userName.onChange}
       />
-      <button type="submit">Entrar</button>
+      <button 
+      className="m-2 p-3"
+      type="submit">Entrar</button>
     </form>
   );
 }
