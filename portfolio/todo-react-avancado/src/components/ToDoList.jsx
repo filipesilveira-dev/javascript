@@ -5,7 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 
 export default function ToDoList() {
   const API_URL =
-    "https://crudcrud.com/api/c1c234e948da4ff6858dad039d83d33d/tasks";
+    "https://crudcrud.com/api/13b1af01498240c39d739e63523d9351/tasks";
 
   // useState aceita apenas um valor. Para simular uma lista de objeto é preciso criar uma array ([]) e colocara cada objeto dentro
   const [tasks, setTasks] = useState([]);
@@ -75,15 +75,46 @@ export default function ToDoList() {
       });
   }, []);
 
-  // função criada para alterar a propriedade isCompleted da task clicada como concluída
+  // função criada para alteranar (toggle) a propriedade, no backend, "isCompleted" da task clicada como concluída
   const changeTaskStatus = (taskId) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task._id === taskId
-          ? { ...task, isCompleted: !task.isCompleted }
-          : task,
-      ),
-    );
+    // Variável criada para receber a task, dentro de tasks, que possui o seu "_id" igaul ao "taskId" passado como argumento na função
+    const task = tasks.find((taskToUpdate) => taskToUpdate._id === taskId);
+    // Um servidor de API nunca deve receber um "_id" no body (ele já saber qual o _id pela URL). Aqui está sendo feita uma desestruturação do objeto "task", ou seja estão sendo extraídas propriedades do objeto "task" e estão sendo salvas em variáveis. No caso, "_id" está sendo extraída para uma "const _id" e, por meio de um rest operator "...", todas as outras propriedades estão sendo salvas em uma "const taskWithoutId", a qual será passada no body ao invés de "task". Em resumo, a ideia é retira o "_id" do objeto "task" para não dar erro no momento de atualizar a tarefa. Rest operator junta o restante. Spread operator copia.
+    const { _id, ...taskWithoutId } = task;
+
+    fetch(`${API_URL}/${taskId}`, {
+      // Atualiza toda a task (todas suas propriedades, menos _id)
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        // "...taskWithoutId" representa todas as propriedades que não foram desestruturadas. Elas então são enviadas, invertendo o estado de "isCompleted", ao servidor, que não responde nada, por isso não há ".then((res)=> res.json())". Enviar "...taskWithoutId", apenas as propriedades do objeto "taskWithoutId", ou seja, apenas {"title": "surfar", "isCompleted": flase}, é diferente de enviar o objeto "taskWithoutId". No segundo caso, suas propriedades vão "encapsuladas" por "taskWithoutId".
+        ...taskWithoutId,
+        isCompleted: !task.isCompleted,
+      }),
+    })
+      // Pega a task em json, aqui chamada de updatedTask e atualiza o estado no frontend
+      .then(() => {
+        // Atualização do estado no frontend
+        setTasks((prev) =>
+          // Percorre o estado anterior de tasks, procura a task que possui o _id igual ao passado como argumento e, caso ache, copia todas as outras propriedades de "task", por meio do "...task", e inverte a propriedade "isCompleted". Caso contrário, mantém a task inalterada
+          prev.map((t) =>
+            t._id === taskId ? { ...t, isCompleted: !t.isCompleted } : t,
+          ),
+        );
+      })
+      .catch((error) => {
+        console.error("Falha ao atualizar tarefa", error);
+        alert("Não foi possível atualizar a tarefa.");
+      });
+
+    // TRECHO DE CÓDIGO QUE ATUALIZAVA APENAS O FRONTEND
+    // setTasks((prev) =>
+    //   prev.map((task) =>
+    //     task._id === taskId
+    //       ? { ...task, isCompleted: !task.isCompleted }
+    //       : task,
+    //   ),
+    // );
   };
 
   return (
@@ -107,13 +138,18 @@ export default function ToDoList() {
         <button onClick={() => setFilter("pending")}>Pendentes</button>
       </div> */}
 
-        <div>
-          <select value={filter} onChange={(e)=>{setFilter(e.target.value)}}>
-            <option value="all"> Todas </option>
-            <option value="completed"> Concluídas </option>
-            <option value="pending"> Pendentes </option>
-          </select>
-        </div>
+      <div>
+        <select
+          value={filter}
+          onChange={(e) => {
+            setFilter(e.target.value);
+          }}
+        >
+          <option value="all"> Todas </option>
+          <option value="completed"> Concluídas </option>
+          <option value="pending"> Pendentes </option>
+        </select>
+      </div>
 
       {/* componente responsável pelas tarefas que aparecem para o usuário */}
       {/* map() feito em filteredTasks: só aparecerão as tarefas que passarem pelo filtro */}
