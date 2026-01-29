@@ -37,6 +37,9 @@ function App() {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     }
   ])
+
+  const [added, setAdded] = useState(false)
+
   // variável que receberá os produtos adicionados
   const [products, setProducts] = useState([])
 
@@ -147,6 +150,8 @@ function App() {
               title={product.title}
               price={product.price}
               description={product.description}
+              // props passada para controlar a cor do botão quando adicionado ao carrinho. A referência em ProdutoCard é {props.added}
+              added = {added}
             />
           )}
 

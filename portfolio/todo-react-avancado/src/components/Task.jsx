@@ -20,7 +20,7 @@ function Task({ task, onDeleteTask, onChangeTaskStatus }) {
       {/* arrow function desnecessária por não possuir parâmetro */}
       <button onClick={()=>onChangeTaskStatus(task._id)}>
         <span className={task.isCompleted ? "line-through" : " "}>
-          {task.title}{" "}
+          {task.title}
         </span>
       </button>
       {/* necessário o uso de arrow function em deleteTask por necessitar de um parâmetro (task._id) */}
