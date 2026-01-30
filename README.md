@@ -1,2 +1,3 @@
-# javascript
- Curso Javascript do Curso em vídeo
+# Repositório Frontend
+
+Repositório voltado para temas fronten (HTML, CSS, javascript, React)
