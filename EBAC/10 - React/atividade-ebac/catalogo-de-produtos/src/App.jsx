@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import ProdutoCard from './components/ProdutoCard'
+import ProdutoCard from './components/CardProduto'
 import './App.css'
 import guitarImg from './assets/images/guitar.jpg'
 import bassImg from './assets/images/baixo.jpg'
 import drumsImg from './assets/images/bateria.jpg'
 import keyboardImg from './assets/images/piano.jpg'
 
-const API_URL = 'https://crudcrud.com/api/0d47f27d4e214a88971532601a57534c/products'
+const API_URL = 'https://crudcrud.com/api/2cee8ec59dfa4dadb2db0ca8cbd15b4c/products'
 
 function App() {
   // variável que recebe os produtos fixos
@@ -37,8 +37,6 @@ function App() {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     }
   ])
-
-  const [added, setAdded] = useState(false)
 
   // variável que receberá os produtos adicionados
   const [products, setProducts] = useState([])
@@ -130,6 +128,8 @@ function App() {
     fetchNewProduct()
   }
 
+  // estilização styled components
+
 
   return (
 
@@ -150,8 +150,6 @@ function App() {
               title={product.title}
               price={product.price}
               description={product.description}
-              // props passada para controlar a cor do botão quando adicionado ao carrinho. A referência em ProdutoCard é {props.added}
-              added = {added}
             />
           )}
 

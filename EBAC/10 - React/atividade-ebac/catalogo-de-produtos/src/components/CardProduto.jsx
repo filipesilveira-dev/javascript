@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const ItemContainer = styled.div`
@@ -36,35 +37,53 @@ const ItemTitle = styled.h5`
 `;
 
 const AddToCart = styled.button`
-  background-color: #94a3b8; /* bg-slate-400 */
-  padding: 0.25rem; /* p-1 (4px) */
-  border-radius: 0.375rem; /* rounded-md (6px) */
-  color: #ffffff; /* text-white */
-  font-size: 0.875rem; /* text-sm (14px) */
-  line-height: 1.25rem; /* (ajuste automático do text-sm) */
+  background-color: ${props => props.adicionado? '#198754':'#6c757d'}; 
+  padding: 0.25rem; 
+  border-radius: 0.375rem; 
+  color: #ffffff; 
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
   border: none;
 
   &:hover {
-    background-color: #64748b; /* hover:bg-slate-500 */
-    cursor: pointer; /* hover:cursor-pointer */
+    background-color: #64748b; 
+    cursor: pointer; 
   }
 `;
 
+const PriceContainer = styled.p`
+  font-size: 0.75rem;
+  line-height: 1rem;
+`;
+
+const BoldTopic = styled.span`
+  font-weight: 700;
+`;
+
+const DescriptionContainer = styled(PriceContainer)`
+  text-align: justify;
+`;
+
 function ProdutoCard(props) {
+  const [adicionado, setAdicionado] = useState(false);
+
   return (
     <ItemContainer>
       <Item>
         <ItemImg src={props.img} alt="..." />
         <ItemContent>
           <ItemTitle>{props.title}</ItemTitle>
-          <span className="text-xs">
-            <span className="font-bold">Preço:</span> R$ {Number(props.price)}
-          </span>
-          <p className="text-xs text-justify">
-            <span className="font-bold">Descrição:</span> {props.description}
-          </p>
-          <AddToCart>
-            Adicionar ao Carrinho
+          <PriceContainer className="text-xs">
+            <BoldTopic>Preço:</BoldTopic> R$ {Number(props.price)}
+          </PriceContainer>
+          <DescriptionContainer>
+            <BoldTopic>Descrição:</BoldTopic> {props.description}
+          </DescriptionContainer>
+          <AddToCart
+            adicionado={adicionado}
+            onClick={() => setAdicionado(prev => !prev)}
+          >
+            {adicionado? "Adicionado!" : "Adicionar ao Carrinho"}
           </AddToCart>
         </ItemContent>
       </Item>
